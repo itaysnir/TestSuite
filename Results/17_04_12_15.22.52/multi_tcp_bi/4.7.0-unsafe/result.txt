@@ -1,0 +1,1340 @@
+ in collect cpu
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US:en,",
+	LC_ALL = (unset),
+	LC_PAPER = "he_IL.UTF-8",
+	LC_ADDRESS = "he_IL.UTF-8",
+	LC_MONETARY = "he_IL.UTF-8",
+	LC_NUMERIC = "C",
+	LC_TELEPHONE = "he_IL.UTF-8",
+	LC_IDENTIFICATION = "he_IL.UTF-8",
+	LC_COLLATE = "C",
+	LC_MEASUREMENT = "he_IL.UTF-8",
+	LC_CTYPE = "en_US.UTF-8",
+	LC_TIME = "he_IL.UTF-8",
+	LC_NAME = "he_IL.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("en_US.UTF-8").
+keys on reference is experimental at DataCollector/collect_net_cpu.pl line 35.
+cpu_total: 41.00
+cpu_0: 54.90
+cpu_1: 29.41
+cpu_2: 46.08
+cpu_3: 31.37
+cpu_4: 50.98
+cpu_5: 32.35
+cpu_6: 58.82
+cpu_7: 33.33
+cpu_8: 47.06
+cpu_9: 24.51
+cpu_10: 48.04
+cpu_11: 37.25
+cpu_12: 48.04
+cpu_13: 32.35
+cpu_14: 43.14
+cpu_15: 26.47
+cpu_16: 50.98
+cpu_17: 29.41
+cpu_18: 51.96
+cpu_19: 46.08
+cpu_20: 51.96
+cpu_21: 29.41
+cpu_22: 52.94
+cpu_23: 37.25
+cpu_24: 50.00
+cpu_25: 24.51
+cpu_26: 52.94
+cpu_27: 30.39
+enp130s0f0_rx_bytes_phy: 7716062954
+enp130s0f1_rx_bytes_phy: 4986205524
+enp4s0f0_rx_bytes_phy: 0
+enp4s0f1_rx_bytes_phy: 0
+Total_rx_bytes_phy: 12702268478
+enp130s0f0_rx_bytes: 7681827804
+enp130s0f1_rx_bytes: 4969168176
+enp4s0f0_rx_bytes: 0
+enp4s0f1_rx_bytes: 0
+Total_rx_bytes: 12650995980
+enp130s0f0_tx_packets: 362571
+enp130s0f1_tx_packets: 293468
+enp4s0f0_tx_packets: 0
+enp4s0f1_tx_packets: 0
+Total_tx_packets: 656039
+enp130s0f0_tx_packets_phy: 1279434
+enp130s0f1_tx_packets_phy: 752027
+enp4s0f0_tx_packets_phy: 0
+enp4s0f1_tx_packets_phy: 0
+Total_tx_packets_phy: 2031461
+enp130s0f0_rx_packets_phy: 1051567
+enp130s0f1_rx_packets_phy: 668613
+enp4s0f0_rx_packets_phy: 0
+enp4s0f1_rx_packets_phy: 0
+Total_rx_packets_phy: 1720180
+enp130s0f0_tx_bytes: 6388116927
+enp130s0f1_tx_bytes: 4837675150
+enp4s0f0_tx_bytes: 0
+enp4s0f1_tx_bytes: 0
+Total_tx_bytes: 11225792077
+enp130s0f0_tx_bytes_phy: 6412179484
+enp130s0f1_tx_bytes_phy: 4840024199
+enp4s0f0_tx_bytes_phy: 0
+enp4s0f1_tx_bytes_phy: 0
+Total_tx_bytes_phy: 11252203683
+enp130s0f0_rx_packets: 609885
+enp130s0f1_rx_packets: 451125
+enp4s0f0_rx_packets: 0
+enp4s0f1_rx_packets: 0
+Total_rx_packets: 1061010
+ out collect cpu
+ in collect pstas
+
+ Performance counter stats for 'system wide':
+
+      150924441007      cycles                                                      
+       50423302162      instructions              #    0.33  insn per cycle         
+        1589142318      cache-misses              #   27.154 % of all cache refs    
+        5852254577      cache-references                                            
+
+       5.002735143 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+        1961415267      LLC-store                                                   
+         182620671      LLC-store-misses                                            
+
+       5.002546468 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+        1605885560      LLC-load                                                    
+         744577227      LLC-load-misses           #   46.37% of all LL-cache hits   
+
+       5.001568639 seconds time elapsed
+
+ out collect pstas
+ in collect mem bw
+
+ Intel(r) Performance Counter Monitor: Memory Bandwidth Monitoring Utility V2.10 (2015-11-17 09:01:38 +0100 ID=cd66c34)
+
+ Copyright (c) 2009-2015 Intel Corporation
+ This utility measures memory bandwidth per channel or per DIMM rank in real-time
+
+Error: unsupported processor. Only Intel(R) processors are supported (Atom(R) and microarchitecture codename Nehalem/Nehalem-EP, Atom(tm), Westmere/Clarkdale, Sandy Bridge, Westmere-EP, Sandy Bridge-EP/Jaketown, Nehalem-EX, Westmere-EX, Ivy Bridge, Haswell, Broadwell, Ivy Bridge-EP/EN/EX/Ivytown, Haswell-EP/EN/EX, Broadwell-DE, Skylake). CPU model number: 79 Brand: "Intel(R) Xeon(R) CPU E5-2660 v4 @ 2.00GHz"
+Access to Intel(r) Performance Counter Monitor has denied (no MSR or PCI CFG space access).
+ out collect mem bw
+ in collect funcs
+[ perf record: Woken up 225 times to write data ]
+[mlx5_core] with build id cf635a4fc1fe2c6801534dcccc3b19a226f221bb not found, continuing without symbols
+[ perf record: Captured and wrote 60.080 MB perf.data (382344 samples) ]
+ out collect funcs
+Data collected
+ in collect cpu
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US:en,",
+	LC_ALL = (unset),
+	LC_PAPER = "he_IL.UTF-8",
+	LC_ADDRESS = "he_IL.UTF-8",
+	LC_MONETARY = "he_IL.UTF-8",
+	LC_NUMERIC = "C",
+	LC_TELEPHONE = "he_IL.UTF-8",
+	LC_IDENTIFICATION = "he_IL.UTF-8",
+	LC_COLLATE = "C",
+	LC_MEASUREMENT = "he_IL.UTF-8",
+	LC_CTYPE = "en_US.UTF-8",
+	LC_TIME = "he_IL.UTF-8",
+	LC_NAME = "he_IL.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("en_US.UTF-8").
+keys on reference is experimental at DataCollector/collect_net_cpu.pl line 35.
+cpu_total: 40.97
+cpu_0: 45.10
+cpu_1: 29.41
+cpu_2: 69.61
+cpu_3: 35.29
+cpu_4: 45.10
+cpu_5: 30.39
+cpu_6: 42.16
+cpu_7: 33.33
+cpu_8: 52.94
+cpu_9: 32.35
+cpu_10: 58.82
+cpu_11: 33.33
+cpu_12: 45.10
+cpu_13: 31.37
+cpu_14: 54.90
+cpu_15: 30.39
+cpu_16: 43.14
+cpu_17: 27.45
+cpu_18: 57.84
+cpu_19: 28.43
+cpu_20: 40.20
+cpu_21: 50.00
+cpu_22: 44.12
+cpu_23: 43.14
+cpu_24: 52.94
+cpu_25: 26.47
+cpu_26: 37.25
+cpu_27: 27.45
+enp130s0f0_rx_bytes: 7623925060
+enp130s0f1_rx_bytes: 4961018296
+enp4s0f0_rx_bytes: 0
+enp4s0f1_rx_bytes: 0
+Total_rx_bytes: 12584943356
+enp130s0f0_tx_bytes_phy: 6147325709
+enp130s0f1_tx_bytes_phy: 4796610689
+enp4s0f0_tx_bytes_phy: 0
+enp4s0f1_tx_bytes_phy: 0
+Total_tx_bytes_phy: 10943936398
+enp130s0f0_tx_bytes: 6123770842
+enp130s0f1_tx_bytes: 4793833808
+enp4s0f0_tx_bytes: 0
+enp4s0f1_tx_bytes: 0
+Total_tx_bytes: 10917604650
+enp130s0f0_tx_packets: 339267
+enp130s0f1_tx_packets: 277211
+enp4s0f0_tx_packets: 0
+enp4s0f1_tx_packets: 0
+Total_tx_packets: 616478
+enp130s0f0_rx_bytes_phy: 7655360023
+enp130s0f1_rx_bytes_phy: 4976846363
+enp4s0f0_rx_bytes_phy: 0
+enp4s0f1_rx_bytes_phy: 0
+Total_rx_bytes_phy: 12632206386
+enp130s0f0_tx_packets_phy: 1232641
+enp130s0f1_tx_packets_phy: 731991
+enp4s0f0_tx_packets_phy: 0
+enp4s0f1_tx_packets_phy: 0
+Total_tx_packets_phy: 1964632
+enp130s0f0_rx_packets: 631268
+enp130s0f1_rx_packets: 469435
+enp4s0f0_rx_packets: 0
+enp4s0f1_rx_packets: 0
+Total_rx_packets: 1100703
+enp130s0f0_rx_packets_phy: 1044267
+enp130s0f1_rx_packets_phy: 671091
+enp4s0f0_rx_packets_phy: 0
+enp4s0f1_rx_packets_phy: 0
+Total_rx_packets_phy: 1715358
+ out collect cpu
+ in collect pstas
+
+ Performance counter stats for 'system wide':
+
+      149876179876      cycles                                                      
+       49350706979      instructions              #    0.33  insn per cycle         
+        1575238658      cache-misses              #   27.082 % of all cache refs    
+        5816565922      cache-references                                            
+
+       5.002725285 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+        1942571420      LLC-store                                                   
+         181728603      LLC-store-misses                                            
+
+       5.002452562 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+        1638919944      LLC-load                                                    
+         773726229      LLC-load-misses           #   47.21% of all LL-cache hits   
+
+       5.001700757 seconds time elapsed
+
+ out collect pstas
+ in collect mem bw
+
+ Intel(r) Performance Counter Monitor: Memory Bandwidth Monitoring Utility V2.10 (2015-11-17 09:01:38 +0100 ID=cd66c34)
+
+ Copyright (c) 2009-2015 Intel Corporation
+ This utility measures memory bandwidth per channel or per DIMM rank in real-time
+
+Error: unsupported processor. Only Intel(R) processors are supported (Atom(R) and microarchitecture codename Nehalem/Nehalem-EP, Atom(tm), Westmere/Clarkdale, Sandy Bridge, Westmere-EP, Sandy Bridge-EP/Jaketown, Nehalem-EX, Westmere-EX, Ivy Bridge, Haswell, Broadwell, Ivy Bridge-EP/EN/EX/Ivytown, Haswell-EP/EN/EX, Broadwell-DE, Skylake). CPU model number: 79 Brand: "Intel(R) Xeon(R) CPU E5-2660 v4 @ 2.00GHz"
+Access to Intel(r) Performance Counter Monitor has denied (no MSR or PCI CFG space access).
+ out collect mem bw
+ in collect funcs
+[ perf record: Woken up 234 times to write data ]
+[mlx5_core] with build id cf635a4fc1fe2c6801534dcccc3b19a226f221bb not found, continuing without symbols
+[ perf record: Captured and wrote 61.770 MB perf.data (391057 samples) ]
+ out collect funcs
+Data collected
+ in collect cpu
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US:en,",
+	LC_ALL = (unset),
+	LC_PAPER = "he_IL.UTF-8",
+	LC_ADDRESS = "he_IL.UTF-8",
+	LC_MONETARY = "he_IL.UTF-8",
+	LC_NUMERIC = "C",
+	LC_TELEPHONE = "he_IL.UTF-8",
+	LC_IDENTIFICATION = "he_IL.UTF-8",
+	LC_COLLATE = "C",
+	LC_MEASUREMENT = "he_IL.UTF-8",
+	LC_CTYPE = "en_US.UTF-8",
+	LC_TIME = "he_IL.UTF-8",
+	LC_NAME = "he_IL.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("en_US.UTF-8").
+keys on reference is experimental at DataCollector/collect_net_cpu.pl line 35.
+cpu_total: 40.62
+cpu_0: 55.88
+cpu_1: 26.47
+cpu_2: 52.94
+cpu_3: 25.49
+cpu_4: 50.00
+cpu_5: 41.18
+cpu_6: 47.06
+cpu_7: 37.25
+cpu_8: 53.92
+cpu_9: 23.53
+cpu_10: 55.88
+cpu_11: 29.41
+cpu_12: 45.10
+cpu_13: 32.35
+cpu_14: 46.08
+cpu_15: 29.41
+cpu_16: 40.20
+cpu_17: 36.27
+cpu_18: 53.92
+cpu_19: 50.00
+cpu_20: 47.06
+cpu_21: 43.14
+cpu_22: 41.18
+cpu_23: 40.20
+cpu_24: 40.20
+cpu_25: 30.39
+cpu_26: 32.35
+cpu_27: 29.41
+enp130s0f0_rx_packets_phy: 1066066
+enp130s0f1_rx_packets_phy: 657180
+enp4s0f0_rx_packets_phy: 0
+enp4s0f1_rx_packets_phy: 0
+Total_rx_packets_phy: 1723246
+enp130s0f0_rx_bytes: 7764090856
+enp130s0f1_rx_bytes: 4966543922
+enp4s0f0_rx_bytes: 0
+enp4s0f1_rx_bytes: 0
+Total_rx_bytes: 12730634778
+enp130s0f0_rx_bytes_phy: 7801566388
+enp130s0f1_rx_bytes_phy: 4984376429
+enp4s0f0_rx_bytes_phy: 0
+enp4s0f1_rx_bytes_phy: 0
+Total_rx_bytes_phy: 12785942817
+enp130s0f0_tx_packets_phy: 1267308
+enp130s0f1_tx_packets_phy: 757824
+enp4s0f0_tx_packets_phy: 0
+enp4s0f1_tx_packets_phy: 0
+Total_tx_packets_phy: 2025132
+enp130s0f0_tx_packets: 349730
+enp130s0f1_tx_packets: 298868
+enp4s0f0_tx_packets: 0
+enp4s0f1_tx_packets: 0
+Total_tx_packets: 648598
+enp130s0f0_rx_packets: 554553
+enp130s0f1_rx_packets: 429327
+enp4s0f0_rx_packets: 0
+enp4s0f1_rx_packets: 0
+Total_rx_packets: 983880
+enp130s0f0_tx_bytes: 6457459050
+enp130s0f1_tx_bytes: 4840021020
+enp4s0f0_tx_bytes: 0
+enp4s0f1_tx_bytes: 0
+Total_tx_bytes: 11297480070
+enp130s0f0_tx_bytes_phy: 6481307730
+enp130s0f1_tx_bytes_phy: 4843053509
+enp4s0f0_tx_bytes_phy: 0
+enp4s0f1_tx_bytes_phy: 0
+Total_tx_bytes_phy: 11324361239
+ out collect cpu
+ in collect pstas
+
+ Performance counter stats for 'system wide':
+
+      147763367932      cycles                                                      
+       49855926738      instructions              #    0.34  insn per cycle         
+        1576447940      cache-misses              #   26.730 % of all cache refs    
+        5897750535      cache-references                                            
+
+       5.003044736 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+        1991170094      LLC-store                                                   
+         186377437      LLC-store-misses                                            
+
+       5.002004182 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+        1610165946      LLC-load                                                    
+         743996020      LLC-load-misses           #   46.21% of all LL-cache hits   
+
+       5.002021648 seconds time elapsed
+
+ out collect pstas
+ in collect mem bw
+
+ Intel(r) Performance Counter Monitor: Memory Bandwidth Monitoring Utility V2.10 (2015-11-17 09:01:38 +0100 ID=cd66c34)
+
+ Copyright (c) 2009-2015 Intel Corporation
+ This utility measures memory bandwidth per channel or per DIMM rank in real-time
+
+Error: unsupported processor. Only Intel(R) processors are supported (Atom(R) and microarchitecture codename Nehalem/Nehalem-EP, Atom(tm), Westmere/Clarkdale, Sandy Bridge, Westmere-EP, Sandy Bridge-EP/Jaketown, Nehalem-EX, Westmere-EX, Ivy Bridge, Haswell, Broadwell, Ivy Bridge-EP/EN/EX/Ivytown, Haswell-EP/EN/EX, Broadwell-DE, Skylake). CPU model number: 79 Brand: "Intel(R) Xeon(R) CPU E5-2660 v4 @ 2.00GHz"
+Access to Intel(r) Performance Counter Monitor has denied (no MSR or PCI CFG space access).
+ out collect mem bw
+ in collect funcs
+[ perf record: Woken up 234 times to write data ]
+[mlx5_core] with build id cf635a4fc1fe2c6801534dcccc3b19a226f221bb not found, continuing without symbols
+[ perf record: Captured and wrote 61.991 MB perf.data (391189 samples) ]
+ out collect funcs
+Data collected
+ in collect cpu
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US:en,",
+	LC_ALL = (unset),
+	LC_PAPER = "he_IL.UTF-8",
+	LC_ADDRESS = "he_IL.UTF-8",
+	LC_MONETARY = "he_IL.UTF-8",
+	LC_NUMERIC = "C",
+	LC_TELEPHONE = "he_IL.UTF-8",
+	LC_IDENTIFICATION = "he_IL.UTF-8",
+	LC_COLLATE = "C",
+	LC_MEASUREMENT = "he_IL.UTF-8",
+	LC_CTYPE = "en_US.UTF-8",
+	LC_TIME = "he_IL.UTF-8",
+	LC_NAME = "he_IL.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("en_US.UTF-8").
+keys on reference is experimental at DataCollector/collect_net_cpu.pl line 35.
+cpu_total: 40.44
+cpu_0: 49.02
+cpu_1: 38.24
+cpu_2: 46.08
+cpu_3: 40.20
+cpu_4: 38.24
+cpu_5: 31.37
+cpu_6: 46.08
+cpu_7: 24.51
+cpu_8: 57.84
+cpu_9: 38.24
+cpu_10: 53.92
+cpu_11: 47.06
+cpu_12: 49.02
+cpu_13: 35.29
+cpu_14: 54.90
+cpu_15: 31.37
+cpu_16: 50.00
+cpu_17: 33.33
+cpu_18: 37.25
+cpu_19: 36.27
+cpu_20: 58.82
+cpu_21: 33.33
+cpu_22: 28.43
+cpu_23: 36.27
+cpu_24: 37.25
+cpu_25: 46.08
+cpu_26: 31.37
+cpu_27: 25.49
+enp130s0f0_rx_packets_phy: 1038500
+enp130s0f1_rx_packets_phy: 661292
+enp4s0f0_rx_packets_phy: 0
+enp4s0f1_rx_packets_phy: 0
+Total_rx_packets_phy: 1699792
+enp130s0f0_rx_packets: 603372
+enp130s0f1_rx_packets: 334186
+enp4s0f0_rx_packets: 0
+enp4s0f1_rx_packets: 0
+Total_rx_packets: 937558
+enp130s0f0_tx_bytes_phy: 6513015395
+enp130s0f1_tx_bytes_phy: 4849186690
+enp4s0f0_tx_bytes_phy: 0
+enp4s0f1_tx_bytes_phy: 0
+Total_tx_bytes_phy: 11362202085
+enp130s0f0_tx_packets_phy: 1293943
+enp130s0f1_tx_packets_phy: 694300
+enp4s0f0_tx_packets_phy: 0
+enp4s0f1_tx_packets_phy: 0
+Total_tx_packets_phy: 1988243
+enp130s0f0_tx_packets: 374497
+enp130s0f1_tx_packets: 234282
+enp4s0f0_tx_packets: 0
+enp4s0f1_tx_packets: 0
+Total_tx_packets: 608779
+enp130s0f0_rx_bytes_phy: 7797343103
+enp130s0f1_rx_bytes_phy: 4989098555
+enp4s0f0_rx_bytes_phy: 0
+enp4s0f1_rx_bytes_phy: 0
+Total_rx_bytes_phy: 12786441658
+enp130s0f0_rx_bytes: 7764974760
+enp130s0f1_rx_bytes: 4964185316
+enp4s0f0_rx_bytes: 0
+enp4s0f1_rx_bytes: 0
+Total_rx_bytes: 12729160076
+enp130s0f0_tx_bytes: 6490293480
+enp130s0f1_tx_bytes: 4846219222
+enp4s0f0_tx_bytes: 0
+enp4s0f1_tx_bytes: 0
+Total_tx_bytes: 11336512702
+ out collect cpu
+ in collect pstas
+
+ Performance counter stats for 'system wide':
+
+      150825878637      cycles                                                      
+       50048130200      instructions              #    0.33  insn per cycle         
+        1624526731      cache-misses              #   27.254 % of all cache refs    
+        5960719546      cache-references                                            
+
+       5.002662846 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+        2002780650      LLC-store                                                   
+         193812631      LLC-store-misses                                            
+
+       5.002455009 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+        1637510477      LLC-load                                                    
+         766632855      LLC-load-misses           #   46.82% of all LL-cache hits   
+
+       5.001911385 seconds time elapsed
+
+ out collect pstas
+ in collect mem bw
+
+ Intel(r) Performance Counter Monitor: Memory Bandwidth Monitoring Utility V2.10 (2015-11-17 09:01:38 +0100 ID=cd66c34)
+
+ Copyright (c) 2009-2015 Intel Corporation
+ This utility measures memory bandwidth per channel or per DIMM rank in real-time
+
+Error: unsupported processor. Only Intel(R) processors are supported (Atom(R) and microarchitecture codename Nehalem/Nehalem-EP, Atom(tm), Westmere/Clarkdale, Sandy Bridge, Westmere-EP, Sandy Bridge-EP/Jaketown, Nehalem-EX, Westmere-EX, Ivy Bridge, Haswell, Broadwell, Ivy Bridge-EP/EN/EX/Ivytown, Haswell-EP/EN/EX, Broadwell-DE, Skylake). CPU model number: 79 Brand: "Intel(R) Xeon(R) CPU E5-2660 v4 @ 2.00GHz"
+Access to Intel(r) Performance Counter Monitor has denied (no MSR or PCI CFG space access).
+ out collect mem bw
+ in collect funcs
+[ perf record: Woken up 229 times to write data ]
+[mlx5_core] with build id cf635a4fc1fe2c6801534dcccc3b19a226f221bb not found, continuing without symbols
+[ perf record: Captured and wrote 62.228 MB perf.data (393423 samples) ]
+ out collect funcs
+Data collected
+ in collect cpu
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US:en,",
+	LC_ALL = (unset),
+	LC_PAPER = "he_IL.UTF-8",
+	LC_ADDRESS = "he_IL.UTF-8",
+	LC_MONETARY = "he_IL.UTF-8",
+	LC_NUMERIC = "C",
+	LC_TELEPHONE = "he_IL.UTF-8",
+	LC_IDENTIFICATION = "he_IL.UTF-8",
+	LC_COLLATE = "C",
+	LC_MEASUREMENT = "he_IL.UTF-8",
+	LC_CTYPE = "en_US.UTF-8",
+	LC_TIME = "he_IL.UTF-8",
+	LC_NAME = "he_IL.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("en_US.UTF-8").
+keys on reference is experimental at DataCollector/collect_net_cpu.pl line 35.
+cpu_total: 40.69
+cpu_0: 44.12
+cpu_1: 43.14
+cpu_2: 55.88
+cpu_3: 37.25
+cpu_4: 23.53
+cpu_5: 29.41
+cpu_6: 60.78
+cpu_7: 43.14
+cpu_8: 58.82
+cpu_9: 39.22
+cpu_10: 58.82
+cpu_11: 44.12
+cpu_12: 45.10
+cpu_13: 28.43
+cpu_14: 62.75
+cpu_15: 40.20
+cpu_16: 52.94
+cpu_17: 34.31
+cpu_18: 30.39
+cpu_19: 27.45
+cpu_20: 45.10
+cpu_21: 46.08
+cpu_22: 23.53
+cpu_23: 38.24
+cpu_24: 28.43
+cpu_25: 31.37
+cpu_26: 22.55
+cpu_27: 46.08
+enp130s0f0_tx_packets_phy: 1272392
+enp130s0f1_tx_packets_phy: 703997
+enp4s0f0_tx_packets_phy: 0
+enp4s0f1_tx_packets_phy: 0
+Total_tx_packets_phy: 1976389
+enp130s0f0_tx_bytes_phy: 6475698660
+enp130s0f1_tx_bytes_phy: 4844928256
+enp4s0f0_tx_bytes_phy: 0
+enp4s0f1_tx_bytes_phy: 0
+Total_tx_bytes_phy: 11320626916
+enp130s0f0_rx_bytes_phy: 7869525435
+enp130s0f1_rx_bytes_phy: 4987512799
+enp4s0f0_rx_bytes_phy: 0
+enp4s0f1_rx_bytes_phy: 0
+Total_rx_bytes_phy: 12857038234
+enp130s0f0_tx_packets: 359200
+enp130s0f1_tx_packets: 244567
+enp4s0f0_tx_packets: 0
+enp4s0f1_tx_packets: 0
+Total_tx_packets: 603767
+enp130s0f0_rx_bytes: 7833721515
+enp130s0f1_rx_bytes: 4970320302
+enp4s0f0_rx_bytes: 0
+enp4s0f1_rx_bytes: 0
+Total_rx_bytes: 12804041817
+enp130s0f0_tx_bytes: 6451962814
+enp130s0f1_tx_bytes: 4842568181
+enp4s0f0_tx_bytes: 0
+enp4s0f1_tx_bytes: 0
+Total_tx_bytes: 11294530995
+enp130s0f0_rx_packets: 582039
+enp130s0f1_rx_packets: 439473
+enp4s0f0_rx_packets: 0
+enp4s0f1_rx_packets: 0
+Total_rx_packets: 1021512
+enp130s0f0_rx_packets_phy: 1051798
+enp130s0f1_rx_packets_phy: 672663
+enp4s0f0_rx_packets_phy: 0
+enp4s0f1_rx_packets_phy: 0
+Total_rx_packets_phy: 1724461
+ out collect cpu
+ in collect pstas
+
+ Performance counter stats for 'system wide':
+
+      150341213165      cycles                                                      
+       49742497789      instructions              #    0.33  insn per cycle         
+        1640450045      cache-misses              #   27.539 % of all cache refs    
+        5956879922      cache-references                                            
+
+       5.002966458 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+        1966782200      LLC-store                                                   
+         190171914      LLC-store-misses                                            
+
+       5.002384959 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+        1638335097      LLC-load                                                    
+         789528272      LLC-load-misses           #   48.19% of all LL-cache hits   
+
+       5.002436255 seconds time elapsed
+
+ out collect pstas
+ in collect mem bw
+
+ Intel(r) Performance Counter Monitor: Memory Bandwidth Monitoring Utility V2.10 (2015-11-17 09:01:38 +0100 ID=cd66c34)
+
+ Copyright (c) 2009-2015 Intel Corporation
+ This utility measures memory bandwidth per channel or per DIMM rank in real-time
+
+Error: unsupported processor. Only Intel(R) processors are supported (Atom(R) and microarchitecture codename Nehalem/Nehalem-EP, Atom(tm), Westmere/Clarkdale, Sandy Bridge, Westmere-EP, Sandy Bridge-EP/Jaketown, Nehalem-EX, Westmere-EX, Ivy Bridge, Haswell, Broadwell, Ivy Bridge-EP/EN/EX/Ivytown, Haswell-EP/EN/EX, Broadwell-DE, Skylake). CPU model number: 79 Brand: "Intel(R) Xeon(R) CPU E5-2660 v4 @ 2.00GHz"
+Access to Intel(r) Performance Counter Monitor has denied (no MSR or PCI CFG space access).
+ out collect mem bw
+ in collect funcs
+[ perf record: Woken up 237 times to write data ]
+[mlx5_core] with build id cf635a4fc1fe2c6801534dcccc3b19a226f221bb not found, continuing without symbols
+[ perf record: Captured and wrote 63.270 MB perf.data (400022 samples) ]
+ out collect funcs
+Data collected
+ in collect cpu
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US:en,",
+	LC_ALL = (unset),
+	LC_PAPER = "he_IL.UTF-8",
+	LC_ADDRESS = "he_IL.UTF-8",
+	LC_MONETARY = "he_IL.UTF-8",
+	LC_NUMERIC = "C",
+	LC_TELEPHONE = "he_IL.UTF-8",
+	LC_IDENTIFICATION = "he_IL.UTF-8",
+	LC_COLLATE = "C",
+	LC_MEASUREMENT = "he_IL.UTF-8",
+	LC_CTYPE = "en_US.UTF-8",
+	LC_TIME = "he_IL.UTF-8",
+	LC_NAME = "he_IL.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("en_US.UTF-8").
+keys on reference is experimental at DataCollector/collect_net_cpu.pl line 35.
+cpu_total: 40.27
+cpu_0: 55.88
+cpu_1: 39.22
+cpu_2: 56.86
+cpu_3: 35.29
+cpu_4: 49.02
+cpu_5: 48.04
+cpu_6: 47.06
+cpu_7: 37.25
+cpu_8: 45.10
+cpu_9: 24.51
+cpu_10: 39.22
+cpu_11: 30.39
+cpu_12: 50.00
+cpu_13: 38.24
+cpu_14: 50.00
+cpu_15: 44.12
+cpu_16: 38.24
+cpu_17: 37.25
+cpu_18: 33.33
+cpu_19: 38.24
+cpu_20: 45.10
+cpu_21: 33.33
+cpu_22: 28.43
+cpu_23: 42.16
+cpu_24: 30.39
+cpu_25: 31.37
+cpu_26: 31.37
+cpu_27: 44.12
+enp130s0f0_rx_packets_phy: 1051601
+enp130s0f1_rx_packets_phy: 663874
+enp4s0f0_rx_packets_phy: 0
+enp4s0f1_rx_packets_phy: 0
+Total_rx_packets_phy: 1715475
+enp130s0f0_tx_bytes_phy: 6709630926
+enp130s0f1_tx_bytes_phy: 4855602807
+enp4s0f0_tx_bytes_phy: 0
+enp4s0f1_tx_bytes_phy: 0
+Total_tx_bytes_phy: 11565233733
+enp130s0f0_tx_bytes: 6686716030
+enp130s0f1_tx_bytes: 4851989058
+enp4s0f0_tx_bytes: 0
+enp4s0f1_tx_bytes: 0
+Total_tx_bytes: 11538705088
+enp130s0f0_rx_bytes: 7856129074
+enp130s0f1_rx_bytes: 4970192653
+enp4s0f0_rx_bytes: 0
+enp4s0f1_rx_bytes: 0
+Total_rx_bytes: 12826321727
+enp130s0f0_rx_packets: 500352
+enp130s0f1_rx_packets: 516609
+enp4s0f0_rx_packets: 0
+enp4s0f1_rx_packets: 0
+Total_rx_packets: 1016961
+enp130s0f0_rx_bytes_phy: 7896578288
+enp130s0f1_rx_bytes_phy: 4982358064
+enp4s0f0_rx_bytes_phy: 0
+enp4s0f1_rx_bytes_phy: 0
+Total_rx_bytes_phy: 12878936352
+enp130s0f0_tx_packets_phy: 1271870
+enp130s0f1_tx_packets_phy: 724830
+enp4s0f0_tx_packets_phy: 0
+enp4s0f1_tx_packets_phy: 0
+Total_tx_packets_phy: 1996700
+enp130s0f0_tx_packets: 340079
+enp130s0f1_tx_packets: 264487
+enp4s0f0_tx_packets: 0
+enp4s0f1_tx_packets: 0
+Total_tx_packets: 604566
+ out collect cpu
+ in collect pstas
+
+ Performance counter stats for 'system wide':
+
+      149885239131      cycles                                                      
+       50975977954      instructions              #    0.34  insn per cycle         
+        1624338721      cache-misses              #   26.925 % of all cache refs    
+        6032775345      cache-references                                            
+
+       5.003066772 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+        2025874851      LLC-store                                                   
+         195389212      LLC-store-misses                                            
+
+       5.003207507 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+        1672229799      LLC-load                                                    
+         786748633      LLC-load-misses           #   47.05% of all LL-cache hits   
+
+       5.002629805 seconds time elapsed
+
+ out collect pstas
+ in collect mem bw
+
+ Intel(r) Performance Counter Monitor: Memory Bandwidth Monitoring Utility V2.10 (2015-11-17 09:01:38 +0100 ID=cd66c34)
+
+ Copyright (c) 2009-2015 Intel Corporation
+ This utility measures memory bandwidth per channel or per DIMM rank in real-time
+
+Error: unsupported processor. Only Intel(R) processors are supported (Atom(R) and microarchitecture codename Nehalem/Nehalem-EP, Atom(tm), Westmere/Clarkdale, Sandy Bridge, Westmere-EP, Sandy Bridge-EP/Jaketown, Nehalem-EX, Westmere-EX, Ivy Bridge, Haswell, Broadwell, Ivy Bridge-EP/EN/EX/Ivytown, Haswell-EP/EN/EX, Broadwell-DE, Skylake). CPU model number: 79 Brand: "Intel(R) Xeon(R) CPU E5-2660 v4 @ 2.00GHz"
+Access to Intel(r) Performance Counter Monitor has denied (no MSR or PCI CFG space access).
+ out collect mem bw
+ in collect funcs
+[ perf record: Woken up 230 times to write data ]
+[mlx5_core] with build id cf635a4fc1fe2c6801534dcccc3b19a226f221bb not found, continuing without symbols
+[ perf record: Captured and wrote 61.234 MB perf.data (387732 samples) ]
+ out collect funcs
+Data collected
+ in collect cpu
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US:en,",
+	LC_ALL = (unset),
+	LC_PAPER = "he_IL.UTF-8",
+	LC_ADDRESS = "he_IL.UTF-8",
+	LC_MONETARY = "he_IL.UTF-8",
+	LC_NUMERIC = "C",
+	LC_TELEPHONE = "he_IL.UTF-8",
+	LC_IDENTIFICATION = "he_IL.UTF-8",
+	LC_COLLATE = "C",
+	LC_MEASUREMENT = "he_IL.UTF-8",
+	LC_CTYPE = "en_US.UTF-8",
+	LC_TIME = "he_IL.UTF-8",
+	LC_NAME = "he_IL.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("en_US.UTF-8").
+keys on reference is experimental at DataCollector/collect_net_cpu.pl line 35.
+cpu_total: 41.49
+cpu_0: 31.37
+cpu_1: 36.27
+cpu_2: 46.08
+cpu_3: 28.43
+cpu_4: 53.92
+cpu_5: 33.33
+cpu_6: 54.90
+cpu_7: 39.22
+cpu_8: 43.14
+cpu_9: 32.35
+cpu_10: 48.04
+cpu_11: 37.25
+cpu_12: 51.96
+cpu_13: 36.27
+cpu_14: 46.08
+cpu_15: 37.25
+cpu_16: 52.94
+cpu_17: 47.06
+cpu_18: 51.96
+cpu_19: 52.94
+cpu_20: 36.27
+cpu_21: 31.37
+cpu_22: 39.22
+cpu_23: 41.18
+cpu_24: 43.14
+cpu_25: 30.39
+cpu_26: 30.39
+cpu_27: 46.08
+enp130s0f0_rx_bytes_phy: 7904185221
+enp130s0f1_rx_bytes_phy: 4983634711
+enp4s0f0_rx_bytes_phy: 0
+enp4s0f1_rx_bytes_phy: 0
+Total_rx_bytes_phy: 12887819932
+enp130s0f0_tx_bytes_phy: 6656107264
+enp130s0f1_tx_bytes_phy: 4857258708
+enp4s0f0_tx_bytes_phy: 0
+enp4s0f1_tx_bytes_phy: 0
+Total_tx_bytes_phy: 11513365972
+enp130s0f0_rx_packets: 560366
+enp130s0f1_rx_packets: 499252
+enp4s0f0_rx_packets: 0
+enp4s0f1_rx_packets: 0
+Total_rx_packets: 1059618
+enp130s0f0_tx_bytes: 6632925176
+enp130s0f1_tx_bytes: 4854134851
+enp4s0f0_tx_bytes: 0
+enp4s0f1_tx_bytes: 0
+Total_tx_bytes: 11487060027
+enp130s0f0_rx_packets_phy: 1050321
+enp130s0f1_rx_packets_phy: 667301
+enp4s0f0_rx_packets_phy: 0
+enp4s0f1_rx_packets_phy: 0
+Total_rx_packets_phy: 1717622
+enp130s0f0_tx_packets_phy: 1285200
+enp130s0f1_tx_packets_phy: 743882
+enp4s0f0_tx_packets_phy: 0
+enp4s0f1_tx_packets_phy: 0
+Total_tx_packets_phy: 2029082
+enp130s0f0_tx_packets: 358628
+enp130s0f1_tx_packets: 283598
+enp4s0f0_tx_packets: 0
+enp4s0f1_tx_packets: 0
+Total_tx_packets: 642226
+enp130s0f0_rx_bytes: 7867603779
+enp130s0f1_rx_bytes: 4969691828
+enp4s0f0_rx_bytes: 0
+enp4s0f1_rx_bytes: 0
+Total_rx_bytes: 12837295607
+ out collect cpu
+ in collect pstas
+
+ Performance counter stats for 'system wide':
+
+      152502515336      cycles                                                      
+       51238021006      instructions              #    0.34  insn per cycle         
+        1701559243      cache-misses              #   27.868 % of all cache refs    
+        6105702958      cache-references                                            
+
+       5.002210369 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+        2022296209      LLC-store                                                   
+         199156213      LLC-store-misses                                            
+
+       5.002725608 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+        1684969200      LLC-load                                                    
+         805748047      LLC-load-misses           #   47.82% of all LL-cache hits   
+
+       5.002466295 seconds time elapsed
+
+ out collect pstas
+ in collect mem bw
+
+ Intel(r) Performance Counter Monitor: Memory Bandwidth Monitoring Utility V2.10 (2015-11-17 09:01:38 +0100 ID=cd66c34)
+
+ Copyright (c) 2009-2015 Intel Corporation
+ This utility measures memory bandwidth per channel or per DIMM rank in real-time
+
+Error: unsupported processor. Only Intel(R) processors are supported (Atom(R) and microarchitecture codename Nehalem/Nehalem-EP, Atom(tm), Westmere/Clarkdale, Sandy Bridge, Westmere-EP, Sandy Bridge-EP/Jaketown, Nehalem-EX, Westmere-EX, Ivy Bridge, Haswell, Broadwell, Ivy Bridge-EP/EN/EX/Ivytown, Haswell-EP/EN/EX, Broadwell-DE, Skylake). CPU model number: 79 Brand: "Intel(R) Xeon(R) CPU E5-2660 v4 @ 2.00GHz"
+Access to Intel(r) Performance Counter Monitor has denied (no MSR or PCI CFG space access).
+ out collect mem bw
+ in collect funcs
+[ perf record: Woken up 236 times to write data ]
+[mlx5_core] with build id cf635a4fc1fe2c6801534dcccc3b19a226f221bb not found, continuing without symbols
+[ perf record: Captured and wrote 63.447 MB perf.data (398650 samples) ]
+ out collect funcs
+Data collected
+ in collect cpu
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US:en,",
+	LC_ALL = (unset),
+	LC_PAPER = "he_IL.UTF-8",
+	LC_ADDRESS = "he_IL.UTF-8",
+	LC_MONETARY = "he_IL.UTF-8",
+	LC_NUMERIC = "C",
+	LC_TELEPHONE = "he_IL.UTF-8",
+	LC_IDENTIFICATION = "he_IL.UTF-8",
+	LC_COLLATE = "C",
+	LC_MEASUREMENT = "he_IL.UTF-8",
+	LC_CTYPE = "en_US.UTF-8",
+	LC_TIME = "he_IL.UTF-8",
+	LC_NAME = "he_IL.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("en_US.UTF-8").
+keys on reference is experimental at DataCollector/collect_net_cpu.pl line 35.
+cpu_total: 41.67
+cpu_0: 42.16
+cpu_1: 48.04
+cpu_2: 39.22
+cpu_3: 38.24
+cpu_4: 29.41
+cpu_5: 44.12
+cpu_6: 56.86
+cpu_7: 49.02
+cpu_8: 30.39
+cpu_9: 50.98
+cpu_10: 60.78
+cpu_11: 32.35
+cpu_12: 44.12
+cpu_13: 46.08
+cpu_14: 46.08
+cpu_15: 50.00
+cpu_16: 50.00
+cpu_17: 32.35
+cpu_18: 45.10
+cpu_19: 51.96
+cpu_20: 42.16
+cpu_21: 43.14
+cpu_22: 29.41
+cpu_23: 38.24
+cpu_24: 26.47
+cpu_25: 37.25
+cpu_26: 23.53
+cpu_27: 39.22
+enp130s0f0_tx_bytes: 6792334384
+enp130s0f1_tx_bytes: 4865101829
+enp4s0f0_tx_bytes: 0
+enp4s0f1_tx_bytes: 0
+Total_tx_bytes: 11657436213
+enp130s0f0_tx_packets: 394022
+enp130s0f1_tx_packets: 269585
+enp4s0f0_tx_packets: 0
+enp4s0f1_tx_packets: 0
+Total_tx_packets: 663607
+enp130s0f0_rx_packets_phy: 1060949
+enp130s0f1_rx_packets_phy: 660472
+enp4s0f0_rx_packets_phy: 0
+enp4s0f1_rx_packets_phy: 0
+Total_rx_packets_phy: 1721421
+enp130s0f0_tx_packets_phy: 1330788
+enp130s0f1_tx_packets_phy: 731057
+enp4s0f0_tx_packets_phy: 0
+enp4s0f1_tx_packets_phy: 0
+Total_tx_packets_phy: 2061845
+enp130s0f0_rx_bytes_phy: 7970230299
+enp130s0f1_rx_bytes_phy: 4982228708
+enp4s0f0_rx_bytes_phy: 0
+enp4s0f1_rx_bytes_phy: 0
+Total_rx_bytes_phy: 12952459007
+enp130s0f0_tx_bytes_phy: 6814661008
+enp130s0f1_tx_bytes_phy: 4868160059
+enp4s0f0_tx_bytes_phy: 0
+enp4s0f1_tx_bytes_phy: 0
+Total_tx_bytes_phy: 11682821067
+enp130s0f0_rx_bytes: 7935739527
+enp130s0f1_rx_bytes: 4962142611
+enp4s0f0_rx_bytes: 0
+enp4s0f1_rx_bytes: 0
+Total_rx_bytes: 12897882138
+enp130s0f0_rx_packets: 590439
+enp130s0f1_rx_packets: 401174
+enp4s0f0_rx_packets: 0
+enp4s0f1_rx_packets: 0
+Total_rx_packets: 991613
+ out collect cpu
+ in collect pstas
+
+ Performance counter stats for 'system wide':
+
+      154009897529      cycles                                                      
+       52333194522      instructions              #    0.34  insn per cycle         
+        1696481149      cache-misses              #   27.766 % of all cache refs    
+        6110018659      cache-references                                            
+
+       5.004141445 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+        2022979304      LLC-store                                                   
+         203131722      LLC-store-misses                                            
+
+       5.002730516 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+        1660819499      LLC-load                                                    
+         786649558      LLC-load-misses           #   47.37% of all LL-cache hits   
+
+       5.004156713 seconds time elapsed
+
+ out collect pstas
+ in collect mem bw
+
+ Intel(r) Performance Counter Monitor: Memory Bandwidth Monitoring Utility V2.10 (2015-11-17 09:01:38 +0100 ID=cd66c34)
+
+ Copyright (c) 2009-2015 Intel Corporation
+ This utility measures memory bandwidth per channel or per DIMM rank in real-time
+
+Error: unsupported processor. Only Intel(R) processors are supported (Atom(R) and microarchitecture codename Nehalem/Nehalem-EP, Atom(tm), Westmere/Clarkdale, Sandy Bridge, Westmere-EP, Sandy Bridge-EP/Jaketown, Nehalem-EX, Westmere-EX, Ivy Bridge, Haswell, Broadwell, Ivy Bridge-EP/EN/EX/Ivytown, Haswell-EP/EN/EX, Broadwell-DE, Skylake). CPU model number: 79 Brand: "Intel(R) Xeon(R) CPU E5-2660 v4 @ 2.00GHz"
+Access to Intel(r) Performance Counter Monitor has denied (no MSR or PCI CFG space access).
+ out collect mem bw
+ in collect funcs
+[ perf record: Woken up 242 times to write data ]
+[mlx5_core] with build id cf635a4fc1fe2c6801534dcccc3b19a226f221bb not found, continuing without symbols
+[ perf record: Captured and wrote 64.611 MB perf.data (407499 samples) ]
+ out collect funcs
+Data collected
+ in collect cpu
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US:en,",
+	LC_ALL = (unset),
+	LC_PAPER = "he_IL.UTF-8",
+	LC_ADDRESS = "he_IL.UTF-8",
+	LC_MONETARY = "he_IL.UTF-8",
+	LC_NUMERIC = "C",
+	LC_TELEPHONE = "he_IL.UTF-8",
+	LC_IDENTIFICATION = "he_IL.UTF-8",
+	LC_COLLATE = "C",
+	LC_MEASUREMENT = "he_IL.UTF-8",
+	LC_CTYPE = "en_US.UTF-8",
+	LC_TIME = "he_IL.UTF-8",
+	LC_NAME = "he_IL.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("en_US.UTF-8").
+keys on reference is experimental at DataCollector/collect_net_cpu.pl line 35.
+cpu_total: 41.11
+cpu_0: 41.18
+cpu_1: 39.22
+cpu_2: 49.02
+cpu_3: 35.29
+cpu_4: 30.39
+cpu_5: 35.29
+cpu_6: 66.67
+cpu_7: 36.27
+cpu_8: 31.37
+cpu_9: 50.00
+cpu_10: 48.04
+cpu_11: 35.29
+cpu_12: 51.96
+cpu_13: 42.16
+cpu_14: 42.16
+cpu_15: 54.90
+cpu_16: 30.39
+cpu_17: 46.08
+cpu_18: 40.20
+cpu_19: 41.18
+cpu_20: 50.00
+cpu_21: 35.29
+cpu_22: 27.45
+cpu_23: 29.41
+cpu_24: 32.35
+cpu_25: 56.86
+cpu_26: 33.33
+cpu_27: 38.24
+enp130s0f0_tx_bytes_phy: 6783821599
+enp130s0f1_tx_bytes_phy: 4860879544
+enp4s0f0_tx_bytes_phy: 0
+enp4s0f1_tx_bytes_phy: 0
+Total_tx_bytes_phy: 11644701143
+enp130s0f0_tx_packets: 362077
+enp130s0f1_tx_packets: 281934
+enp4s0f0_tx_packets: 0
+enp4s0f1_tx_packets: 0
+Total_tx_packets: 644011
+enp130s0f0_tx_bytes: 6761064725
+enp130s0f1_tx_bytes: 4857908943
+enp4s0f0_tx_bytes: 0
+enp4s0f1_tx_bytes: 0
+Total_tx_bytes: 11618973668
+enp130s0f0_rx_packets_phy: 1044554
+enp130s0f1_rx_packets_phy: 667837
+enp4s0f0_rx_packets_phy: 0
+enp4s0f1_rx_packets_phy: 0
+Total_rx_packets_phy: 1712391
+enp130s0f0_rx_bytes: 7851921594
+enp130s0f1_rx_bytes: 4960117429
+enp4s0f0_rx_bytes: 0
+enp4s0f1_rx_bytes: 0
+Total_rx_bytes: 12812039023
+enp130s0f0_tx_packets_phy: 1303151
+enp130s0f1_tx_packets_phy: 742652
+enp4s0f0_tx_packets_phy: 0
+enp4s0f1_tx_packets_phy: 0
+Total_tx_packets_phy: 2045803
+enp130s0f0_rx_packets: 609400
+enp130s0f1_rx_packets: 421248
+enp4s0f0_rx_packets: 0
+enp4s0f1_rx_packets: 0
+Total_rx_packets: 1030648
+enp130s0f0_rx_bytes_phy: 7884811452
+enp130s0f1_rx_bytes_phy: 4979254427
+enp4s0f0_rx_bytes_phy: 0
+enp4s0f1_rx_bytes_phy: 0
+Total_rx_bytes_phy: 12864065879
+ out collect cpu
+ in collect pstas
+
+ Performance counter stats for 'system wide':
+
+      149898230162      cycles                                                      
+       51202727679      instructions              #    0.34  insn per cycle         
+        1650517207      cache-misses              #   26.819 % of all cache refs    
+        6154365047      cache-references                                            
+
+       5.004420442 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+        2039213761      LLC-store                                                   
+         196760472      LLC-store-misses                                            
+
+       5.004159554 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+        1652781622      LLC-load                                                    
+         753271525      LLC-load-misses           #   45.58% of all LL-cache hits   
+
+       5.003403682 seconds time elapsed
+
+ out collect pstas
+ in collect mem bw
+
+ Intel(r) Performance Counter Monitor: Memory Bandwidth Monitoring Utility V2.10 (2015-11-17 09:01:38 +0100 ID=cd66c34)
+
+ Copyright (c) 2009-2015 Intel Corporation
+ This utility measures memory bandwidth per channel or per DIMM rank in real-time
+
+Error: unsupported processor. Only Intel(R) processors are supported (Atom(R) and microarchitecture codename Nehalem/Nehalem-EP, Atom(tm), Westmere/Clarkdale, Sandy Bridge, Westmere-EP, Sandy Bridge-EP/Jaketown, Nehalem-EX, Westmere-EX, Ivy Bridge, Haswell, Broadwell, Ivy Bridge-EP/EN/EX/Ivytown, Haswell-EP/EN/EX, Broadwell-DE, Skylake). CPU model number: 79 Brand: "Intel(R) Xeon(R) CPU E5-2660 v4 @ 2.00GHz"
+Access to Intel(r) Performance Counter Monitor has denied (no MSR or PCI CFG space access).
+ out collect mem bw
+ in collect funcs
+[ perf record: Woken up 235 times to write data ]
+[mlx5_core] with build id cf635a4fc1fe2c6801534dcccc3b19a226f221bb not found, continuing without symbols
+[ perf record: Captured and wrote 62.303 MB perf.data (394288 samples) ]
+ out collect funcs
+Data collected
+ in collect cpu
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US:en,",
+	LC_ALL = (unset),
+	LC_PAPER = "he_IL.UTF-8",
+	LC_ADDRESS = "he_IL.UTF-8",
+	LC_MONETARY = "he_IL.UTF-8",
+	LC_NUMERIC = "C",
+	LC_TELEPHONE = "he_IL.UTF-8",
+	LC_IDENTIFICATION = "he_IL.UTF-8",
+	LC_COLLATE = "C",
+	LC_MEASUREMENT = "he_IL.UTF-8",
+	LC_CTYPE = "en_US.UTF-8",
+	LC_TIME = "he_IL.UTF-8",
+	LC_NAME = "he_IL.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("en_US.UTF-8").
+keys on reference is experimental at DataCollector/collect_net_cpu.pl line 35.
+cpu_total: 41.11
+cpu_0: 41.18
+cpu_1: 45.10
+cpu_2: 46.08
+cpu_3: 47.06
+cpu_4: 30.39
+cpu_5: 27.45
+cpu_6: 66.67
+cpu_7: 27.45
+cpu_8: 39.22
+cpu_9: 44.12
+cpu_10: 53.92
+cpu_11: 39.22
+cpu_12: 40.20
+cpu_13: 36.27
+cpu_14: 51.96
+cpu_15: 31.37
+cpu_16: 51.96
+cpu_17: 29.41
+cpu_18: 42.16
+cpu_19: 33.33
+cpu_20: 49.02
+cpu_21: 44.12
+cpu_22: 38.24
+cpu_23: 49.02
+cpu_24: 32.35
+cpu_25: 47.06
+cpu_26: 25.49
+cpu_27: 41.18
+enp130s0f0_rx_bytes: 7850155041
+enp130s0f1_rx_bytes: 4968465632
+enp4s0f0_rx_bytes: 0
+enp4s0f1_rx_bytes: 0
+Total_rx_bytes: 12818620673
+enp130s0f0_tx_packets_phy: 1292342
+enp130s0f1_tx_packets_phy: 747180
+enp4s0f0_tx_packets_phy: 0
+enp4s0f1_tx_packets_phy: 0
+Total_tx_packets_phy: 2039522
+enp130s0f0_rx_packets: 566565
+enp130s0f1_rx_packets: 429089
+enp4s0f0_rx_packets: 0
+enp4s0f1_rx_packets: 0
+Total_rx_packets: 995654
+enp130s0f0_rx_packets_phy: 1053563
+enp130s0f1_rx_packets_phy: 665956
+enp4s0f0_rx_packets_phy: 0
+enp4s0f1_rx_packets_phy: 0
+Total_rx_packets_phy: 1719519
+enp130s0f0_tx_packets: 364883
+enp130s0f1_tx_packets: 286434
+enp4s0f0_tx_packets: 0
+enp4s0f1_tx_packets: 0
+Total_tx_packets: 651317
+enp130s0f0_rx_bytes_phy: 7886502479
+enp130s0f1_rx_bytes_phy: 4987468497
+enp4s0f0_rx_bytes_phy: 0
+enp4s0f1_rx_bytes_phy: 0
+Total_rx_bytes_phy: 12873970976
+enp130s0f0_tx_bytes_phy: 6659462519
+enp130s0f1_tx_bytes_phy: 4862119503
+enp4s0f0_tx_bytes_phy: 0
+enp4s0f1_tx_bytes_phy: 0
+Total_tx_bytes_phy: 11521582022
+enp130s0f0_tx_bytes: 6635216141
+enp130s0f1_tx_bytes: 4858781268
+enp4s0f0_tx_bytes: 0
+enp4s0f1_tx_bytes: 0
+Total_tx_bytes: 11493997409
+ out collect cpu
+ in collect pstas
+
+ Performance counter stats for 'system wide':
+
+      151196555728      cycles                                                      
+       51242155972      instructions              #    0.34  insn per cycle         
+        1689676842      cache-misses              #   27.576 % of all cache refs    
+        6127407103      cache-references                                            
+
+       5.002698356 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+        2034632936      LLC-store                                                   
+         196046845      LLC-store-misses                                            
+
+       5.001674629 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+        1680896084      LLC-load                                                    
+         788156717      LLC-load-misses           #   46.89% of all LL-cache hits   
+
+       5.003462683 seconds time elapsed
+
+ out collect pstas
+ in collect mem bw
+
+ Intel(r) Performance Counter Monitor: Memory Bandwidth Monitoring Utility V2.10 (2015-11-17 09:01:38 +0100 ID=cd66c34)
+
+ Copyright (c) 2009-2015 Intel Corporation
+ This utility measures memory bandwidth per channel or per DIMM rank in real-time
+
+Error: unsupported processor. Only Intel(R) processors are supported (Atom(R) and microarchitecture codename Nehalem/Nehalem-EP, Atom(tm), Westmere/Clarkdale, Sandy Bridge, Westmere-EP, Sandy Bridge-EP/Jaketown, Nehalem-EX, Westmere-EX, Ivy Bridge, Haswell, Broadwell, Ivy Bridge-EP/EN/EX/Ivytown, Haswell-EP/EN/EX, Broadwell-DE, Skylake). CPU model number: 79 Brand: "Intel(R) Xeon(R) CPU E5-2660 v4 @ 2.00GHz"
+Access to Intel(r) Performance Counter Monitor has denied (no MSR or PCI CFG space access).
+ out collect mem bw
+ in collect funcs
+[ perf record: Woken up 238 times to write data ]
+[mlx5_core] with build id cf635a4fc1fe2c6801534dcccc3b19a226f221bb not found, continuing without symbols
+[ perf record: Captured and wrote 62.768 MB perf.data (396421 samples) ]
+ out collect funcs
+Data collected

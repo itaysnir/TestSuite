@@ -1,0 +1,32 @@
+#
+#netperf -H 10.1.130.30 -t TCP_MAERTS -l 30 -T 1,0 &
+#netperf -H 10.1.130.30 -t TCP_MAERTS -l 30 -T 3,2 &
+#netperf -H 10.1.130.30 -t TCP_MAERTS -l 30 -T 5,4 &
+#netperf -H 10.1.130.30 -t TCP_MAERTS -l 30 -T 7,6 &
+
+#netperf -H 10.0.130.31 -t TCP_MAERTS -l 30 -T 9,0 &
+#netperf -H 10.0.130.31 -t TCP_MAERTS -l 30 -T 11,2 &
+#netperf -H 10.0.130.31 -t TCP_MAERTS -l 30 -T 13,4 &
+#netperf -H 10.0.130.31 -t TCP_MAERTS -l 30 -T 15,6 &
+time=100
+
+netperf -H 10.1.4.31 -t TCP_MAERTS -l $time -T 0,1 &
+netperf -H 10.1.4.31 -t TCP_MAERTS -l $time -T 2,2 &
+netperf -H 10.1.4.31 -t TCP_MAERTS -l $time -T 4,3 &
+netperf -H 10.1.4.31 -t TCP_MAERTS -l $time -T 6,4 &
+netperf -H 10.1.4.31 -t TCP_MAERTS -l $time -T 8,5 &
+netperf -H 10.1.4.31 -t TCP_MAERTS -l $time -T 10,6 &
+netperf -H 10.1.4.31 -t TCP_MAERTS -l $time -T 12,7 &
+netperf -H 10.1.4.31 -t TCP_MAERTS -l $time -T 14,8 &
+netperf -H 10.1.4.31 -t TCP_MAERTS -l $time -T 16,9 &
+netperf -H 10.1.4.31 -t TCP_MAERTS -l $time -T 18,10 &
+netperf -H 10.1.4.31 -t TCP_MAERTS -l $time -T 20,11 &
+netperf -H 10.1.4.31 -t TCP_MAERTS -l $time -T 22,12 &
+netperf -H 10.1.4.31 -t TCP_MAERTS -l $time -T 24,13 &
+netperf -H 10.1.4.31 -t TCP_MAERTS -l $time -T 26,14 &
+
+#netperf -H 10.0.4.30 -t TCP_MAERTS -l 30 -T 8,1 &
+#netperf -H 10.0.4.30 -t TCP_MAERTS -l 30 -T 10,3 &
+#netperf -H 10.0.4.30 -t TCP_MAERTS -l 30 -T 12,5 &
+#netperf -H 10.0.4.30 -t TCP_MAERTS -l 30 -T 14,7 &
+wait

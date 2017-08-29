@@ -1,0 +1,910 @@
+ in collect cpu
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US:en,",
+	LC_ALL = (unset),
+	LC_PAPER = "he_IL.UTF-8",
+	LC_ADDRESS = "he_IL.UTF-8",
+	LC_MONETARY = "he_IL.UTF-8",
+	LC_NUMERIC = "C",
+	LC_TELEPHONE = "he_IL.UTF-8",
+	LC_COLLATE = "C",
+	LC_IDENTIFICATION = "he_IL.UTF-8",
+	LC_MEASUREMENT = "he_IL.UTF-8",
+	LC_CTYPE = "en_US.UTF-8",
+	LC_NAME = "he_IL.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("en_US.UTF-8").
+keys on reference is experimental at DataCollector/collect_net_cpu.pl line 35.
+cpu_total: 20.03
+cpu_0: 29.41
+cpu_1: 26.47
+cpu_2: 26.47
+cpu_3: 24.51
+cpu_4: 20.59
+cpu_5: 21.57
+cpu_6: 27.45
+cpu_7: 26.47
+cpu_8: 22.55
+cpu_9: 31.37
+cpu_10: 17.65
+cpu_11: 23.53
+cpu_12: 23.53
+cpu_13: 34.31
+cpu_14: 14.71
+cpu_15: 19.61
+cpu_16: 12.75
+cpu_17: 17.65
+cpu_18: 17.65
+cpu_19: 10.78
+cpu_20: 10.78
+cpu_21: 23.53
+cpu_22: 13.73
+cpu_23: 12.75
+cpu_24: 9.80
+cpu_25: 25.49
+cpu_26: 7.84
+cpu_27: 9.80
+enp130s0f0_tx_queue_stopped: 0
+enp130s0f1_tx_queue_stopped: 0
+enp4s0f0_tx_queue_stopped: 0
+enp4s0f1_tx_queue_stopped: 0
+Total_tx_queue_stopped: 0
+enp130s0f0_rx_packets: 259680
+enp130s0f1_rx_packets: 163228
+enp4s0f0_rx_packets: 0
+enp4s0f1_rx_packets: 0
+Total_rx_packets: 422908
+enp130s0f0_tx_packets_phy: 798149
+enp130s0f1_tx_packets_phy: 515531
+enp4s0f0_tx_packets_phy: 0
+enp4s0f1_tx_packets_phy: 0
+Total_tx_packets_phy: 1313680
+enp130s0f0_tx_bytes: 7193958915
+enp130s0f1_tx_bytes: 4646909777
+enp4s0f0_tx_bytes: 0
+enp4s0f1_tx_bytes: 0
+Total_tx_bytes: 11840868692
+enp130s0f0_rx_packets_phy: 259757
+enp130s0f1_rx_packets_phy: 163150
+enp4s0f0_rx_packets_phy: 0
+enp4s0f1_rx_packets_phy: 0
+Total_rx_packets_phy: 422907
+enp130s0f0_rx_bytes_phy: 18539930
+enp130s0f1_rx_bytes_phy: 11565672
+enp4s0f0_rx_bytes_phy: 0
+enp4s0f1_rx_bytes_phy: 0
+Total_rx_bytes_phy: 30105602
+enp130s0f0_tx_packets: 114012
+enp130s0f1_tx_packets: 73645
+enp4s0f0_tx_packets: 0
+enp4s0f1_tx_packets: 0
+Total_tx_packets: 187657
+enp130s0f0_tx_bytes_phy: 7197724465
+enp130s0f1_tx_bytes_phy: 4649055201
+enp4s0f0_tx_bytes_phy: 0
+enp4s0f1_tx_bytes_phy: 0
+Total_tx_bytes_phy: 11846779666
+enp130s0f0_rx_bytes: 17495739
+enp130s0f1_rx_bytes: 10918194
+enp4s0f0_rx_bytes: 0
+enp4s0f1_rx_bytes: 0
+Total_rx_bytes: 28413933
+ out collect cpu
+ in collect pstas
+
+ Performance counter stats for 'system wide':
+
+       72049564303      cycles                                                      
+       21178684495      instructions              #    0.29  insn per cycle         
+         909494804      cache-misses              #   32.709 % of all cache refs    
+        2780602634      cache-references                                            
+
+       5.002796336 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+         981168775      LLC-store                                                   
+         144628275      LLC-store-misses                                            
+
+       5.003280450 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+         666898263      LLC-load                                                    
+         303382939      LLC-load-misses           #   45.49% of all LL-cache hits   
+
+       5.002923963 seconds time elapsed
+
+ out collect pstas
+ in collect mem bw
+
+ Processor Counter Monitor: Memory Bandwidth Monitoring Utility  ($Format:%ci ID=%h$)
+
+ This utility measures memory bandwidth per channel or per DIMM rank in real-time
+
+Number of physical cores: 28
+Number of logical cores: 28
+Number of online logical cores: 28
+Threads (logical cores) per physical core: 1
+Num sockets: 2
+Physical cores per socket: 14
+Core PMU (perfmon) version: 3
+Number of core PMU generic (programmable) counters: 8
+Width of generic (programmable) counters: 48 bits
+Number of core PMU fixed counters: 3
+Width of fixed counters: 48 bits
+Nominal core frequency: 2000000000 Hz
+Package thermal spec power: 105 Watt; Package minimum power: 55 Watt; Package maximum power: 210 Watt; 
+Socket 0: 2 memory controllers detected with total number of 4 channels. 2 QPI ports detected.
+Socket 1: 2 memory controllers detected with total number of 4 channels. 2 QPI ports detected.
+
+Detected Intel(R) Xeon(R) CPU E5-2660 v4 @ 2.00GHz "Intel(r) microarchitecture codename Broadwell-EP/EX"
+Update every 1 seconds
+
+Executing "sleep" command:
+DEBUG: caught signal to interrupt (Child exited).
+Program sleep launched with PID: 12955
+Program exited with status 0
+|---------------------------------------||---------------------------------------|
+|--             Socket  0             --||--             Socket  1             --|
+|---------------------------------------||---------------------------------------|
+|--     Memory Channel Monitoring     --||--     Memory Channel Monitoring     --|
+|---------------------------------------||---------------------------------------|
+|-- Mem Ch  0: Reads (MB/s):  3275.69 --||-- Mem Ch  0: Reads (MB/s):  3658.63 --|
+|--            Writes(MB/s):  1491.49 --||--            Writes(MB/s):  1675.66 --|
+|-- Mem Ch  1: Reads (MB/s):  3267.23 --||-- Mem Ch  1: Reads (MB/s):  3642.93 --|
+|--            Writes(MB/s):  1488.46 --||--            Writes(MB/s):  1671.76 --|
+|-- Mem Ch  2: Reads (MB/s):  3284.42 --||-- Mem Ch  2: Reads (MB/s):  3655.79 --|
+|--            Writes(MB/s):  1492.74 --||--            Writes(MB/s):  1676.71 --|
+|-- Mem Ch  3: Reads (MB/s):  3277.72 --||-- Mem Ch  3: Reads (MB/s):  3653.05 --|
+|--            Writes(MB/s):  1488.74 --||--            Writes(MB/s):  1673.22 --|
+|-- NODE 0 Mem Read (MB/s) : 13105.06 --||-- NODE 1 Mem Read (MB/s) : 14610.40 --|
+|-- NODE 0 Mem Write(MB/s) :  5961.44 --||-- NODE 1 Mem Write(MB/s) :  6697.36 --|
+|-- NODE 0 P. Write (T/s):     154763 --||-- NODE 1 P. Write (T/s):     159280 --|
+|-- NODE 0 Memory (MB/s):    19066.50 --||-- NODE 1 Memory (MB/s):    21307.76 --|
+|---------------------------------------||---------------------------------------|
+            |---------------------------------------||---------------------------------------|
+            |--                 System Read Throughput(MB/s):      27715.46                --|
+            |--                System Write Throughput(MB/s):      12658.80                --|
+            |--               System Memory Throughput(MB/s):      40374.26                --|
+            |---------------------------------------||---------------------------------------|
+Cleaning up
+ Freeing up all RMIDs
+ out collect mem bw
+ in collect funcs
+[ perf record: Woken up 109 times to write data ]
+[ perf record: Captured and wrote 30.686 MB perf.data (197784 samples) ]
+ out collect funcs
+Data collected
+ in collect cpu
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US:en,",
+	LC_ALL = (unset),
+	LC_PAPER = "he_IL.UTF-8",
+	LC_ADDRESS = "he_IL.UTF-8",
+	LC_MONETARY = "he_IL.UTF-8",
+	LC_NUMERIC = "C",
+	LC_TELEPHONE = "he_IL.UTF-8",
+	LC_COLLATE = "C",
+	LC_IDENTIFICATION = "he_IL.UTF-8",
+	LC_MEASUREMENT = "he_IL.UTF-8",
+	LC_CTYPE = "en_US.UTF-8",
+	LC_NAME = "he_IL.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("en_US.UTF-8").
+keys on reference is experimental at DataCollector/collect_net_cpu.pl line 35.
+cpu_total: 20.10
+cpu_0: 39.22
+cpu_1: 36.27
+cpu_2: 26.47
+cpu_3: 29.41
+cpu_4: 26.47
+cpu_5: 23.53
+cpu_6: 19.61
+cpu_7: 18.63
+cpu_8: 11.76
+cpu_9: 17.65
+cpu_10: 22.55
+cpu_11: 16.67
+cpu_12: 20.59
+cpu_13: 23.53
+cpu_14: 29.41
+cpu_15: 25.49
+cpu_16: 13.73
+cpu_17: 13.73
+cpu_18: 18.63
+cpu_19: 13.73
+cpu_20: 13.73
+cpu_21: 21.57
+cpu_22: 11.76
+cpu_23: 14.71
+cpu_24: 13.73
+cpu_25: 7.84
+cpu_26: 13.73
+cpu_27: 17.65
+enp130s0f0_rx_bytes_phy: 19809806
+enp130s0f1_rx_bytes_phy: 11072596
+enp4s0f0_rx_bytes_phy: 0
+enp4s0f1_rx_bytes_phy: 0
+Total_rx_bytes_phy: 30882402
+enp130s0f0_rx_packets: 279320
+enp130s0f1_rx_packets: 156236
+enp4s0f0_rx_packets: 0
+enp4s0f1_rx_packets: 0
+Total_rx_packets: 435556
+enp130s0f0_tx_bytes_phy: 7307096036
+enp130s0f1_tx_bytes_phy: 4733783640
+enp4s0f0_tx_bytes_phy: 0
+enp4s0f1_tx_bytes_phy: 0
+Total_tx_bytes_phy: 12040879676
+enp130s0f0_tx_packets_phy: 810278
+enp130s0f1_tx_packets_phy: 524926
+enp4s0f0_tx_packets_phy: 0
+enp4s0f1_tx_packets_phy: 0
+Total_tx_packets_phy: 1335204
+enp130s0f0_tx_packets: 115754
+enp130s0f1_tx_packets: 74993
+enp4s0f0_tx_packets: 0
+enp4s0f1_tx_packets: 0
+Total_tx_packets: 190747
+enp130s0f0_rx_bytes: 18693075
+enp130s0f1_rx_bytes: 10449601
+enp4s0f0_rx_bytes: 0
+enp4s0f1_rx_bytes: 0
+Total_rx_bytes: 29142676
+enp130s0f0_tx_bytes: 7303832515
+enp130s0f1_tx_bytes: 4731925728
+enp4s0f0_tx_bytes: 0
+enp4s0f1_tx_bytes: 0
+Total_tx_bytes: 12035758243
+enp130s0f0_rx_packets_phy: 279310
+enp130s0f1_rx_packets_phy: 156209
+enp4s0f0_rx_packets_phy: 0
+enp4s0f1_rx_packets_phy: 0
+Total_rx_packets_phy: 435519
+enp130s0f0_tx_queue_stopped: 0
+enp130s0f1_tx_queue_stopped: 0
+enp4s0f0_tx_queue_stopped: 0
+enp4s0f1_tx_queue_stopped: 0
+Total_tx_queue_stopped: 0
+ out collect cpu
+ in collect pstas
+
+ Performance counter stats for 'system wide':
+
+       72236922356      cycles                                                      
+       21950548457      instructions              #    0.30  insn per cycle         
+         932128789      cache-misses              #   32.680 % of all cache refs    
+        2852264422      cache-references                                            
+
+       5.003706608 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+        1020089255      LLC-store                                                   
+         149159696      LLC-store-misses                                            
+
+       5.002163619 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+         690537959      LLC-load                                                    
+         318065045      LLC-load-misses           #   46.06% of all LL-cache hits   
+
+       5.002131699 seconds time elapsed
+
+ out collect pstas
+ in collect mem bw
+
+ Processor Counter Monitor: Memory Bandwidth Monitoring Utility  ($Format:%ci ID=%h$)
+
+ This utility measures memory bandwidth per channel or per DIMM rank in real-time
+
+Number of physical cores: 28
+Number of logical cores: 28
+Number of online logical cores: 28
+Threads (logical cores) per physical core: 1
+Num sockets: 2
+Physical cores per socket: 14
+Core PMU (perfmon) version: 3
+Number of core PMU generic (programmable) counters: 8
+Width of generic (programmable) counters: 48 bits
+Number of core PMU fixed counters: 3
+Width of fixed counters: 48 bits
+Nominal core frequency: 2000000000 Hz
+Package thermal spec power: 105 Watt; Package minimum power: 55 Watt; Package maximum power: 210 Watt; 
+Socket 0: 2 memory controllers detected with total number of 4 channels. 2 QPI ports detected.
+Socket 1: 2 memory controllers detected with total number of 4 channels. 2 QPI ports detected.
+
+Detected Intel(R) Xeon(R) CPU E5-2660 v4 @ 2.00GHz "Intel(r) microarchitecture codename Broadwell-EP/EX"
+Update every 1 seconds
+
+Executing "sleep" command:
+DEBUG: caught signal to interrupt (Child exited).
+Program sleep launched with PID: 13247
+Program exited with status 0
+|---------------------------------------||---------------------------------------|
+|--             Socket  0             --||--             Socket  1             --|
+|---------------------------------------||---------------------------------------|
+|--     Memory Channel Monitoring     --||--     Memory Channel Monitoring     --|
+|---------------------------------------||---------------------------------------|
+|-- Mem Ch  0: Reads (MB/s):  4072.76 --||-- Mem Ch  0: Reads (MB/s):  3047.77 --|
+|--            Writes(MB/s):  1846.11 --||--            Writes(MB/s):  1405.73 --|
+|-- Mem Ch  1: Reads (MB/s):  4062.93 --||-- Mem Ch  1: Reads (MB/s):  3038.18 --|
+|--            Writes(MB/s):  1842.37 --||--            Writes(MB/s):  1402.99 --|
+|-- Mem Ch  2: Reads (MB/s):  4084.68 --||-- Mem Ch  2: Reads (MB/s):  3042.80 --|
+|--            Writes(MB/s):  1847.85 --||--            Writes(MB/s):  1407.36 --|
+|-- Mem Ch  3: Reads (MB/s):  4076.02 --||-- Mem Ch  3: Reads (MB/s):  3040.97 --|
+|--            Writes(MB/s):  1843.95 --||--            Writes(MB/s):  1403.77 --|
+|-- NODE 0 Mem Read (MB/s) : 16296.39 --||-- NODE 1 Mem Read (MB/s) : 12169.71 --|
+|-- NODE 0 Mem Write(MB/s) :  7380.28 --||-- NODE 1 Mem Write(MB/s) :  5619.85 --|
+|-- NODE 0 P. Write (T/s):     165256 --||-- NODE 1 P. Write (T/s):     151446 --|
+|-- NODE 0 Memory (MB/s):    23676.67 --||-- NODE 1 Memory (MB/s):    17789.56 --|
+|---------------------------------------||---------------------------------------|
+            |---------------------------------------||---------------------------------------|
+            |--                 System Read Throughput(MB/s):      28466.10                --|
+            |--                System Write Throughput(MB/s):      13000.13                --|
+            |--               System Memory Throughput(MB/s):      41466.23                --|
+            |---------------------------------------||---------------------------------------|
+Cleaning up
+ Freeing up all RMIDs
+ out collect mem bw
+ in collect funcs
+[ perf record: Woken up 109 times to write data ]
+[ perf record: Captured and wrote 30.921 MB perf.data (200835 samples) ]
+ out collect funcs
+Data collected
+ in collect cpu
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US:en,",
+	LC_ALL = (unset),
+	LC_PAPER = "he_IL.UTF-8",
+	LC_ADDRESS = "he_IL.UTF-8",
+	LC_MONETARY = "he_IL.UTF-8",
+	LC_NUMERIC = "C",
+	LC_TELEPHONE = "he_IL.UTF-8",
+	LC_COLLATE = "C",
+	LC_IDENTIFICATION = "he_IL.UTF-8",
+	LC_MEASUREMENT = "he_IL.UTF-8",
+	LC_CTYPE = "en_US.UTF-8",
+	LC_NAME = "he_IL.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("en_US.UTF-8").
+keys on reference is experimental at DataCollector/collect_net_cpu.pl line 35.
+cpu_total: 20.03
+cpu_0: 32.35
+cpu_1: 21.57
+cpu_2: 30.39
+cpu_3: 21.57
+cpu_4: 26.47
+cpu_5: 22.55
+cpu_6: 41.18
+cpu_7: 29.41
+cpu_8: 23.53
+cpu_9: 23.53
+cpu_10: 26.47
+cpu_11: 20.59
+cpu_12: 20.59
+cpu_13: 20.59
+cpu_14: 14.71
+cpu_15: 11.76
+cpu_16: 21.57
+cpu_17: 15.69
+cpu_18: 10.78
+cpu_19: 19.61
+cpu_20: 7.84
+cpu_21: 15.69
+cpu_22: 9.80
+cpu_23: 26.47
+cpu_24: 10.78
+cpu_25: 11.76
+cpu_26: 10.78
+cpu_27: 13.73
+enp130s0f0_rx_bytes_phy: 19850991
+enp130s0f1_rx_bytes_phy: 9531451
+enp4s0f0_rx_bytes_phy: 0
+enp4s0f1_rx_bytes_phy: 0
+Total_rx_bytes_phy: 29382442
+enp130s0f0_rx_packets: 280225
+enp130s0f1_rx_packets: 135307
+enp4s0f0_rx_packets: 0
+enp4s0f1_rx_packets: 0
+Total_rx_packets: 415532
+enp130s0f0_rx_bytes: 18734448
+enp130s0f1_rx_bytes: 8993258
+enp4s0f0_rx_bytes: 0
+enp4s0f1_rx_bytes: 0
+Total_rx_bytes: 27727706
+enp130s0f0_tx_queue_stopped: 0
+enp130s0f1_tx_queue_stopped: 0
+enp4s0f0_tx_queue_stopped: 0
+enp4s0f1_tx_queue_stopped: 0
+Total_tx_queue_stopped: 0
+enp130s0f0_tx_bytes: 7411577799
+enp130s0f1_tx_bytes: 4790848038
+enp4s0f0_tx_bytes: 0
+enp4s0f1_tx_bytes: 0
+Total_tx_bytes: 12202425837
+enp130s0f0_tx_packets: 117461
+enp130s0f1_tx_packets: 75927
+enp4s0f0_tx_packets: 0
+enp4s0f1_tx_packets: 0
+Total_tx_packets: 193388
+enp130s0f0_tx_packets_phy: 821855
+enp130s0f1_tx_packets_phy: 531728
+enp4s0f0_tx_packets_phy: 0
+enp4s0f1_tx_packets_phy: 0
+Total_tx_packets_phy: 1353583
+enp130s0f0_rx_packets_phy: 280163
+enp130s0f1_rx_packets_phy: 135265
+enp4s0f0_rx_packets_phy: 0
+enp4s0f1_rx_packets_phy: 0
+Total_rx_packets_phy: 415428
+enp130s0f0_tx_bytes_phy: 7411498291
+enp130s0f1_tx_bytes_phy: 4795126996
+enp4s0f0_tx_bytes_phy: 0
+enp4s0f1_tx_bytes_phy: 0
+Total_tx_bytes_phy: 12206625287
+ out collect cpu
+ in collect pstas
+
+ Performance counter stats for 'system wide':
+
+       71873095567      cycles                                                      
+       21940396497      instructions              #    0.31  insn per cycle         
+         946259429      cache-misses              #   33.225 % of all cache refs    
+        2847996929      cache-references                                            
+
+       5.002373635 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+        1010919860      LLC-store                                                   
+         146762793      LLC-store-misses                                            
+
+       5.001904683 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+         678619172      LLC-load                                                    
+         313897629      LLC-load-misses           #   46.26% of all LL-cache hits   
+
+       5.002357332 seconds time elapsed
+
+ out collect pstas
+ in collect mem bw
+
+ Processor Counter Monitor: Memory Bandwidth Monitoring Utility  ($Format:%ci ID=%h$)
+
+ This utility measures memory bandwidth per channel or per DIMM rank in real-time
+
+Number of physical cores: 28
+Number of logical cores: 28
+Number of online logical cores: 28
+Threads (logical cores) per physical core: 1
+Num sockets: 2
+Physical cores per socket: 14
+Core PMU (perfmon) version: 3
+Number of core PMU generic (programmable) counters: 8
+Width of generic (programmable) counters: 48 bits
+Number of core PMU fixed counters: 3
+Width of fixed counters: 48 bits
+Nominal core frequency: 2000000000 Hz
+Package thermal spec power: 105 Watt; Package minimum power: 55 Watt; Package maximum power: 210 Watt; 
+Socket 0: 2 memory controllers detected with total number of 4 channels. 2 QPI ports detected.
+Socket 1: 2 memory controllers detected with total number of 4 channels. 2 QPI ports detected.
+
+Detected Intel(R) Xeon(R) CPU E5-2660 v4 @ 2.00GHz "Intel(r) microarchitecture codename Broadwell-EP/EX"
+Update every 1 seconds
+
+Executing "sleep" command:
+DEBUG: caught signal to interrupt (Child exited).
+Program sleep launched with PID: 13532
+Program exited with status 0
+|---------------------------------------||---------------------------------------|
+|--             Socket  0             --||--             Socket  1             --|
+|---------------------------------------||---------------------------------------|
+|--     Memory Channel Monitoring     --||--     Memory Channel Monitoring     --|
+|---------------------------------------||---------------------------------------|
+|-- Mem Ch  0: Reads (MB/s):  3728.51 --||-- Mem Ch  0: Reads (MB/s):  3219.19 --|
+|--            Writes(MB/s):  1687.81 --||--            Writes(MB/s):  1478.20 --|
+|-- Mem Ch  1: Reads (MB/s):  3714.75 --||-- Mem Ch  1: Reads (MB/s):  3202.93 --|
+|--            Writes(MB/s):  1683.79 --||--            Writes(MB/s):  1473.14 --|
+|-- Mem Ch  2: Reads (MB/s):  3738.55 --||-- Mem Ch  2: Reads (MB/s):  3210.41 --|
+|--            Writes(MB/s):  1689.70 --||--            Writes(MB/s):  1478.41 --|
+|-- Mem Ch  3: Reads (MB/s):  3729.34 --||-- Mem Ch  3: Reads (MB/s):  3213.15 --|
+|--            Writes(MB/s):  1685.43 --||--            Writes(MB/s):  1475.79 --|
+|-- NODE 0 Mem Read (MB/s) : 14911.14 --||-- NODE 1 Mem Read (MB/s) : 12845.69 --|
+|-- NODE 0 Mem Write(MB/s) :  6746.73 --||-- NODE 1 Mem Write(MB/s) :  5905.54 --|
+|-- NODE 0 P. Write (T/s):     160212 --||-- NODE 1 P. Write (T/s):     154058 --|
+|-- NODE 0 Memory (MB/s):    21657.87 --||-- NODE 1 Memory (MB/s):    18751.22 --|
+|---------------------------------------||---------------------------------------|
+            |---------------------------------------||---------------------------------------|
+            |--                 System Read Throughput(MB/s):      27756.83                --|
+            |--                System Write Throughput(MB/s):      12652.27                --|
+            |--               System Memory Throughput(MB/s):      40409.10                --|
+            |---------------------------------------||---------------------------------------|
+Cleaning up
+ Freeing up all RMIDs
+ out collect mem bw
+ in collect funcs
+[ perf record: Woken up 107 times to write data ]
+[ perf record: Captured and wrote 30.534 MB perf.data (198251 samples) ]
+ out collect funcs
+Data collected
+ in collect cpu
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US:en,",
+	LC_ALL = (unset),
+	LC_PAPER = "he_IL.UTF-8",
+	LC_ADDRESS = "he_IL.UTF-8",
+	LC_MONETARY = "he_IL.UTF-8",
+	LC_NUMERIC = "C",
+	LC_TELEPHONE = "he_IL.UTF-8",
+	LC_COLLATE = "C",
+	LC_IDENTIFICATION = "he_IL.UTF-8",
+	LC_MEASUREMENT = "he_IL.UTF-8",
+	LC_CTYPE = "en_US.UTF-8",
+	LC_NAME = "he_IL.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("en_US.UTF-8").
+keys on reference is experimental at DataCollector/collect_net_cpu.pl line 35.
+cpu_total: 20.48
+cpu_0: 28.43
+cpu_1: 32.35
+cpu_2: 34.31
+cpu_3: 22.55
+cpu_4: 35.29
+cpu_5: 26.47
+cpu_6: 15.69
+cpu_7: 24.51
+cpu_8: 9.80
+cpu_9: 25.49
+cpu_10: 25.49
+cpu_11: 20.59
+cpu_12: 25.49
+cpu_13: 25.49
+cpu_14: 13.73
+cpu_15: 34.31
+cpu_16: 14.71
+cpu_17: 21.57
+cpu_18: 12.75
+cpu_19: 13.73
+cpu_20: 8.82
+cpu_21: 14.71
+cpu_22: 9.80
+cpu_23: 15.69
+cpu_24: 8.82
+cpu_25: 13.73
+cpu_26: 13.73
+cpu_27: 25.49
+enp130s0f0_rx_bytes: 18565535
+enp130s0f1_rx_bytes: 12179177
+enp4s0f0_rx_bytes: 0
+enp4s0f1_rx_bytes: 0
+Total_rx_bytes: 30744712
+enp130s0f0_tx_bytes: 7234341023
+enp130s0f1_tx_bytes: 4634156690
+enp4s0f0_tx_bytes: 0
+enp4s0f1_tx_bytes: 0
+Total_tx_bytes: 11868497713
+enp130s0f0_tx_queue_stopped: 0
+enp130s0f1_tx_queue_stopped: 0
+enp4s0f0_tx_queue_stopped: 0
+enp4s0f1_tx_queue_stopped: 0
+Total_tx_queue_stopped: 0
+enp130s0f0_rx_packets_phy: 276333
+enp130s0f1_rx_packets_phy: 180188
+enp4s0f0_rx_packets_phy: 0
+enp4s0f1_rx_packets_phy: 0
+Total_rx_packets_phy: 456521
+enp130s0f0_rx_packets: 276308
+enp130s0f1_rx_packets: 180167
+enp4s0f0_rx_packets: 0
+enp4s0f1_rx_packets: 0
+Total_rx_packets: 456475
+enp130s0f0_tx_packets_phy: 802597
+enp130s0f1_tx_packets_phy: 514165
+enp4s0f0_tx_packets_phy: 0
+enp4s0f1_tx_packets_phy: 0
+Total_tx_packets_phy: 1316762
+enp130s0f0_tx_packets: 114683
+enp130s0f1_tx_packets: 73443
+enp4s0f0_tx_packets: 0
+enp4s0f1_tx_packets: 0
+Total_tx_packets: 188126
+enp130s0f0_rx_bytes_phy: 19672671
+enp130s0f1_rx_bytes_phy: 12901424
+enp4s0f0_rx_bytes_phy: 0
+enp4s0f1_rx_bytes_phy: 0
+Total_rx_bytes_phy: 32574095
+enp130s0f0_tx_bytes_phy: 7237818911
+enp130s0f1_tx_bytes_phy: 4636749498
+enp4s0f0_tx_bytes_phy: 0
+enp4s0f1_tx_bytes_phy: 0
+Total_tx_bytes_phy: 11874568409
+ out collect cpu
+ in collect pstas
+
+ Performance counter stats for 'system wide':
+
+       73650864183      cycles                                                      
+       22149704802      instructions              #    0.30  insn per cycle         
+         926592877      cache-misses              #   33.228 % of all cache refs    
+        2788583561      cache-references                                            
+
+       5.003916362 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+         990186758      LLC-store                                                   
+         148351903      LLC-store-misses                                            
+
+       5.002216565 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+         674127044      LLC-load                                                    
+         318160198      LLC-load-misses           #   47.20% of all LL-cache hits   
+
+       5.002643566 seconds time elapsed
+
+ out collect pstas
+ in collect mem bw
+
+ Processor Counter Monitor: Memory Bandwidth Monitoring Utility  ($Format:%ci ID=%h$)
+
+ This utility measures memory bandwidth per channel or per DIMM rank in real-time
+
+Number of physical cores: 28
+Number of logical cores: 28
+Number of online logical cores: 28
+Threads (logical cores) per physical core: 1
+Num sockets: 2
+Physical cores per socket: 14
+Core PMU (perfmon) version: 3
+Number of core PMU generic (programmable) counters: 8
+Width of generic (programmable) counters: 48 bits
+Number of core PMU fixed counters: 3
+Width of fixed counters: 48 bits
+Nominal core frequency: 2000000000 Hz
+Package thermal spec power: 105 Watt; Package minimum power: 55 Watt; Package maximum power: 210 Watt; 
+Socket 0: 2 memory controllers detected with total number of 4 channels. 2 QPI ports detected.
+Socket 1: 2 memory controllers detected with total number of 4 channels. 2 QPI ports detected.
+
+Detected Intel(R) Xeon(R) CPU E5-2660 v4 @ 2.00GHz "Intel(r) microarchitecture codename Broadwell-EP/EX"
+Update every 1 seconds
+
+Executing "sleep" command:
+DEBUG: caught signal to interrupt (Child exited).
+Program sleep launched with PID: 14805
+Program exited with status 0
+|---------------------------------------||---------------------------------------|
+|--             Socket  0             --||--             Socket  1             --|
+|---------------------------------------||---------------------------------------|
+|--     Memory Channel Monitoring     --||--     Memory Channel Monitoring     --|
+|---------------------------------------||---------------------------------------|
+|-- Mem Ch  0: Reads (MB/s):  3187.85 --||-- Mem Ch  0: Reads (MB/s):  3801.95 --|
+|--            Writes(MB/s):  1451.05 --||--            Writes(MB/s):  1736.40 --|
+|-- Mem Ch  1: Reads (MB/s):  3177.11 --||-- Mem Ch  1: Reads (MB/s):  3782.90 --|
+|--            Writes(MB/s):  1448.05 --||--            Writes(MB/s):  1732.12 --|
+|-- Mem Ch  2: Reads (MB/s):  3196.72 --||-- Mem Ch  2: Reads (MB/s):  3798.90 --|
+|--            Writes(MB/s):  1452.06 --||--            Writes(MB/s):  1737.76 --|
+|-- Mem Ch  3: Reads (MB/s):  3191.49 --||-- Mem Ch  3: Reads (MB/s):  3793.10 --|
+|--            Writes(MB/s):  1448.92 --||--            Writes(MB/s):  1733.75 --|
+|-- NODE 0 Mem Read (MB/s) : 12753.16 --||-- NODE 1 Mem Read (MB/s) : 15176.84 --|
+|-- NODE 0 Mem Write(MB/s) :  5800.08 --||-- NODE 1 Mem Write(MB/s) :  6940.04 --|
+|-- NODE 0 P. Write (T/s):     153151 --||-- NODE 1 P. Write (T/s):     161074 --|
+|-- NODE 0 Memory (MB/s):    18553.24 --||-- NODE 1 Memory (MB/s):    22116.88 --|
+|---------------------------------------||---------------------------------------|
+            |---------------------------------------||---------------------------------------|
+            |--                 System Read Throughput(MB/s):      27930.00                --|
+            |--                System Write Throughput(MB/s):      12740.12                --|
+            |--               System Memory Throughput(MB/s):      40670.12                --|
+            |---------------------------------------||---------------------------------------|
+Cleaning up
+ Freeing up all RMIDs
+ out collect mem bw
+ in collect funcs
+[ perf record: Woken up 106 times to write data ]
+[ perf record: Captured and wrote 30.950 MB perf.data (199123 samples) ]
+ out collect funcs
+Data collected
+ in collect cpu
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US:en,",
+	LC_ALL = (unset),
+	LC_PAPER = "he_IL.UTF-8",
+	LC_ADDRESS = "he_IL.UTF-8",
+	LC_MONETARY = "he_IL.UTF-8",
+	LC_NUMERIC = "C",
+	LC_TELEPHONE = "he_IL.UTF-8",
+	LC_COLLATE = "C",
+	LC_IDENTIFICATION = "he_IL.UTF-8",
+	LC_MEASUREMENT = "he_IL.UTF-8",
+	LC_CTYPE = "en_US.UTF-8",
+	LC_NAME = "he_IL.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("en_US.UTF-8").
+keys on reference is experimental at DataCollector/collect_net_cpu.pl line 35.
+cpu_total: 20.76
+cpu_0: 29.41
+cpu_1: 20.59
+cpu_2: 38.24
+cpu_3: 26.47
+cpu_4: 35.29
+cpu_5: 21.57
+cpu_6: 31.37
+cpu_7: 27.45
+cpu_8: 15.69
+cpu_9: 16.67
+cpu_10: 24.51
+cpu_11: 21.57
+cpu_12: 24.51
+cpu_13: 22.55
+cpu_14: 15.69
+cpu_15: 9.80
+cpu_16: 7.84
+cpu_17: 12.75
+cpu_18: 10.78
+cpu_19: 21.57
+cpu_20: 9.80
+cpu_21: 20.59
+cpu_22: 21.57
+cpu_23: 27.45
+cpu_24: 10.78
+cpu_25: 22.55
+cpu_26: 10.78
+cpu_27: 23.53
+enp130s0f0_rx_packets_phy: 302038
+enp130s0f1_rx_packets_phy: 160852
+enp4s0f0_rx_packets_phy: 0
+enp4s0f1_rx_packets_phy: 0
+Total_rx_packets_phy: 462890
+enp130s0f0_tx_packets_phy: 787619
+enp130s0f1_tx_packets_phy: 514629
+enp4s0f0_tx_packets_phy: 0
+enp4s0f1_tx_packets_phy: 0
+Total_tx_packets_phy: 1302248
+enp130s0f0_tx_bytes: 7100058342
+enp130s0f1_tx_bytes: 4639913288
+enp4s0f0_tx_bytes: 0
+enp4s0f1_tx_bytes: 0
+Total_tx_bytes: 11739971630
+enp130s0f0_rx_bytes: 20412255
+enp130s0f1_rx_bytes: 10665878
+enp4s0f0_rx_bytes: 0
+enp4s0f1_rx_bytes: 0
+Total_rx_bytes: 31078133
+enp130s0f0_tx_bytes_phy: 7102744880
+enp130s0f1_tx_bytes_phy: 4640923504
+enp4s0f0_tx_bytes_phy: 0
+enp4s0f1_tx_bytes_phy: 0
+Total_tx_bytes_phy: 11743668384
+enp130s0f0_tx_queue_stopped: 0
+enp130s0f1_tx_queue_stopped: 0
+enp4s0f0_tx_queue_stopped: 0
+enp4s0f1_tx_queue_stopped: 0
+Total_tx_queue_stopped: 0
+enp130s0f0_tx_packets: 112524
+enp130s0f1_tx_packets: 73535
+enp4s0f0_tx_packets: 0
+enp4s0f1_tx_packets: 0
+Total_tx_packets: 186059
+enp130s0f0_rx_bytes_phy: 21618632
+enp130s0f1_rx_bytes_phy: 11303942
+enp4s0f0_rx_bytes_phy: 0
+enp4s0f1_rx_bytes_phy: 0
+Total_rx_bytes_phy: 32922574
+enp130s0f0_rx_packets: 302061
+enp130s0f1_rx_packets: 160933
+enp4s0f0_rx_packets: 0
+enp4s0f1_rx_packets: 0
+Total_rx_packets: 462994
+ out collect cpu
+ in collect pstas
+
+ Performance counter stats for 'system wide':
+
+       75293640176      cycles                                                      
+       23499475427      instructions              #    0.31  insn per cycle         
+         934873346      cache-misses              #   33.087 % of all cache refs    
+        2825470056      cache-references                                            
+
+       5.002542241 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+         993204005      LLC-store                                                   
+         146264636      LLC-store-misses                                            
+
+       5.001873901 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+         691431089      LLC-load                                                    
+         324714577      LLC-load-misses           #   46.96% of all LL-cache hits   
+
+       5.001651781 seconds time elapsed
+
+ out collect pstas
+ in collect mem bw
+
+ Processor Counter Monitor: Memory Bandwidth Monitoring Utility  ($Format:%ci ID=%h$)
+
+ This utility measures memory bandwidth per channel or per DIMM rank in real-time
+
+Number of physical cores: 28
+Number of logical cores: 28
+Number of online logical cores: 28
+Threads (logical cores) per physical core: 1
+Num sockets: 2
+Physical cores per socket: 14
+Core PMU (perfmon) version: 3
+Number of core PMU generic (programmable) counters: 8
+Width of generic (programmable) counters: 48 bits
+Number of core PMU fixed counters: 3
+Width of fixed counters: 48 bits
+Nominal core frequency: 2000000000 Hz
+Package thermal spec power: 105 Watt; Package minimum power: 55 Watt; Package maximum power: 210 Watt; 
+Socket 0: 2 memory controllers detected with total number of 4 channels. 2 QPI ports detected.
+Socket 1: 2 memory controllers detected with total number of 4 channels. 2 QPI ports detected.
+
+Detected Intel(R) Xeon(R) CPU E5-2660 v4 @ 2.00GHz "Intel(r) microarchitecture codename Broadwell-EP/EX"
+Update every 1 seconds
+
+Executing "sleep" command:
+DEBUG: caught signal to interrupt (Child exited).
+Program sleep launched with PID: 15097
+Program exited with status 0
+|---------------------------------------||---------------------------------------|
+|--             Socket  0             --||--             Socket  1             --|
+|---------------------------------------||---------------------------------------|
+|--     Memory Channel Monitoring     --||--     Memory Channel Monitoring     --|
+|---------------------------------------||---------------------------------------|
+|-- Mem Ch  0: Reads (MB/s):  3546.46 --||-- Mem Ch  0: Reads (MB/s):  3422.60 --|
+|--            Writes(MB/s):  1597.94 --||--            Writes(MB/s):  1565.31 --|
+|-- Mem Ch  1: Reads (MB/s):  3540.49 --||-- Mem Ch  1: Reads (MB/s):  3401.53 --|
+|--            Writes(MB/s):  1596.30 --||--            Writes(MB/s):  1560.09 --|
+|-- Mem Ch  2: Reads (MB/s):  3555.44 --||-- Mem Ch  2: Reads (MB/s):  3416.88 --|
+|--            Writes(MB/s):  1599.20 --||--            Writes(MB/s):  1565.98 --|
+|-- Mem Ch  3: Reads (MB/s):  3552.96 --||-- Mem Ch  3: Reads (MB/s):  3412.44 --|
+|--            Writes(MB/s):  1597.37 --||--            Writes(MB/s):  1561.91 --|
+|-- NODE 0 Mem Read (MB/s) : 14195.36 --||-- NODE 1 Mem Read (MB/s) : 13653.45 --|
+|-- NODE 0 Mem Write(MB/s) :  6390.81 --||-- NODE 1 Mem Write(MB/s) :  6253.29 --|
+|-- NODE 0 P. Write (T/s):     157741 --||-- NODE 1 P. Write (T/s):     156243 --|
+|-- NODE 0 Memory (MB/s):    20586.17 --||-- NODE 1 Memory (MB/s):    19906.74 --|
+|---------------------------------------||---------------------------------------|
+            |---------------------------------------||---------------------------------------|
+            |--                 System Read Throughput(MB/s):      27848.81                --|
+            |--                System Write Throughput(MB/s):      12644.10                --|
+            |--               System Memory Throughput(MB/s):      40492.91                --|
+            |---------------------------------------||---------------------------------------|
+Cleaning up
+ Freeing up all RMIDs
+ out collect mem bw
+ in collect funcs
+[ perf record: Woken up 110 times to write data ]
+[ perf record: Captured and wrote 31.475 MB perf.data (202802 samples) ]
+ out collect funcs
+Data collected

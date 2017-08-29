@@ -1,0 +1,15 @@
+[global]
+name=random-read
+filename=/dev/nvme0n1
+ioengine=libaio
+direct=1
+blocksize=4K
+rw=randread
+iodepth=128
+size=32g
+time_based=1
+runtime=60
+group_reporting
+norandommap
+numjobs=32
+[job1]

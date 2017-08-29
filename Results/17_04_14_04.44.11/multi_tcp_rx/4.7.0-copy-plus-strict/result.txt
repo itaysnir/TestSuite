@@ -1,0 +1,720 @@
+ in collect cpu
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US:en,",
+	LC_ALL = (unset),
+	LC_PAPER = "he_IL.UTF-8",
+	LC_ADDRESS = "he_IL.UTF-8",
+	LC_MONETARY = "he_IL.UTF-8",
+	LC_NUMERIC = "C",
+	LC_TELEPHONE = "he_IL.UTF-8",
+	LC_COLLATE = "C",
+	LC_IDENTIFICATION = "he_IL.UTF-8",
+	LC_MEASUREMENT = "he_IL.UTF-8",
+	LC_CTYPE = "en_US.UTF-8",
+	LC_NAME = "he_IL.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("en_US.UTF-8").
+keys on reference is experimental at DataCollector/collect_net_cpu.pl line 35.
+cpu_total: 41.04
+cpu_0: 91.18
+cpu_1: 68.63
+cpu_2: 62.75
+cpu_3: 30.39
+cpu_4: 81.37
+cpu_5: 58.82
+cpu_6: 57.84
+cpu_7: 37.25
+cpu_8: 58.82
+cpu_9: 75.49
+cpu_10: 85.29
+cpu_11: 80.39
+cpu_12: 30.39
+cpu_13: 60.78
+cpu_14: 16.67
+cpu_15: 27.45
+cpu_16: 15.69
+cpu_17: 18.63
+cpu_18: 26.47
+cpu_19: 13.73
+cpu_20: 14.71
+cpu_21: 17.65
+cpu_22: 22.55
+cpu_23: 18.63
+cpu_24: 18.63
+cpu_25: 13.73
+cpu_26: 13.73
+cpu_27: 31.37
+enp130s0f0_tx_bytes: 23807708
+enp130s0f1_tx_bytes: 21468834
+enp4s0f0_tx_bytes: 0
+enp4s0f1_tx_bytes: 0
+Total_tx_bytes: 45276542
+enp130s0f0_tx_packets: 346191
+enp130s0f1_tx_packets: 316827
+enp4s0f0_tx_packets: 0
+enp4s0f1_tx_packets: 0
+Total_tx_packets: 663018
+enp130s0f0_rx_packets: 1246910
+enp130s0f1_rx_packets: 1279071
+enp4s0f0_rx_packets: 0
+enp4s0f1_rx_packets: 0
+Total_rx_packets: 2525981
+enp130s0f0_rx_bytes: 4830869885
+enp130s0f1_rx_bytes: 4652063120
+enp4s0f0_rx_bytes: 0
+enp4s0f1_rx_bytes: 0
+Total_rx_bytes: 9482933005
+enp130s0f0_tx_packets_phy: 800821
+enp130s0f1_tx_packets_phy: 326967
+enp4s0f0_tx_packets_phy: 0
+enp4s0f1_tx_packets_phy: 0
+Total_tx_packets_phy: 1127788
+enp130s0f0_rx_bytes_phy: 4977966659
+enp130s0f1_rx_bytes_phy: 4789027437
+enp4s0f0_rx_bytes_phy: 0
+enp4s0f1_rx_bytes_phy: 0
+Total_rx_bytes_phy: 9766994096
+enp130s0f0_tx_bytes_phy: 54288219
+enp130s0f1_tx_bytes_phy: 23384802
+enp4s0f0_tx_bytes_phy: 0
+enp4s0f1_tx_bytes_phy: 0
+Total_tx_bytes_phy: 77673021
+enp130s0f0_rx_packets_phy: 3279305
+enp130s0f1_rx_packets_phy: 3154827
+enp4s0f0_rx_packets_phy: 0
+enp4s0f1_rx_packets_phy: 0
+Total_rx_packets_phy: 6434132
+ out collect cpu
+ in collect pstas
+
+ Performance counter stats for 'system wide':
+
+      149818518515      cycles                                                      
+       67536932548      instructions              #    0.45  insn per cycle         
+        1467033171      cache-misses              #   27.622 % of all cache refs    
+        5311073502      cache-references                                            
+
+       5.002614221 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+        1725417359      LLC-store                                                   
+          86843808      LLC-store-misses                                            
+
+       5.001801868 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+        1582520197      LLC-load                                                    
+         700359930      LLC-load-misses           #   44.26% of all LL-cache hits   
+
+       5.001854511 seconds time elapsed
+
+ out collect pstas
+ in collect mem bw
+
+ Processor Counter Monitor: Memory Bandwidth Monitoring Utility  ($Format:%ci ID=%h$)
+
+ This utility measures memory bandwidth per channel or per DIMM rank in real-time
+
+Number of physical cores: 28
+Number of logical cores: 28
+Number of online logical cores: 28
+Threads (logical cores) per physical core: 1
+Num sockets: 2
+Physical cores per socket: 14
+Core PMU (perfmon) version: 3
+Number of core PMU generic (programmable) counters: 8
+Width of generic (programmable) counters: 48 bits
+Number of core PMU fixed counters: 3
+Width of fixed counters: 48 bits
+Can not access CPUs Model Specific Registers (MSRs).
+Try to execute 'modprobe msr' as root user and then
+you also must have read and write permissions for /dev/cpu/*/msr devices (/dev/msr* for Android). The 'chown' command can help.
+Access to Processor Counter Monitor has denied (no MSR or PCI CFG space access).
+ out collect mem bw
+ in collect funcs
+[ perf record: Woken up 252 times to write data ]
+[ perf record: Captured and wrote 66.357 MB perf.data (403403 samples) ]
+ out collect funcs
+Data collected
+ in collect cpu
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US:en,",
+	LC_ALL = (unset),
+	LC_PAPER = "he_IL.UTF-8",
+	LC_ADDRESS = "he_IL.UTF-8",
+	LC_MONETARY = "he_IL.UTF-8",
+	LC_NUMERIC = "C",
+	LC_TELEPHONE = "he_IL.UTF-8",
+	LC_COLLATE = "C",
+	LC_IDENTIFICATION = "he_IL.UTF-8",
+	LC_MEASUREMENT = "he_IL.UTF-8",
+	LC_CTYPE = "en_US.UTF-8",
+	LC_NAME = "he_IL.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("en_US.UTF-8").
+keys on reference is experimental at DataCollector/collect_net_cpu.pl line 35.
+cpu_total: 43.38
+cpu_0: 21.57
+cpu_1: 24.51
+cpu_2: 91.18
+cpu_3: 68.63
+cpu_4: 39.22
+cpu_5: 36.27
+cpu_6: 21.57
+cpu_7: 77.45
+cpu_8: 68.63
+cpu_9: 67.65
+cpu_10: 28.43
+cpu_11: 58.82
+cpu_12: 23.53
+cpu_13: 88.24
+cpu_14: 29.41
+cpu_15: 17.65
+cpu_16: 17.65
+cpu_17: 35.29
+cpu_18: 15.69
+cpu_19: 53.92
+cpu_20: 21.57
+cpu_21: 86.27
+cpu_22: 23.53
+cpu_23: 65.69
+cpu_24: 19.61
+cpu_25: 28.43
+cpu_26: 13.73
+cpu_27: 71.57
+enp130s0f0_tx_bytes: 25205555
+enp130s0f1_tx_bytes: 16587261
+enp4s0f0_tx_bytes: 0
+enp4s0f1_tx_bytes: 0
+Total_tx_bytes: 41792816
+enp130s0f0_rx_packets: 1436981
+enp130s0f1_rx_packets: 1501599
+enp4s0f0_rx_packets: 0
+enp4s0f1_rx_packets: 0
+Total_rx_packets: 2938580
+enp130s0f0_tx_bytes_phy: 55493550
+enp130s0f1_tx_bytes_phy: 17995610
+enp4s0f0_tx_bytes_phy: 0
+enp4s0f1_tx_bytes_phy: 0
+Total_tx_bytes_phy: 73489160
+enp130s0f0_tx_packets_phy: 816910
+enp130s0f1_tx_packets_phy: 249887
+enp4s0f0_tx_packets_phy: 0
+enp4s0f1_tx_packets_phy: 0
+Total_tx_packets_phy: 1066797
+enp130s0f0_rx_bytes: 4871406577
+enp130s0f1_rx_bytes: 4702917688
+enp4s0f0_rx_bytes: 0
+enp4s0f1_rx_bytes: 0
+Total_rx_bytes: 9574324265
+enp130s0f0_rx_bytes_phy: 5005398249
+enp130s0f1_rx_bytes_phy: 4831115955
+enp4s0f0_rx_bytes_phy: 0
+enp4s0f1_rx_bytes_phy: 0
+Total_rx_bytes_phy: 9836514204
+enp130s0f0_rx_packets_phy: 3297363
+enp130s0f1_rx_packets_phy: 3182552
+enp4s0f0_rx_packets_phy: 0
+enp4s0f1_rx_packets_phy: 0
+Total_rx_packets_phy: 6479915
+enp130s0f0_tx_packets: 366546
+enp130s0f1_tx_packets: 243102
+enp4s0f0_tx_packets: 0
+enp4s0f1_tx_packets: 0
+Total_tx_packets: 609648
+ out collect cpu
+ in collect pstas
+
+ Performance counter stats for 'system wide':
+
+      154778642377      cycles                                                      
+       67441055988      instructions              #    0.44  insn per cycle         
+        1502408409      cache-misses              #   27.944 % of all cache refs    
+        5376575862      cache-references                                            
+
+       5.002409741 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+        1728360137      LLC-store                                                   
+          87742477      LLC-store-misses                                            
+
+       5.001725177 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+        1625923846      LLC-load                                                    
+         811708399      LLC-load-misses           #   49.92% of all LL-cache hits   
+
+       5.001915314 seconds time elapsed
+
+ out collect pstas
+ in collect mem bw
+
+ Processor Counter Monitor: Memory Bandwidth Monitoring Utility  ($Format:%ci ID=%h$)
+
+ This utility measures memory bandwidth per channel or per DIMM rank in real-time
+
+Number of physical cores: 28
+Number of logical cores: 28
+Number of online logical cores: 28
+Threads (logical cores) per physical core: 1
+Num sockets: 2
+Physical cores per socket: 14
+Core PMU (perfmon) version: 3
+Number of core PMU generic (programmable) counters: 8
+Width of generic (programmable) counters: 48 bits
+Number of core PMU fixed counters: 3
+Width of fixed counters: 48 bits
+Can not access CPUs Model Specific Registers (MSRs).
+Try to execute 'modprobe msr' as root user and then
+you also must have read and write permissions for /dev/cpu/*/msr devices (/dev/msr* for Android). The 'chown' command can help.
+Access to Processor Counter Monitor has denied (no MSR or PCI CFG space access).
+ out collect mem bw
+ in collect funcs
+[ perf record: Woken up 262 times to write data ]
+[ perf record: Captured and wrote 68.880 MB perf.data (417632 samples) ]
+ out collect funcs
+Data collected
+ in collect cpu
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US:en,",
+	LC_ALL = (unset),
+	LC_PAPER = "he_IL.UTF-8",
+	LC_ADDRESS = "he_IL.UTF-8",
+	LC_MONETARY = "he_IL.UTF-8",
+	LC_NUMERIC = "C",
+	LC_TELEPHONE = "he_IL.UTF-8",
+	LC_COLLATE = "C",
+	LC_IDENTIFICATION = "he_IL.UTF-8",
+	LC_MEASUREMENT = "he_IL.UTF-8",
+	LC_CTYPE = "en_US.UTF-8",
+	LC_NAME = "he_IL.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("en_US.UTF-8").
+keys on reference is experimental at DataCollector/collect_net_cpu.pl line 35.
+cpu_total: 40.30
+cpu_0: 19.61
+cpu_1: 35.29
+cpu_2: 48.04
+cpu_3: 99.02
+cpu_4: 59.80
+cpu_5: 35.29
+cpu_6: 48.04
+cpu_7: 43.14
+cpu_8: 66.67
+cpu_9: 76.47
+cpu_10: 62.75
+cpu_11: 26.47
+cpu_12: 47.06
+cpu_13: 28.43
+cpu_14: 18.63
+cpu_15: 19.61
+cpu_16: 13.73
+cpu_17: 23.53
+cpu_18: 16.67
+cpu_19: 60.78
+cpu_20: 16.67
+cpu_21: 43.14
+cpu_22: 13.73
+cpu_23: 44.12
+cpu_24: 22.55
+cpu_25: 38.24
+cpu_26: 17.65
+cpu_27: 78.43
+enp130s0f0_tx_bytes: 23841350
+enp130s0f1_tx_bytes: 17015151
+enp4s0f0_tx_bytes: 0
+enp4s0f1_tx_bytes: 0
+Total_tx_bytes: 40856501
+enp130s0f0_tx_packets: 347633
+enp130s0f1_tx_packets: 250262
+enp4s0f0_tx_packets: 0
+enp4s0f1_tx_packets: 0
+Total_tx_packets: 597895
+enp130s0f0_tx_bytes_phy: 53888863
+enp130s0f1_tx_bytes_phy: 18270389
+enp4s0f0_tx_bytes_phy: 0
+enp4s0f1_tx_bytes_phy: 0
+Total_tx_bytes_phy: 72159252
+enp130s0f0_rx_packets_phy: 3348113
+enp130s0f1_rx_packets_phy: 3210511
+enp4s0f0_rx_packets_phy: 0
+enp4s0f1_rx_packets_phy: 0
+Total_rx_packets_phy: 6558624
+enp130s0f0_tx_packets_phy: 795395
+enp130s0f1_tx_packets_phy: 254233
+enp4s0f0_tx_packets_phy: 0
+enp4s0f1_tx_packets_phy: 0
+Total_tx_packets_phy: 1049628
+enp130s0f0_rx_bytes: 4926050611
+enp130s0f1_rx_bytes: 4738228998
+enp4s0f0_rx_bytes: 0
+enp4s0f1_rx_bytes: 0
+Total_rx_bytes: 9664279609
+enp130s0f0_rx_packets: 1187486
+enp130s0f1_rx_packets: 1363760
+enp4s0f0_rx_packets: 0
+enp4s0f1_rx_packets: 0
+Total_rx_packets: 2551246
+enp130s0f0_rx_bytes_phy: 5082435593
+enp130s0f1_rx_bytes_phy: 4873557143
+enp4s0f0_rx_bytes_phy: 0
+enp4s0f1_rx_bytes_phy: 0
+Total_rx_bytes_phy: 9955992736
+ out collect cpu
+ in collect pstas
+
+ Performance counter stats for 'system wide':
+
+      147838316069      cycles                                                      
+       64928436125      instructions              #    0.44  insn per cycle         
+        1350436361      cache-misses              #   24.888 % of all cache refs    
+        5425981707      cache-references                                            
+
+       5.002402784 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+        1776952888      LLC-store                                                   
+          80074300      LLC-store-misses                                            
+
+       5.001871210 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+        1583811888      LLC-load                                                    
+         672819686      LLC-load-misses           #   42.48% of all LL-cache hits   
+
+       5.002251402 seconds time elapsed
+
+ out collect pstas
+ in collect mem bw
+
+ Processor Counter Monitor: Memory Bandwidth Monitoring Utility  ($Format:%ci ID=%h$)
+
+ This utility measures memory bandwidth per channel or per DIMM rank in real-time
+
+Number of physical cores: 28
+Number of logical cores: 28
+Number of online logical cores: 28
+Threads (logical cores) per physical core: 1
+Num sockets: 2
+Physical cores per socket: 14
+Core PMU (perfmon) version: 3
+Number of core PMU generic (programmable) counters: 8
+Width of generic (programmable) counters: 48 bits
+Number of core PMU fixed counters: 3
+Width of fixed counters: 48 bits
+Can not access CPUs Model Specific Registers (MSRs).
+Try to execute 'modprobe msr' as root user and then
+you also must have read and write permissions for /dev/cpu/*/msr devices (/dev/msr* for Android). The 'chown' command can help.
+Access to Processor Counter Monitor has denied (no MSR or PCI CFG space access).
+ out collect mem bw
+ in collect funcs
+[ perf record: Woken up 256 times to write data ]
+[ perf record: Captured and wrote 67.297 MB perf.data (407084 samples) ]
+ out collect funcs
+Data collected
+ in collect cpu
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US:en,",
+	LC_ALL = (unset),
+	LC_PAPER = "he_IL.UTF-8",
+	LC_ADDRESS = "he_IL.UTF-8",
+	LC_MONETARY = "he_IL.UTF-8",
+	LC_NUMERIC = "C",
+	LC_TELEPHONE = "he_IL.UTF-8",
+	LC_COLLATE = "C",
+	LC_IDENTIFICATION = "he_IL.UTF-8",
+	LC_MEASUREMENT = "he_IL.UTF-8",
+	LC_CTYPE = "en_US.UTF-8",
+	LC_NAME = "he_IL.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("en_US.UTF-8").
+keys on reference is experimental at DataCollector/collect_net_cpu.pl line 35.
+cpu_total: 47.27
+cpu_0: 18.63
+cpu_1: 79.41
+cpu_2: 42.16
+cpu_3: 78.43
+cpu_4: 41.18
+cpu_5: 70.59
+cpu_6: 65.69
+cpu_7: 66.67
+cpu_8: 35.29
+cpu_9: 32.35
+cpu_10: 42.16
+cpu_11: 29.41
+cpu_12: 47.06
+cpu_13: 50.00
+cpu_14: 22.55
+cpu_15: 92.16
+cpu_16: 27.45
+cpu_17: 93.14
+cpu_18: 17.65
+cpu_19: 36.27
+cpu_20: 15.69
+cpu_21: 66.67
+cpu_22: 36.27
+cpu_23: 61.76
+cpu_24: 19.61
+cpu_25: 74.51
+cpu_26: 14.71
+cpu_27: 44.12
+enp130s0f0_tx_bytes: 25285471
+enp130s0f1_tx_bytes: 22190651
+enp4s0f0_tx_bytes: 0
+enp4s0f1_tx_bytes: 0
+Total_tx_bytes: 47476122
+enp130s0f0_tx_packets_phy: 833344
+enp130s0f1_tx_packets_phy: 347206
+enp4s0f0_tx_packets_phy: 0
+enp4s0f1_tx_packets_phy: 0
+Total_tx_packets_phy: 1180550
+enp130s0f0_rx_bytes_phy: 4674309515
+enp130s0f1_rx_bytes_phy: 4523951641
+enp4s0f0_rx_bytes_phy: 0
+enp4s0f1_rx_bytes_phy: 0
+Total_rx_bytes_phy: 9198261156
+enp130s0f0_tx_bytes_phy: 56670166
+enp130s0f1_tx_bytes_phy: 25110290
+enp4s0f0_tx_bytes_phy: 0
+enp4s0f1_tx_bytes_phy: 0
+Total_tx_bytes_phy: 81780456
+enp130s0f0_rx_packets_phy: 3079243
+enp130s0f1_rx_packets_phy: 2980205
+enp4s0f0_rx_packets_phy: 0
+enp4s0f1_rx_packets_phy: 0
+Total_rx_packets_phy: 6059448
+enp130s0f0_tx_packets: 365887
+enp130s0f1_tx_packets: 321657
+enp4s0f0_tx_packets: 0
+enp4s0f1_tx_packets: 0
+Total_tx_packets: 687544
+enp130s0f0_rx_bytes: 4547795836
+enp130s0f1_rx_bytes: 4445768434
+enp4s0f0_rx_bytes: 0
+enp4s0f1_rx_bytes: 0
+Total_rx_bytes: 8993564270
+enp130s0f0_rx_packets: 1437333
+enp130s0f1_rx_packets: 1936718
+enp4s0f0_rx_packets: 0
+enp4s0f1_rx_packets: 0
+Total_rx_packets: 3374051
+ out collect cpu
+ in collect pstas
+
+ Performance counter stats for 'system wide':
+
+      170332832586      cycles                                                      
+       75138016479      instructions              #    0.44  insn per cycle         
+        1649290371      cache-misses              #   30.619 % of all cache refs    
+        5386560757      cache-references                                            
+
+       5.017096750 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+        1705704660      LLC-store                                                   
+          92100845      LLC-store-misses                                            
+
+       5.018703267 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+        1664945965      LLC-load                                                    
+         869279685      LLC-load-misses           #   52.21% of all LL-cache hits   
+
+       5.015074999 seconds time elapsed
+
+ out collect pstas
+ in collect mem bw
+
+ Processor Counter Monitor: Memory Bandwidth Monitoring Utility  ($Format:%ci ID=%h$)
+
+ This utility measures memory bandwidth per channel or per DIMM rank in real-time
+
+Number of physical cores: 28
+Number of logical cores: 28
+Number of online logical cores: 28
+Threads (logical cores) per physical core: 1
+Num sockets: 2
+Physical cores per socket: 14
+Core PMU (perfmon) version: 3
+Number of core PMU generic (programmable) counters: 8
+Width of generic (programmable) counters: 48 bits
+Number of core PMU fixed counters: 3
+Width of fixed counters: 48 bits
+Can not access CPUs Model Specific Registers (MSRs).
+Try to execute 'modprobe msr' as root user and then
+you also must have read and write permissions for /dev/cpu/*/msr devices (/dev/msr* for Android). The 'chown' command can help.
+Access to Processor Counter Monitor has denied (no MSR or PCI CFG space access).
+ out collect mem bw
+ in collect funcs
+[ perf record: Woken up 261 times to write data ]
+[ perf record: Captured and wrote 72.936 MB perf.data (437535 samples) ]
+ out collect funcs
+Data collected
+ in collect cpu
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = "en_US:en,",
+	LC_ALL = (unset),
+	LC_PAPER = "he_IL.UTF-8",
+	LC_ADDRESS = "he_IL.UTF-8",
+	LC_MONETARY = "he_IL.UTF-8",
+	LC_NUMERIC = "C",
+	LC_TELEPHONE = "he_IL.UTF-8",
+	LC_COLLATE = "C",
+	LC_IDENTIFICATION = "he_IL.UTF-8",
+	LC_MEASUREMENT = "he_IL.UTF-8",
+	LC_CTYPE = "en_US.UTF-8",
+	LC_NAME = "he_IL.UTF-8",
+	LANG = "en_US.UTF-8"
+    are supported and installed on your system.
+perl: warning: Falling back to a fallback locale ("en_US.UTF-8").
+keys on reference is experimental at DataCollector/collect_net_cpu.pl line 35.
+cpu_total: 41.98
+cpu_0: 18.63
+cpu_1: 35.29
+cpu_2: 41.18
+cpu_3: 66.67
+cpu_4: 39.22
+cpu_5: 31.37
+cpu_6: 16.67
+cpu_7: 28.43
+cpu_8: 90.20
+cpu_9: 100.00
+cpu_10: 30.39
+cpu_11: 50.00
+cpu_12: 66.67
+cpu_13: 22.55
+cpu_14: 24.51
+cpu_15: 18.63
+cpu_16: 24.51
+cpu_17: 75.49
+cpu_18: 17.65
+cpu_19: 36.27
+cpu_20: 14.71
+cpu_21: 59.80
+cpu_22: 17.65
+cpu_23: 35.29
+cpu_24: 21.57
+cpu_25: 98.04
+cpu_26: 11.76
+cpu_27: 80.39
+enp130s0f0_rx_packets_phy: 3567266
+enp130s0f1_rx_packets_phy: 3233510
+enp4s0f0_rx_packets_phy: 0
+enp4s0f1_rx_packets_phy: 0
+Total_rx_packets_phy: 6800776
+enp130s0f0_rx_packets: 1335418
+enp130s0f1_rx_packets: 1329058
+enp4s0f0_rx_packets: 0
+enp4s0f1_rx_packets: 0
+Total_rx_packets: 2664476
+enp130s0f0_tx_packets_phy: 730830
+enp130s0f1_tx_packets_phy: 259081
+enp4s0f0_tx_packets_phy: 0
+enp4s0f1_tx_packets_phy: 0
+Total_tx_packets_phy: 989911
+enp130s0f0_tx_packets: 301306
+enp130s0f1_tx_packets: 257589
+enp4s0f0_tx_packets: 0
+enp4s0f1_tx_packets: 0
+Total_tx_packets: 558895
+enp130s0f0_tx_bytes: 21093144
+enp130s0f1_tx_bytes: 17452540
+enp4s0f0_tx_bytes: 0
+enp4s0f1_tx_bytes: 0
+Total_tx_bytes: 38545684
+enp130s0f0_rx_bytes: 5230599738
+enp130s0f1_rx_bytes: 4767917718
+enp4s0f0_rx_bytes: 0
+enp4s0f1_rx_bytes: 0
+Total_rx_bytes: 9998517456
+enp130s0f0_rx_bytes_phy: 5415098535
+enp130s0f1_rx_bytes_phy: 4908440414
+enp4s0f0_rx_bytes_phy: 0
+enp4s0f1_rx_bytes_phy: 0
+Total_rx_bytes_phy: 10323538949
+enp130s0f0_tx_bytes_phy: 49787232
+enp130s0f1_tx_bytes_phy: 18578046
+enp4s0f0_tx_bytes_phy: 0
+enp4s0f1_tx_bytes_phy: 0
+Total_tx_bytes_phy: 68365278
+ out collect cpu
+ in collect pstas
+
+ Performance counter stats for 'system wide':
+
+      156214695309      cycles                                                      
+       67876159696      instructions              #    0.43  insn per cycle         
+        1491598719      cache-misses              #   26.766 % of all cache refs    
+        5572822805      cache-references                                            
+
+       5.002776803 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+        1799802851      LLC-store                                                   
+          84574530      LLC-store-misses                                            
+
+       5.001854733 seconds time elapsed
+
+
+ Performance counter stats for 'system wide':
+
+        1691129081      LLC-load                                                    
+         773480122      LLC-load-misses           #   45.74% of all LL-cache hits   
+
+       5.004854702 seconds time elapsed
+
+ out collect pstas
+ in collect mem bw
+
+ Processor Counter Monitor: Memory Bandwidth Monitoring Utility  ($Format:%ci ID=%h$)
+
+ This utility measures memory bandwidth per channel or per DIMM rank in real-time
+
+Number of physical cores: 28
+Number of logical cores: 28
+Number of online logical cores: 28
+Threads (logical cores) per physical core: 1
+Num sockets: 2
+Physical cores per socket: 14
+Core PMU (perfmon) version: 3
+Number of core PMU generic (programmable) counters: 8
+Width of generic (programmable) counters: 48 bits
+Number of core PMU fixed counters: 3
+Width of fixed counters: 48 bits
+Can not access CPUs Model Specific Registers (MSRs).
+Try to execute 'modprobe msr' as root user and then
+you also must have read and write permissions for /dev/cpu/*/msr devices (/dev/msr* for Android). The 'chown' command can help.
+Access to Processor Counter Monitor has denied (no MSR or PCI CFG space access).
+ out collect mem bw
+ in collect funcs
+[ perf record: Woken up 201 times to write data ]
+[ perf record: Captured and wrote 70.325 MB perf.data (423565 samples) ]
+ out collect funcs
+Data collected

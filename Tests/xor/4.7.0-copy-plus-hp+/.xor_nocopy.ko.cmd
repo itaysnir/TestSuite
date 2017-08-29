@@ -1,0 +1,1 @@
+cmd_/homes/markuze/TestSuite/Tests/xor/4.7.0-copy-plus-hp+/xor_nocopy.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /homes/markuze/TestSuite/Tests/xor/4.7.0-copy-plus-hp+/xor_nocopy.ko /homes/markuze/TestSuite/Tests/xor/4.7.0-copy-plus-hp+/xor_nocopy.o /homes/markuze/TestSuite/Tests/xor/4.7.0-copy-plus-hp+/xor_nocopy.mod.o

@@ -1,0 +1,10 @@
+export ip1=10.0.100.30
+export ip2=10.1.100.30
+export dip1=10.0.100.31
+export dip2=10.1.100.31
+export if1=p2p1
+export if2=p2p2
+export dif1=eth9
+export dif2=eth10
+export mtu=9000
+export loader=tapuz31

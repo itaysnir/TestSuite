@@ -1,0 +1,1060 @@
+ in collect pcm
+Architecture:          x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                28
+On-line CPU(s) list:   0-27
+Thread(s) per core:    1
+Core(s) per socket:    14
+Socket(s):             2
+NUMA node(s):          2
+Vendor ID:             GenuineIntel
+CPU family:            6
+Model:                 79
+Model name:            Intel(R) Xeon(R) CPU E5-2660 v4 @ 2.00GHz
+Stepping:              1
+CPU MHz:               1298.339
+CPU max MHz:           3200.0000
+CPU min MHz:           1200.0000
+BogoMIPS:              4001.12
+Virtualization:        VT-x
+L1d cache:             32K
+L1i cache:             32K
+L2 cache:              256K
+L3 cache:              35840K
+NUMA node0 CPU(s):     0,2,4,6,8,10,12,14,16,18,20,22,24,26
+NUMA node1 CPU(s):     1,3,5,7,9,11,13,15,17,19,21,23,25,27
+Flags:                 fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch epb intel_pt tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm rdseed adx smap xsaveopt cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+
+ Processor Counter Monitor  ($Format:%ci ID=%h$)
+
+
+Number of physical cores: 28
+Number of logical cores: 28
+Number of online logical cores: 28
+Threads (logical cores) per physical core: 1
+Num sockets: 2
+Physical cores per socket: 14
+Core PMU (perfmon) version: 3
+Number of core PMU generic (programmable) counters: 8
+Width of generic (programmable) counters: 48 bits
+Number of core PMU fixed counters: 3
+Width of fixed counters: 48 bits
+Nominal core frequency: 2000000000 Hz
+Package thermal spec power: 105 Watt; Package minimum power: 55 Watt; Package maximum power: 210 Watt; 
+Socket 0: 2 memory controllers detected with total number of 4 channels. 2 QPI ports detected.
+Socket 1: 2 memory controllers detected with total number of 4 channels. 2 QPI ports detected.
+Trying to use Linux perf events...
+Successfully programmed on-core PMU using Linux perf
+Socket 0
+Max QPI link 0 speed: 19.2 GBytes/second (9.6 GT/second)
+Max QPI link 1 speed: 19.2 GBytes/second (9.6 GT/second)
+Socket 1
+Max QPI link 0 speed: 19.2 GBytes/second (9.6 GT/second)
+Max QPI link 1 speed: 19.2 GBytes/second (9.6 GT/second)
+
+Detected Intel(R) Xeon(R) CPU E5-2660 v4 @ 2.00GHz "Intel(r) microarchitecture codename Broadwell-EP/EX" stepping 1
+
+Executing "sleep" command:
+DEBUG: caught signal to interrupt (Child exited).
+Program sleep launched with PID: 5648
+Program exited with status 0
+
+ EXEC  : instructions per nominal CPU cycle
+ IPC   : instructions per CPU cycle
+ FREQ  : relation to nominal CPU frequency='unhalted clock ticks'/'invariant timer ticks' (includes Intel Turbo Boost)
+ AFREQ : relation to nominal CPU frequency while in active state (not in power-saving C state)='unhalted clock ticks'/'invariant timer ticks while in C0-state'  (includes Intel Turbo Boost)
+ L3MISS: L3 cache misses 
+ L2MISS: L2 cache misses (including other core's L2 cache *hits*) 
+ L3HIT : L3 cache hit ratio (0.00-1.00)
+ L2HIT : L2 cache hit ratio (0.00-1.00)
+ L3MPI : number of L3 cache misses per instruction
+ L2MPI : number of L2 cache misses per instruction
+ READ  : bytes read from main memory controller (in GBytes)
+ WRITE : bytes written to main memory controller (in GBytes)
+ L3OCC : L3 occupancy (in KBytes)
+ LMB   : L3 cache external bandwidth satisfied by local memory (in MBytes)
+ RMB   : L3 cache external bandwidth satisfied by remote memory (in MBytes)
+ TEMP  : Temperature reading in 1 degree Celsius relative to the TjMax temperature (thermal headroom): 0 corresponds to the max temperature
+ energy: Energy in Joules
+
+
+ Core (SKT) | EXEC | IPC  | FREQ  | AFREQ | L3MISS | L2MISS | L3HIT | L2HIT | L3MPI | L2MPI |  L3OCC |   LMB  |   RMB  | TEMP
+
+   0    0     0.07   0.69   0.11    1.10    1425 K   2653 K    0.46    0.16    0.00    0.00     1792      141        4     61
+   1    1     0.08   0.69   0.11    1.06    1491 K   2951 K    0.49    0.20    0.00    0.00     3584      140        4     58
+   2    0     0.01   1.33   0.01    0.63     199 K    359 K    0.45    0.20    0.00    0.00      560       12        5     60
+   3    1     0.02   0.61   0.03    0.81     425 K    963 K    0.56    0.27    0.00    0.01      448       21        5     58
+   4    0     0.01   0.68   0.01    0.72     199 K    389 K    0.49    0.15    0.00    0.00      392       14        3     60
+   5    1     0.03   0.63   0.04    0.85     506 K   1130 K    0.55    0.25    0.00    0.00      840       56        3     58
+   6    0     0.02   0.77   0.03    0.76     575 K    976 K    0.41    0.27    0.00    0.00     2632       35        3     60
+   7    1     0.07   0.70   0.11    1.06    1353 K   2715 K    0.50    0.20    0.00    0.00     1736      130        2     57
+   8    0     0.08   0.67   0.12    1.08    1502 K   2774 K    0.46    0.17    0.00    0.00     3528      129        2     59
+   9    1     0.06   0.68   0.09    1.04    1119 K   2224 K    0.50    0.20    0.00    0.00        0       94        3     57
+  10    0     0.10   0.66   0.16    0.95    2006 K   3744 K    0.46    0.25    0.00    0.00     2016      134        8     58
+  11    1     0.07   0.67   0.10    1.05    1220 K   2424 K    0.50    0.19    0.00    0.00        0      112        3     56
+  12    0     0.07   0.68   0.11    1.09    1290 K   2497 K    0.48    0.18    0.00    0.00     1064      131        2     60
+  13    1     0.04   0.62   0.06    1.00     763 K   1581 K    0.52    0.25    0.00    0.00       56       52        4     56
+  14    0     0.08   0.68   0.11    1.12    1351 K   2571 K    0.47    0.17    0.00    0.00     1624      133        2     60
+  15    1     0.08   0.73   0.11    1.11    1323 K   2515 K    0.47    0.19    0.00    0.00     2800      134        4     56
+  16    0     0.07   0.68   0.11    1.11    1376 K   2578 K    0.47    0.17    0.00    0.00     3584      128        2     60
+  17    1     0.01   0.50   0.02    0.84     285 K    656 K    0.56    0.31    0.00    0.01      672        9       12     57
+  18    0     0.07   0.69   0.11    1.12    1273 K   2494 K    0.49    0.18    0.00    0.00     2520      126        1     60
+  19    1     0.07   0.73   0.10    1.10    1262 K   2428 K    0.48    0.17    0.00    0.00     7056      121        0     58
+  20    0     0.08   0.54   0.15    1.17    7864 K   9815 K    0.20    0.14    0.01    0.01     5208      962      303     60
+  21    1     0.08   0.70   0.11    1.09    1458 K   2930 K    0.50    0.21    0.00    0.00     6664      162        5     58
+  22    0     0.07   0.69   0.11    1.12    1348 K   2541 K    0.47    0.17    0.00    0.00     3920      119        1     61
+  23    1     0.06   0.67   0.09    1.04    1134 K   2264 K    0.50    0.20    0.00    0.00        0      101        3     59
+  24    0     0.12   0.27   0.46    1.39      58 M     66 M    0.12    0.13    0.05    0.05     4424     7262     3046     61
+  25    1     0.08   0.71   0.11    1.08    1334 K   2761 K    0.52    0.21    0.00    0.00     5488      120        9     57
+  26    0     0.07   0.69   0.10    1.11    1324 K   2492 K    0.47    0.17    0.00    0.00     2856      127        1     61
+  27    1     0.08   0.71   0.11    1.05    1287 K   2722 K    0.53    0.22    0.00    0.00     6048      122        3     57
+---------------------------------------------------------------------------------------------------------------
+ SKT    0     0.07   0.56   0.12    1.14      80 M    102 M    0.21    0.15    0.01    0.01    36120     9453     3383     52
+ SKT    1     0.06   0.69   0.08    1.04      14 M     30 M    0.51    0.21    0.00    0.00    35392     1374       60     49
+---------------------------------------------------------------------------------------------------------------
+ TOTAL  *     0.06   0.61   0.10    1.10      95 M    132 M    0.28    0.16    0.01    0.01     N/A     N/A     N/A      N/A
+
+ Instructions retired:   17 G ; Active cycles:   28 G ; Time (TSC):   10 Gticks ; C0 (active,non-halted) core residency: 9.34 %
+
+ C1 core residency: 11.61 %; C3 core residency: 2.90 %; C6 core residency: 76.15 %; C7 core residency: 0.00 %;
+ C2 package residency: 0.00 %; C3 package residency: 0.00 %; C6 package residency: 0.00 %; C7 package residency: 0.00 %;
+
+ PHYSICAL CORE IPC                 : 0.61 => corresponds to 15.31 % utilization for cores in active state
+ Instructions per nominal CPU cycle: 0.06 => corresponds to 1.57 % core utilization over time interval
+ SMI count: 213870000380
+---------------------------------------------------------------------------------------------------------------
+
+Intel(r) QPI traffic estimation in bytes (data and non-data traffic outgoing from CPU/socket through QPI links):
+
+               QPI0     QPI1    |  QPI0   QPI1  
+---------------------------------------------------------------------------------------------------------------
+ SKT    0     2248 M   2271 M   |    2%     2%   
+ SKT    1     2980 M   2954 M   |    3%     3%   
+---------------------------------------------------------------------------------------------------------------
+Total QPI outgoing data and non-data traffic:   10 G
+MEM (GB)->|  READ |  WRITE | CPU energy | DIMM energy
+---------------------------------------------------------------------------------------------------------------
+ SKT   0     5.07     5.15     223.18      31.46
+ SKT   1     3.83     3.44     222.58      31.07
+---------------------------------------------------------------------------------------------------------------
+       *     8.90     8.59     445.76      62.53
+Cleaning up
+ Freeing up all RMIDs
+
+ Processor Counter Monitor: PCIe Bandwidth Monitoring Utility 
+ This utility measures PCIe bandwidth in real-time
+
+ PCIe event definitions (each event counts as a transfer): 
+   PCIe read events (PCI devices reading from memory - application writes to disk/network/PCIe device):
+     PCIePRd   - PCIe UC read transfer (partial cache line)
+     PCIeRdCur* - PCIe read current transfer (full cache line)
+         On Haswell Server PCIeRdCur counts both full/partial cache lines
+     RFO*      - Demand Data RFO
+     CRd*      - Demand Code Read
+     DRd       - Demand Data Read
+     PCIeNSWr  - PCIe Non-snoop write transfer (partial cache line)
+   PCIe write events (PCI devices writing to memory - application reads from disk/network/PCIe device):
+     PCIeWiLF  - PCIe Write transfer (non-allocating) (full cache line)
+     PCIeItoM  - PCIe Write transfer (allocating) (full cache line)
+     PCIeNSWr  - PCIe Non-snoop write transfer (partial cache line)
+     PCIeNSWrF - PCIe Non-snoop write transfer (full cache line)
+     ItoM      - PCIe write full cache line
+     RFO       - PCIe parial Write
+   CPU MMIO events (CPU reading/writing to PCIe devices):
+     PRd       - MMIO Read [Haswell Server only] (Partial Cache Line)
+     WiL       - MMIO Write (Full/Partial)
+
+ * - NOTE: Depending on the configuration of your BIOS, this tool may report '0' if the message
+           has not been selected.
+
+Number of physical cores: 28
+Number of logical cores: 28
+Number of online logical cores: 28
+Threads (logical cores) per physical core: 1
+Num sockets: 2
+Physical cores per socket: 14
+Core PMU (perfmon) version: 3
+Number of core PMU generic (programmable) counters: 8
+Width of generic (programmable) counters: 48 bits
+Number of core PMU fixed counters: 3
+Width of fixed counters: 48 bits
+Nominal core frequency: 2000000000 Hz
+Package thermal spec power: 105 Watt; Package minimum power: 55 Watt; Package maximum power: 210 Watt; 
+Socket 0: 2 memory controllers detected with total number of 4 channels. 2 QPI ports detected.
+Socket 1: 2 memory controllers detected with total number of 4 channels. 2 QPI ports detected.
+Trying to use Linux perf events...
+Successfully programmed on-core PMU using Linux perf
+Socket 0
+Max QPI link 0 speed: 19.2 GBytes/second (9.6 GT/second)
+Max QPI link 1 speed: 19.2 GBytes/second (9.6 GT/second)
+Socket 1
+Max QPI link 0 speed: 19.2 GBytes/second (9.6 GT/second)
+Max QPI link 1 speed: 19.2 GBytes/second (9.6 GT/second)
+
+Detected Intel(R) Xeon(R) CPU E5-2660 v4 @ 2.00GHz "Intel(r) microarchitecture codename Broadwell-EP/EX"
+Update every 1.0 seconds
+delay_ms: 84
+
+Executing "sleep" command:
+DEBUG: caught signal to interrupt (Child exited).
+Program sleep launched with PID: 5726
+Program exited with status 0
+Skt | PCIeRdCur |  RFO  |  CRd  |  DRd  |  ItoM  |  PRd  |  WiL
+ 0    8076           0     817 K   140 K      0       0       0  
+ 1       0          12     408 K   241 K   1044       0       0  
+-----------------------------------------------------------------------
+ *    8076          12    1225 K   382 K   1044       0       0  
+
+Cleaning up
+ Freeing up all RMIDs
+ out collect pcm
+Data collected
+ in collect pcm
+Architecture:          x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                28
+On-line CPU(s) list:   0-27
+Thread(s) per core:    1
+Core(s) per socket:    14
+Socket(s):             2
+NUMA node(s):          2
+Vendor ID:             GenuineIntel
+CPU family:            6
+Model:                 79
+Model name:            Intel(R) Xeon(R) CPU E5-2660 v4 @ 2.00GHz
+Stepping:              1
+CPU MHz:               1199.829
+CPU max MHz:           3200.0000
+CPU min MHz:           1200.0000
+BogoMIPS:              4001.12
+Virtualization:        VT-x
+L1d cache:             32K
+L1i cache:             32K
+L2 cache:              256K
+L3 cache:              35840K
+NUMA node0 CPU(s):     0,2,4,6,8,10,12,14,16,18,20,22,24,26
+NUMA node1 CPU(s):     1,3,5,7,9,11,13,15,17,19,21,23,25,27
+Flags:                 fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch epb intel_pt tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm rdseed adx smap xsaveopt cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+
+ Processor Counter Monitor  ($Format:%ci ID=%h$)
+
+
+Number of physical cores: 28
+Number of logical cores: 28
+Number of online logical cores: 28
+Threads (logical cores) per physical core: 1
+Num sockets: 2
+Physical cores per socket: 14
+Core PMU (perfmon) version: 3
+Number of core PMU generic (programmable) counters: 8
+Width of generic (programmable) counters: 48 bits
+Number of core PMU fixed counters: 3
+Width of fixed counters: 48 bits
+Nominal core frequency: 2000000000 Hz
+Package thermal spec power: 105 Watt; Package minimum power: 55 Watt; Package maximum power: 210 Watt; 
+Socket 0: 2 memory controllers detected with total number of 4 channels. 2 QPI ports detected.
+Socket 1: 2 memory controllers detected with total number of 4 channels. 2 QPI ports detected.
+Trying to use Linux perf events...
+Successfully programmed on-core PMU using Linux perf
+Socket 0
+Max QPI link 0 speed: 19.2 GBytes/second (9.6 GT/second)
+Max QPI link 1 speed: 19.2 GBytes/second (9.6 GT/second)
+Socket 1
+Max QPI link 0 speed: 19.2 GBytes/second (9.6 GT/second)
+Max QPI link 1 speed: 19.2 GBytes/second (9.6 GT/second)
+
+Detected Intel(R) Xeon(R) CPU E5-2660 v4 @ 2.00GHz "Intel(r) microarchitecture codename Broadwell-EP/EX" stepping 1
+
+Executing "sleep" command:
+DEBUG: caught signal to interrupt (Child exited).
+Program sleep launched with PID: 6127
+Program exited with status 0
+
+ EXEC  : instructions per nominal CPU cycle
+ IPC   : instructions per CPU cycle
+ FREQ  : relation to nominal CPU frequency='unhalted clock ticks'/'invariant timer ticks' (includes Intel Turbo Boost)
+ AFREQ : relation to nominal CPU frequency while in active state (not in power-saving C state)='unhalted clock ticks'/'invariant timer ticks while in C0-state'  (includes Intel Turbo Boost)
+ L3MISS: L3 cache misses 
+ L2MISS: L2 cache misses (including other core's L2 cache *hits*) 
+ L3HIT : L3 cache hit ratio (0.00-1.00)
+ L2HIT : L2 cache hit ratio (0.00-1.00)
+ L3MPI : number of L3 cache misses per instruction
+ L2MPI : number of L2 cache misses per instruction
+ READ  : bytes read from main memory controller (in GBytes)
+ WRITE : bytes written to main memory controller (in GBytes)
+ L3OCC : L3 occupancy (in KBytes)
+ LMB   : L3 cache external bandwidth satisfied by local memory (in MBytes)
+ RMB   : L3 cache external bandwidth satisfied by remote memory (in MBytes)
+ TEMP  : Temperature reading in 1 degree Celsius relative to the TjMax temperature (thermal headroom): 0 corresponds to the max temperature
+ energy: Energy in Joules
+
+
+ Core (SKT) | EXEC | IPC  | FREQ  | AFREQ | L3MISS | L2MISS | L3HIT | L2HIT | L3MPI | L2MPI |  L3OCC |   LMB  |   RMB  | TEMP
+
+   0    0     0.08   0.62   0.13    1.12    1526 K   2771 K    0.45    0.17    0.00    0.00     1232      152        6     60
+   1    1     0.05   0.90   0.06    0.99     830 K   1626 K    0.49    0.19    0.00    0.00      560       87        1     58
+   2    0     0.08   0.62   0.13    1.12    1440 K   2671 K    0.46    0.16    0.00    0.00      952      133        3     60
+   3    1     0.01   0.70   0.02    0.79     223 K    433 K    0.48    0.17    0.00    0.00      112       21        0     58
+   4    0     0.08   0.62   0.13    1.12    1424 K   2664 K    0.47    0.17    0.00    0.00      504      137        0     61
+   5    1     0.04   0.90   0.04    1.06     649 K   1267 K    0.49    0.19    0.00    0.00      728       65        0     58
+   6    0     0.03   0.63   0.04    0.95     518 K    952 K    0.46    0.18    0.00    0.00     2072       41        3     60
+   7    1     0.02   0.83   0.02    0.78     241 K    453 K    0.47    0.28    0.00    0.00      112       18        4     57
+   8    0     0.09   0.66   0.13    1.10    1421 K   2696 K    0.47    0.17    0.00    0.00      728      135        1     59
+   9    1     0.06   1.06   0.06    1.12    1084 K   2066 K    0.48    0.19    0.00    0.00     7728      107        0     56
+  10    0     0.08   0.63   0.13    1.12    1452 K   2776 K    0.48    0.18    0.00    0.00     1736      152        1     59
+  11    1     0.01   0.72   0.01    0.66     172 K    319 K    0.46    0.19    0.00    0.01      952       12        3     56
+  12    0     0.08   0.64   0.13    1.13    1341 K   2618 K    0.49    0.17    0.00    0.00     2128      123        0     61
+  13    1     0.02   0.82   0.02    0.82     295 K    585 K    0.50    0.19    0.00    0.00      168       25        0     56
+  14    0     0.08   0.62   0.13    1.12    1424 K   2679 K    0.47    0.17    0.00    0.00     3192      141        0     61
+  15    1     0.06   1.10   0.06    1.11    1214 K   2172 K    0.44    0.19    0.00    0.00    13104      112        1     56
+  16    0     0.08   0.62   0.13    1.12    1418 K   2657 K    0.47    0.17    0.00    0.00     4592      136        0     60
+  17    1     0.00   0.91   0.01    0.64      68 K    184 K    0.63    0.16    0.00    0.00      336        3        1     57
+  18    0     0.08   0.62   0.13    1.12    1428 K   2672 K    0.47    0.17    0.00    0.00     3360      142        0     60
+  19    1     0.06   1.10   0.06    1.12    1074 K   2039 K    0.47    0.20    0.00    0.00    10920      107        0     58
+  20    0     0.08   0.62   0.13    1.12    1448 K   2711 K    0.47    0.17    0.00    0.00     3696      144        1     60
+  21    1     0.01   0.64   0.01    0.69     136 K    285 K    0.52    0.23    0.00    0.00      448       13        0     58
+  22    0     0.08   0.61   0.13    1.13    1381 K   2600 K    0.47    0.17    0.00    0.00     1904      122        0     61
+  23    1     0.01   0.70   0.01    0.73     156 K    334 K    0.53    0.19    0.00    0.00      168       15        0     58
+  24    0     0.08   0.62   0.13    1.12    1521 K   2782 K    0.45    0.17    0.00    0.00     6608      141        0     60
+  25    1     0.01   0.71   0.01    0.75     169 K    353 K    0.52    0.18    0.00    0.00      112       16        0     57
+  26    0     0.08   0.62   0.13    1.12    1358 K   2607 K    0.48    0.17    0.00    0.00     3192      139        0     60
+  27    1     0.01   0.64   0.01    0.78     164 K    325 K    0.49    0.20    0.00    0.00      168       12        1     57
+---------------------------------------------------------------------------------------------------------------
+ SKT    0     0.08   0.62   0.12    1.12      19 M     35 M    0.47    0.17    0.00    0.00    35896     1838       14     52
+ SKT    1     0.03   0.93   0.03    0.95    6482 K     12 M    0.48    0.19    0.00    0.00    35616      613       10     49
+---------------------------------------------------------------------------------------------------------------
+ TOTAL  *     0.05   0.68   0.08    1.08      25 M     48 M    0.47    0.18    0.00    0.00     N/A     N/A     N/A      N/A
+
+ Instructions retired:   14 G ; Active cycles:   21 G ; Time (TSC):   10 Gticks ; C0 (active,non-halted) core residency: 7.00 %
+
+ C1 core residency: 7.60 %; C3 core residency: 0.02 %; C6 core residency: 85.38 %; C7 core residency: 0.00 %;
+ C2 package residency: 0.00 %; C3 package residency: 0.00 %; C6 package residency: 0.00 %; C7 package residency: 0.00 %;
+
+ PHYSICAL CORE IPC                 : 0.68 => corresponds to 17.00 % utilization for cores in active state
+ Instructions per nominal CPU cycle: 0.05 => corresponds to 1.29 % core utilization over time interval
+ SMI count: 239321408980
+---------------------------------------------------------------------------------------------------------------
+
+Intel(r) QPI traffic estimation in bytes (data and non-data traffic outgoing from CPU/socket through QPI links):
+
+               QPI0     QPI1    |  QPI0   QPI1  
+---------------------------------------------------------------------------------------------------------------
+ SKT    0      123 M    125 M   |    0%     0%   
+ SKT    1      122 M    119 M   |    0%     0%   
+---------------------------------------------------------------------------------------------------------------
+Total QPI outgoing data and non-data traffic:  491 M
+MEM (GB)->|  READ |  WRITE | CPU energy | DIMM energy
+---------------------------------------------------------------------------------------------------------------
+ SKT   0     1.28     0.90     221.21      29.10
+ SKT   1     0.44     0.36     212.06      29.08
+---------------------------------------------------------------------------------------------------------------
+       *     1.73     1.26     433.27      58.19
+Cleaning up
+ Freeing up all RMIDs
+
+ Processor Counter Monitor: PCIe Bandwidth Monitoring Utility 
+ This utility measures PCIe bandwidth in real-time
+
+ PCIe event definitions (each event counts as a transfer): 
+   PCIe read events (PCI devices reading from memory - application writes to disk/network/PCIe device):
+     PCIePRd   - PCIe UC read transfer (partial cache line)
+     PCIeRdCur* - PCIe read current transfer (full cache line)
+         On Haswell Server PCIeRdCur counts both full/partial cache lines
+     RFO*      - Demand Data RFO
+     CRd*      - Demand Code Read
+     DRd       - Demand Data Read
+     PCIeNSWr  - PCIe Non-snoop write transfer (partial cache line)
+   PCIe write events (PCI devices writing to memory - application reads from disk/network/PCIe device):
+     PCIeWiLF  - PCIe Write transfer (non-allocating) (full cache line)
+     PCIeItoM  - PCIe Write transfer (allocating) (full cache line)
+     PCIeNSWr  - PCIe Non-snoop write transfer (partial cache line)
+     PCIeNSWrF - PCIe Non-snoop write transfer (full cache line)
+     ItoM      - PCIe write full cache line
+     RFO       - PCIe parial Write
+   CPU MMIO events (CPU reading/writing to PCIe devices):
+     PRd       - MMIO Read [Haswell Server only] (Partial Cache Line)
+     WiL       - MMIO Write (Full/Partial)
+
+ * - NOTE: Depending on the configuration of your BIOS, this tool may report '0' if the message
+           has not been selected.
+
+Number of physical cores: 28
+Number of logical cores: 28
+Number of online logical cores: 28
+Threads (logical cores) per physical core: 1
+Num sockets: 2
+Physical cores per socket: 14
+Core PMU (perfmon) version: 3
+Number of core PMU generic (programmable) counters: 8
+Width of generic (programmable) counters: 48 bits
+Number of core PMU fixed counters: 3
+Width of fixed counters: 48 bits
+Nominal core frequency: 2000000000 Hz
+Package thermal spec power: 105 Watt; Package minimum power: 55 Watt; Package maximum power: 210 Watt; 
+Socket 0: 2 memory controllers detected with total number of 4 channels. 2 QPI ports detected.
+Socket 1: 2 memory controllers detected with total number of 4 channels. 2 QPI ports detected.
+Trying to use Linux perf events...
+Successfully programmed on-core PMU using Linux perf
+Socket 0
+Max QPI link 0 speed: 19.2 GBytes/second (9.6 GT/second)
+Max QPI link 1 speed: 19.2 GBytes/second (9.6 GT/second)
+Socket 1
+Max QPI link 0 speed: 19.2 GBytes/second (9.6 GT/second)
+Max QPI link 1 speed: 19.2 GBytes/second (9.6 GT/second)
+
+Detected Intel(R) Xeon(R) CPU E5-2660 v4 @ 2.00GHz "Intel(r) microarchitecture codename Broadwell-EP/EX"
+Update every 1.0 seconds
+delay_ms: 84
+
+Executing "sleep" command:
+DEBUG: caught signal to interrupt (Child exited).
+Program sleep launched with PID: 6202
+Program exited with status 0
+Skt | PCIeRdCur |  RFO  |  CRd  |  DRd  |  ItoM  |  PRd  |  WiL
+ 0    8280           0     747 K   130 K      0       0       0  
+ 1    2580           0     359 K   190 K   1560       0     336  
+-----------------------------------------------------------------------
+ *      10 K         0    1107 K   320 K   1560       0     336  
+
+Cleaning up
+ Freeing up all RMIDs
+ out collect pcm
+Data collected
+ in collect pcm
+Architecture:          x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                28
+On-line CPU(s) list:   0-27
+Thread(s) per core:    1
+Core(s) per socket:    14
+Socket(s):             2
+NUMA node(s):          2
+Vendor ID:             GenuineIntel
+CPU family:            6
+Model:                 79
+Model name:            Intel(R) Xeon(R) CPU E5-2660 v4 @ 2.00GHz
+Stepping:              1
+CPU MHz:               1199.951
+CPU max MHz:           3200.0000
+CPU min MHz:           1200.0000
+BogoMIPS:              4001.12
+Virtualization:        VT-x
+L1d cache:             32K
+L1i cache:             32K
+L2 cache:              256K
+L3 cache:              35840K
+NUMA node0 CPU(s):     0,2,4,6,8,10,12,14,16,18,20,22,24,26
+NUMA node1 CPU(s):     1,3,5,7,9,11,13,15,17,19,21,23,25,27
+Flags:                 fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch epb intel_pt tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm rdseed adx smap xsaveopt cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+
+ Processor Counter Monitor  ($Format:%ci ID=%h$)
+
+
+Number of physical cores: 28
+Number of logical cores: 28
+Number of online logical cores: 28
+Threads (logical cores) per physical core: 1
+Num sockets: 2
+Physical cores per socket: 14
+Core PMU (perfmon) version: 3
+Number of core PMU generic (programmable) counters: 8
+Width of generic (programmable) counters: 48 bits
+Number of core PMU fixed counters: 3
+Width of fixed counters: 48 bits
+Nominal core frequency: 2000000000 Hz
+Package thermal spec power: 105 Watt; Package minimum power: 55 Watt; Package maximum power: 210 Watt; 
+Socket 0: 2 memory controllers detected with total number of 4 channels. 2 QPI ports detected.
+Socket 1: 2 memory controllers detected with total number of 4 channels. 2 QPI ports detected.
+Trying to use Linux perf events...
+Successfully programmed on-core PMU using Linux perf
+Socket 0
+Max QPI link 0 speed: 19.2 GBytes/second (9.6 GT/second)
+Max QPI link 1 speed: 19.2 GBytes/second (9.6 GT/second)
+Socket 1
+Max QPI link 0 speed: 19.2 GBytes/second (9.6 GT/second)
+Max QPI link 1 speed: 19.2 GBytes/second (9.6 GT/second)
+
+Detected Intel(R) Xeon(R) CPU E5-2660 v4 @ 2.00GHz "Intel(r) microarchitecture codename Broadwell-EP/EX" stepping 1
+
+Executing "sleep" command:
+DEBUG: caught signal to interrupt (Child exited).
+Program sleep launched with PID: 6598
+Program exited with status 0
+
+ EXEC  : instructions per nominal CPU cycle
+ IPC   : instructions per CPU cycle
+ FREQ  : relation to nominal CPU frequency='unhalted clock ticks'/'invariant timer ticks' (includes Intel Turbo Boost)
+ AFREQ : relation to nominal CPU frequency while in active state (not in power-saving C state)='unhalted clock ticks'/'invariant timer ticks while in C0-state'  (includes Intel Turbo Boost)
+ L3MISS: L3 cache misses 
+ L2MISS: L2 cache misses (including other core's L2 cache *hits*) 
+ L3HIT : L3 cache hit ratio (0.00-1.00)
+ L2HIT : L2 cache hit ratio (0.00-1.00)
+ L3MPI : number of L3 cache misses per instruction
+ L2MPI : number of L2 cache misses per instruction
+ READ  : bytes read from main memory controller (in GBytes)
+ WRITE : bytes written to main memory controller (in GBytes)
+ L3OCC : L3 occupancy (in KBytes)
+ LMB   : L3 cache external bandwidth satisfied by local memory (in MBytes)
+ RMB   : L3 cache external bandwidth satisfied by remote memory (in MBytes)
+ TEMP  : Temperature reading in 1 degree Celsius relative to the TjMax temperature (thermal headroom): 0 corresponds to the max temperature
+ energy: Energy in Joules
+
+
+ Core (SKT) | EXEC | IPC  | FREQ  | AFREQ | L3MISS | L2MISS | L3HIT | L2HIT | L3MPI | L2MPI |  L3OCC |   LMB  |   RMB  | TEMP
+
+   0    0     0.08   0.62   0.13    1.12    1492 K   2739 K    0.46    0.16    0.00    0.00     2632      139        4     61
+   1    1     0.05   1.04   0.05    1.07     920 K   1786 K    0.49    0.19    0.00    0.00     2072       98        1     57
+   2    0     0.08   0.62   0.13    1.12    1390 K   2652 K    0.48    0.17    0.00    0.00     1344      129        1     60
+   3    1     0.00   0.62   0.00    0.62     127 K    264 K    0.52    0.16    0.00    0.01     1512        7        2     57
+   4    0     0.08   0.62   0.13    1.12    1357 K   2615 K    0.48    0.17    0.00    0.00     2520      117        1     60
+   5    1     0.04   0.98   0.04    1.02     718 K   1387 K    0.48    0.19    0.00    0.00      392       77        1     57
+   6    0     0.02   0.62   0.03    0.92     439 K    772 K    0.43    0.17    0.00    0.00     2744       34        2     59
+   7    1     0.01   0.73   0.01    0.73     165 K    317 K    0.48    0.16    0.00    0.00     1064       14        0     57
+   8    0     0.08   0.62   0.13    1.11    1422 K   2702 K    0.47    0.18    0.00    0.00     3920      142        0     59
+   9    1     0.06   1.06   0.06    1.14    1165 K   2178 K    0.47    0.19    0.00    0.00     9352      106        0     56
+  10    0     0.09   0.66   0.14    1.11    1482 K   2804 K    0.47    0.18    0.00    0.00     3024      166        2     57
+  11    1     0.00   0.71   0.00    0.62     119 K    237 K    0.50    0.21    0.00    0.01      840        8        2     55
+  12    0     0.09   0.65   0.13    1.11    1401 K   2721 K    0.48    0.17    0.00    0.00     2072      130        1     60
+  13    1     0.02   0.75   0.02    0.79     343 K    663 K    0.48    0.18    0.00    0.00      728       35        0     56
+  14    0     0.09   0.65   0.13    1.10    1350 K   2639 K    0.49    0.18    0.00    0.00     1792      131        1     60
+  15    1     0.06   1.09   0.06    1.12    1117 K   2126 K    0.47    0.21    0.00    0.00     6216      105        4     56
+  16    0     0.08   0.62   0.13    1.12    1397 K   2639 K    0.47    0.17    0.00    0.00     1456      141        0     60
+  17    1     0.00   0.66   0.00    0.62      87 K    217 K    0.60    0.15    0.00    0.01     1120        6        0     56
+  18    0     0.08   0.62   0.13    1.13    1411 K   2667 K    0.47    0.17    0.00    0.00     2688      126        1     60
+  19    1     0.06   1.15   0.05    1.12     983 K   1962 K    0.50    0.20    0.00    0.00     9968       88        0     57
+  20    0     0.08   0.63   0.13    1.12    1467 K   2716 K    0.46    0.17    0.00    0.00     3360      139        1     60
+  21    1     0.01   0.89   0.02    0.77     251 K    495 K    0.49    0.20    0.00    0.00      784       23        0     57
+  22    0     0.08   0.63   0.13    1.12    1420 K   2664 K    0.47    0.17    0.00    0.00     2912      133        0     61
+  23    1     0.00   0.69   0.00    0.62      92 K    185 K    0.50    0.16    0.00    0.01      728        6        0     58
+  24    0     0.08   0.62   0.13    1.12    1377 K   2600 K    0.47    0.17    0.00    0.00     2464      123        0     61
+  25    1     0.00   0.73   0.01    0.63     112 K    209 K    0.46    0.17    0.00    0.01      448       11        0     57
+  26    0     0.08   0.63   0.13    1.11    1612 K   2905 K    0.44    0.20    0.00    0.00     3472      178        0     60
+  27    1     0.00   0.70   0.00    0.61      81 K    178 K    0.54    0.21    0.00    0.01      224        6        0     56
+---------------------------------------------------------------------------------------------------------------
+ SKT    0     0.08   0.63   0.12    1.11      19 M     35 M    0.47    0.17    0.00    0.00    36400     1828       14     52
+ SKT    1     0.02   1.00   0.02    0.98    6286 K     12 M    0.49    0.19    0.00    0.00    35448      590        9     48
+---------------------------------------------------------------------------------------------------------------
+ TOTAL  *     0.05   0.69   0.07    1.09      25 M     48 M    0.47    0.18    0.00    0.00     N/A     N/A     N/A      N/A
+
+ Instructions retired:   14 G ; Active cycles:   20 G ; Time (TSC):   10 Gticks ; C0 (active,non-halted) core residency: 6.76 %
+
+ C1 core residency: 8.71 %; C3 core residency: 0.02 %; C6 core residency: 84.51 %; C7 core residency: 0.00 %;
+ C2 package residency: 0.00 %; C3 package residency: 0.00 %; C6 package residency: 0.00 %; C7 package residency: 0.00 %;
+
+ PHYSICAL CORE IPC                 : 0.69 => corresponds to 17.24 % utilization for cores in active state
+ Instructions per nominal CPU cycle: 0.05 => corresponds to 1.27 % core utilization over time interval
+ SMI count: 236866512980
+---------------------------------------------------------------------------------------------------------------
+
+Intel(r) QPI traffic estimation in bytes (data and non-data traffic outgoing from CPU/socket through QPI links):
+
+               QPI0     QPI1    |  QPI0   QPI1  
+---------------------------------------------------------------------------------------------------------------
+ SKT    0      123 M    125 M   |    0%     0%   
+ SKT    1      122 M    119 M   |    0%     0%   
+---------------------------------------------------------------------------------------------------------------
+Total QPI outgoing data and non-data traffic:  491 M
+MEM (GB)->|  READ |  WRITE | CPU energy | DIMM energy
+---------------------------------------------------------------------------------------------------------------
+ SKT   0     1.28     0.91     223.09      29.13
+ SKT   1     0.43     0.35     211.32      29.11
+---------------------------------------------------------------------------------------------------------------
+       *     1.71     1.26     434.41      58.24
+Cleaning up
+ Freeing up all RMIDs
+
+ Processor Counter Monitor: PCIe Bandwidth Monitoring Utility 
+ This utility measures PCIe bandwidth in real-time
+
+ PCIe event definitions (each event counts as a transfer): 
+   PCIe read events (PCI devices reading from memory - application writes to disk/network/PCIe device):
+     PCIePRd   - PCIe UC read transfer (partial cache line)
+     PCIeRdCur* - PCIe read current transfer (full cache line)
+         On Haswell Server PCIeRdCur counts both full/partial cache lines
+     RFO*      - Demand Data RFO
+     CRd*      - Demand Code Read
+     DRd       - Demand Data Read
+     PCIeNSWr  - PCIe Non-snoop write transfer (partial cache line)
+   PCIe write events (PCI devices writing to memory - application reads from disk/network/PCIe device):
+     PCIeWiLF  - PCIe Write transfer (non-allocating) (full cache line)
+     PCIeItoM  - PCIe Write transfer (allocating) (full cache line)
+     PCIeNSWr  - PCIe Non-snoop write transfer (partial cache line)
+     PCIeNSWrF - PCIe Non-snoop write transfer (full cache line)
+     ItoM      - PCIe write full cache line
+     RFO       - PCIe parial Write
+   CPU MMIO events (CPU reading/writing to PCIe devices):
+     PRd       - MMIO Read [Haswell Server only] (Partial Cache Line)
+     WiL       - MMIO Write (Full/Partial)
+
+ * - NOTE: Depending on the configuration of your BIOS, this tool may report '0' if the message
+           has not been selected.
+
+Number of physical cores: 28
+Number of logical cores: 28
+Number of online logical cores: 28
+Threads (logical cores) per physical core: 1
+Num sockets: 2
+Physical cores per socket: 14
+Core PMU (perfmon) version: 3
+Number of core PMU generic (programmable) counters: 8
+Width of generic (programmable) counters: 48 bits
+Number of core PMU fixed counters: 3
+Width of fixed counters: 48 bits
+Nominal core frequency: 2000000000 Hz
+Package thermal spec power: 105 Watt; Package minimum power: 55 Watt; Package maximum power: 210 Watt; 
+Socket 0: 2 memory controllers detected with total number of 4 channels. 2 QPI ports detected.
+Socket 1: 2 memory controllers detected with total number of 4 channels. 2 QPI ports detected.
+Trying to use Linux perf events...
+Successfully programmed on-core PMU using Linux perf
+Socket 0
+Max QPI link 0 speed: 19.2 GBytes/second (9.6 GT/second)
+Max QPI link 1 speed: 19.2 GBytes/second (9.6 GT/second)
+Socket 1
+Max QPI link 0 speed: 19.2 GBytes/second (9.6 GT/second)
+Max QPI link 1 speed: 19.2 GBytes/second (9.6 GT/second)
+
+Detected Intel(R) Xeon(R) CPU E5-2660 v4 @ 2.00GHz "Intel(r) microarchitecture codename Broadwell-EP/EX"
+Update every 1.0 seconds
+delay_ms: 84
+
+Executing "sleep" command:
+DEBUG: caught signal to interrupt (Child exited).
+Program sleep launched with PID: 6675
+Program exited with status 0
+Skt | PCIeRdCur |  RFO  |  CRd  |  DRd  |  ItoM  |  PRd  |  WiL
+ 0    8280           0     951 K   135 K      0    2076       0  
+ 1    2544          12     527 K   160 K      0       0       0  
+-----------------------------------------------------------------------
+ *      10 K        12    1479 K   296 K      0    2076       0  
+
+Cleaning up
+ Freeing up all RMIDs
+ out collect pcm
+Data collected
+ in collect pcm
+Architecture:          x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                28
+On-line CPU(s) list:   0-27
+Thread(s) per core:    1
+Core(s) per socket:    14
+Socket(s):             2
+NUMA node(s):          2
+Vendor ID:             GenuineIntel
+CPU family:            6
+Model:                 79
+Model name:            Intel(R) Xeon(R) CPU E5-2660 v4 @ 2.00GHz
+Stepping:              1
+CPU MHz:               1798.217
+CPU max MHz:           3200.0000
+CPU min MHz:           1200.0000
+BogoMIPS:              4001.12
+Virtualization:        VT-x
+L1d cache:             32K
+L1i cache:             32K
+L2 cache:              256K
+L3 cache:              35840K
+NUMA node0 CPU(s):     0,2,4,6,8,10,12,14,16,18,20,22,24,26
+NUMA node1 CPU(s):     1,3,5,7,9,11,13,15,17,19,21,23,25,27
+Flags:                 fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch epb intel_pt tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm rdseed adx smap xsaveopt cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+
+ Processor Counter Monitor  ($Format:%ci ID=%h$)
+
+
+Number of physical cores: 28
+Number of logical cores: 28
+Number of online logical cores: 28
+Threads (logical cores) per physical core: 1
+Num sockets: 2
+Physical cores per socket: 14
+Core PMU (perfmon) version: 3
+Number of core PMU generic (programmable) counters: 8
+Width of generic (programmable) counters: 48 bits
+Number of core PMU fixed counters: 3
+Width of fixed counters: 48 bits
+Nominal core frequency: 2000000000 Hz
+Package thermal spec power: 105 Watt; Package minimum power: 55 Watt; Package maximum power: 210 Watt; 
+Socket 0: 2 memory controllers detected with total number of 4 channels. 2 QPI ports detected.
+Socket 1: 2 memory controllers detected with total number of 4 channels. 2 QPI ports detected.
+Trying to use Linux perf events...
+Successfully programmed on-core PMU using Linux perf
+Socket 0
+Max QPI link 0 speed: 19.2 GBytes/second (9.6 GT/second)
+Max QPI link 1 speed: 19.2 GBytes/second (9.6 GT/second)
+Socket 1
+Max QPI link 0 speed: 19.2 GBytes/second (9.6 GT/second)
+Max QPI link 1 speed: 19.2 GBytes/second (9.6 GT/second)
+
+Detected Intel(R) Xeon(R) CPU E5-2660 v4 @ 2.00GHz "Intel(r) microarchitecture codename Broadwell-EP/EX" stepping 1
+
+Executing "sleep" command:
+DEBUG: caught signal to interrupt (Child exited).
+Program sleep launched with PID: 7071
+Program exited with status 0
+
+ EXEC  : instructions per nominal CPU cycle
+ IPC   : instructions per CPU cycle
+ FREQ  : relation to nominal CPU frequency='unhalted clock ticks'/'invariant timer ticks' (includes Intel Turbo Boost)
+ AFREQ : relation to nominal CPU frequency while in active state (not in power-saving C state)='unhalted clock ticks'/'invariant timer ticks while in C0-state'  (includes Intel Turbo Boost)
+ L3MISS: L3 cache misses 
+ L2MISS: L2 cache misses (including other core's L2 cache *hits*) 
+ L3HIT : L3 cache hit ratio (0.00-1.00)
+ L2HIT : L2 cache hit ratio (0.00-1.00)
+ L3MPI : number of L3 cache misses per instruction
+ L2MPI : number of L2 cache misses per instruction
+ READ  : bytes read from main memory controller (in GBytes)
+ WRITE : bytes written to main memory controller (in GBytes)
+ L3OCC : L3 occupancy (in KBytes)
+ LMB   : L3 cache external bandwidth satisfied by local memory (in MBytes)
+ RMB   : L3 cache external bandwidth satisfied by remote memory (in MBytes)
+ TEMP  : Temperature reading in 1 degree Celsius relative to the TjMax temperature (thermal headroom): 0 corresponds to the max temperature
+ energy: Energy in Joules
+
+
+ Core (SKT) | EXEC | IPC  | FREQ  | AFREQ | L3MISS | L2MISS | L3HIT | L2HIT | L3MPI | L2MPI |  L3OCC |   LMB  |   RMB  | TEMP
+
+   0    0     0.00   0.71   0.01    0.64     122 K    215 K    0.43    0.18    0.00    0.01     2688        5        1     59
+   1    1     0.02   0.57   0.04    0.76     548 K   1610 K    0.66    0.32    0.00    0.01     2464       35        2     56
+   2    0     0.00   0.63   0.01    0.68     130 K    218 K    0.40    0.14    0.00    0.00     2688       12        1     58
+   3    1     0.01   0.56   0.02    0.67     202 K    528 K    0.62    0.28    0.00    0.01     3864        7        0     55
+   4    0     0.01   0.63   0.01    0.70     124 K    227 K    0.45    0.16    0.00    0.00     2520        6        1     58
+   5    1     0.01   0.57   0.02    0.65     210 K    629 K    0.67    0.26    0.00    0.01     2912        9        0     55
+   6    0     0.03   0.60   0.05    0.89     970 K   1755 K    0.45    0.31    0.00    0.01     1792       24        2     57
+   7    1     0.01   0.62   0.02    0.69     244 K    620 K    0.61    0.27    0.00    0.00     3360       12        0     54
+   8    0     0.01   0.60   0.02    0.81     213 K    365 K    0.42    0.15    0.00    0.00     2688       11        0     57
+   9    1     0.05   0.54   0.09    0.64    2050 K   2790 K    0.27    0.34    0.00    0.01     3584       17       26     54
+  10    0     0.02   0.59   0.04    0.71     893 K   1551 K    0.42    0.29    0.00    0.01     2296       22        2     57
+  11    1     0.02   0.59   0.03    0.75     513 K   1428 K    0.64    0.33    0.00    0.01       56       10        2     55
+  12    0     0.01   0.60   0.02    0.79     283 K    481 K    0.41    0.15    0.00    0.00     2912       19        1     57
+  13    1     0.02   0.65   0.03    0.71     367 K    967 K    0.62    0.29    0.00    0.00     3864       22        0     54
+  14    0     0.01   0.61   0.02    0.82     277 K    505 K    0.45    0.16    0.00    0.00     2744       23        0     57
+  15    1     0.02   0.76   0.02    0.82     269 K    544 K    0.51    0.18    0.00    0.00     4368       23        0     54
+  16    0     0.01   0.62   0.02    0.88     290 K    529 K    0.45    0.16    0.00    0.00     1400       19        1     57
+  17    1     0.01   0.60   0.02    0.66     317 K    957 K    0.67    0.34    0.00    0.01      280        8        2     55
+  18    0     0.02   0.63   0.02    0.88     282 K    535 K    0.47    0.17    0.00    0.00     2240       26        1     57
+  19    1     0.02   0.76   0.03    0.88     346 K    684 K    0.49    0.17    0.00    0.00     4144       28        1     54
+  20    0     0.02   0.62   0.03    0.87     583 K    897 K    0.35    0.23    0.00    0.01     2632       68        1     57
+  21    1     0.01   0.54   0.01    0.63     162 K    441 K    0.63    0.31    0.00    0.01      112        7        1     56
+  22    0     0.12   0.15   0.82    1.52     130 M    145 M    0.10    0.13    0.10    0.11     2464    16216     6289     57
+  23    1     0.02   0.65   0.03    0.80     354 K    865 K    0.59    0.25    0.00    0.00      448       26        0     56
+  24    0     0.02   0.63   0.03    0.91     324 K    626 K    0.48    0.19    0.00    0.00     2240       30        1     57
+  25    1     0.02   0.70   0.03    0.72     473 K   1281 K    0.63    0.36    0.00    0.01       56       15        5     56
+  26    0     0.02   0.62   0.03    0.94     340 K    636 K    0.47    0.17    0.00    0.00     2184       27        0     57
+  27    1     0.02   0.61   0.03    0.79     500 K   1431 K    0.65    0.32    0.00    0.01      112       15        1     57
+---------------------------------------------------------------------------------------------------------------
+ SKT    0     0.02   0.27   0.08    1.24     135 M    154 M    0.12    0.13    0.04    0.05    33488    16508     6301     51
+ SKT    1     0.02   0.61   0.03    0.71    6560 K     14 M    0.56    0.31    0.00    0.01    29624      234       40     48
+---------------------------------------------------------------------------------------------------------------
+ TOTAL  *     0.02   0.37   0.06    1.03     141 M    168 M    0.16    0.15    0.02    0.03     N/A     N/A     N/A      N/A
+
+ Instructions retired: 5824 M ; Active cycles:   15 G ; Time (TSC):   10 Gticks ; C0 (active,non-halted) core residency: 5.36 %
+
+ C1 core residency: 15.55 %; C3 core residency: 5.04 %; C6 core residency: 74.05 %; C7 core residency: 0.00 %;
+ C2 package residency: 0.00 %; C3 package residency: 0.00 %; C6 package residency: 0.00 %; C7 package residency: 0.00 %;
+
+ PHYSICAL CORE IPC                 : 0.37 => corresponds to 9.18 % utilization for cores in active state
+ Instructions per nominal CPU cycle: 0.02 => corresponds to 0.51 % core utilization over time interval
+ SMI count: 211896222540
+---------------------------------------------------------------------------------------------------------------
+
+Intel(r) QPI traffic estimation in bytes (data and non-data traffic outgoing from CPU/socket through QPI links):
+
+               QPI0     QPI1    |  QPI0   QPI1  
+---------------------------------------------------------------------------------------------------------------
+ SKT    0     4429 M   4443 M   |    4%     4%   
+ SKT    1     5799 M   5792 M   |    5%     5%   
+---------------------------------------------------------------------------------------------------------------
+Total QPI outgoing data and non-data traffic:   20 G
+MEM (GB)->|  READ |  WRITE | CPU energy | DIMM energy
+---------------------------------------------------------------------------------------------------------------
+ SKT   0     9.25     9.42     231.99      34.50
+ SKT   1     5.89     5.51     229.63      33.17
+---------------------------------------------------------------------------------------------------------------
+       *    15.13    14.93     461.62      67.67
+Cleaning up
+ Freeing up all RMIDs
+
+ Processor Counter Monitor: PCIe Bandwidth Monitoring Utility 
+ This utility measures PCIe bandwidth in real-time
+
+ PCIe event definitions (each event counts as a transfer): 
+   PCIe read events (PCI devices reading from memory - application writes to disk/network/PCIe device):
+     PCIePRd   - PCIe UC read transfer (partial cache line)
+     PCIeRdCur* - PCIe read current transfer (full cache line)
+         On Haswell Server PCIeRdCur counts both full/partial cache lines
+     RFO*      - Demand Data RFO
+     CRd*      - Demand Code Read
+     DRd       - Demand Data Read
+     PCIeNSWr  - PCIe Non-snoop write transfer (partial cache line)
+   PCIe write events (PCI devices writing to memory - application reads from disk/network/PCIe device):
+     PCIeWiLF  - PCIe Write transfer (non-allocating) (full cache line)
+     PCIeItoM  - PCIe Write transfer (allocating) (full cache line)
+     PCIeNSWr  - PCIe Non-snoop write transfer (partial cache line)
+     PCIeNSWrF - PCIe Non-snoop write transfer (full cache line)
+     ItoM      - PCIe write full cache line
+     RFO       - PCIe parial Write
+   CPU MMIO events (CPU reading/writing to PCIe devices):
+     PRd       - MMIO Read [Haswell Server only] (Partial Cache Line)
+     WiL       - MMIO Write (Full/Partial)
+
+ * - NOTE: Depending on the configuration of your BIOS, this tool may report '0' if the message
+           has not been selected.
+
+Number of physical cores: 28
+Number of logical cores: 28
+Number of online logical cores: 28
+Threads (logical cores) per physical core: 1
+Num sockets: 2
+Physical cores per socket: 14
+Core PMU (perfmon) version: 3
+Number of core PMU generic (programmable) counters: 8
+Width of generic (programmable) counters: 48 bits
+Number of core PMU fixed counters: 3
+Width of fixed counters: 48 bits
+Nominal core frequency: 2000000000 Hz
+Package thermal spec power: 105 Watt; Package minimum power: 55 Watt; Package maximum power: 210 Watt; 
+Socket 0: 2 memory controllers detected with total number of 4 channels. 2 QPI ports detected.
+Socket 1: 2 memory controllers detected with total number of 4 channels. 2 QPI ports detected.
+Trying to use Linux perf events...
+Successfully programmed on-core PMU using Linux perf
+Socket 0
+Max QPI link 0 speed: 19.2 GBytes/second (9.6 GT/second)
+Max QPI link 1 speed: 19.2 GBytes/second (9.6 GT/second)
+Socket 1
+Max QPI link 0 speed: 19.2 GBytes/second (9.6 GT/second)
+Max QPI link 1 speed: 19.2 GBytes/second (9.6 GT/second)
+
+Detected Intel(R) Xeon(R) CPU E5-2660 v4 @ 2.00GHz "Intel(r) microarchitecture codename Broadwell-EP/EX"
+Update every 1.0 seconds
+delay_ms: 84
+
+Executing "sleep" command:
+DEBUG: caught signal to interrupt (Child exited).
+Program sleep launched with PID: 7146
+Program exited with status 0
+Skt | PCIeRdCur |  RFO  |  CRd  |  DRd  |  ItoM  |  PRd  |  WiL
+ 0    8076           0     272 K   237 K     72      12      36  
+ 1    2280          12     251 K   246 K    948       0     336  
+-----------------------------------------------------------------------
+ *      10 K        12     524 K   484 K   1020      12     372  
+
+Cleaning up
+ Freeing up all RMIDs
+ out collect pcm
+Data collected
+ in collect pcm
+Architecture:          x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                28
+On-line CPU(s) list:   0-27
+Thread(s) per core:    1
+Core(s) per socket:    14
+Socket(s):             2
+NUMA node(s):          2
+Vendor ID:             GenuineIntel
+CPU family:            6
+Model:                 79
+Model name:            Intel(R) Xeon(R) CPU E5-2660 v4 @ 2.00GHz
+Stepping:              1
+CPU MHz:               2399.902
+CPU max MHz:           3200.0000
+CPU min MHz:           1200.0000
+BogoMIPS:              4001.12
+Virtualization:        VT-x
+L1d cache:             32K
+L1i cache:             32K
+L2 cache:              256K
+L3 cache:              35840K
+NUMA node0 CPU(s):     0,2,4,6,8,10,12,14,16,18,20,22,24,26
+NUMA node1 CPU(s):     1,3,5,7,9,11,13,15,17,19,21,23,25,27
+Flags:                 fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch epb intel_pt tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid rtm cqm rdseed adx smap xsaveopt cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts
+
+ Processor Counter Monitor  ($Format:%ci ID=%h$)
+
+
+Number of physical cores: 28
+Number of logical cores: 28
+Number of online logical cores: 28
+Threads (logical cores) per physical core: 1
+Num sockets: 2
+Physical cores per socket: 14
+Core PMU (perfmon) version: 3
+Number of core PMU generic (programmable) counters: 8
+Width of generic (programmable) counters: 48 bits
+Number of core PMU fixed counters: 3
+Width of fixed counters: 48 bits
+Nominal core frequency: 2000000000 Hz
+Package thermal spec power: 105 Watt; Package minimum power: 55 Watt; Package maximum power: 210 Watt; 
+Socket 0: 2 memory controllers detected with total number of 4 channels. 2 QPI ports detected.
+Socket 1: 2 memory controllers detected with total number of 4 channels. 2 QPI ports detected.
+Trying to use Linux perf events...
+Successfully programmed on-core PMU using Linux perf
+Socket 0
+Max QPI link 0 speed: 19.2 GBytes/second (9.6 GT/second)
+Max QPI link 1 speed: 19.2 GBytes/second (9.6 GT/second)
+Socket 1
+Max QPI link 0 speed: 19.2 GBytes/second (9.6 GT/second)
+Max QPI link 1 speed: 19.2 GBytes/second (9.6 GT/second)
+
+Detected Intel(R) Xeon(R) CPU E5-2660 v4 @ 2.00GHz "Intel(r) microarchitecture codename Broadwell-EP/EX" stepping 1
+
+Executing "sleep" command:
+DEBUG: caught signal to interrupt (Child exited).
+Program sleep launched with PID: 7552
+Program exited with status 0
+
+ EXEC  : instructions per nominal CPU cycle
+ IPC   : instructions per CPU cycle
+ FREQ  : relation to nominal CPU frequency='unhalted clock ticks'/'invariant timer ticks' (includes Intel Turbo Boost)
+ AFREQ : relation to nominal CPU frequency while in active state (not in power-saving C state)='unhalted clock ticks'/'invariant timer ticks while in C0-state'  (includes Intel Turbo Boost)
+ L3MISS: L3 cache misses 
+ L2MISS: L2 cache misses (including other core's L2 cache *hits*) 
+ L3HIT : L3 cache hit ratio (0.00-1.00)
+ L2HIT : L2 cache hit ratio (0.00-1.00)
+ L3MPI : number of L3 cache misses per instruction
+ L2MPI : number of L2 cache misses per instruction
+ READ  : bytes read from main memory controller (in GBytes)
+ WRITE : bytes written to main memory controller (in GBytes)
+ L3OCC : L3 occupancy (in KBytes)
+ LMB   : L3 cache external bandwidth satisfied by local memory (in MBytes)
+ RMB   : L3 cache external bandwidth satisfied by remote memory (in MBytes)
+ TEMP  : Temperature reading in 1 degree Celsius relative to the TjMax temperature (thermal headroom): 0 corresponds to the max temperature
+ energy: Energy in Joules
+
+
+ Core (SKT) | EXEC | IPC  | FREQ  | AFREQ | L3MISS | L2MISS | L3HIT | L2HIT | L3MPI | L2MPI |  L3OCC |   LMB  |   RMB  | TEMP
+
+   0    0     0.00   0.49   0.00    0.62      47 K    308 K    0.85    0.07    0.00    0.03     1344        3        3     60
+   1    1     0.05   0.43   0.11    0.87    1297 K   2831 K    0.54    0.38    0.00    0.01       56       38        5     56
+   2    0     0.00   0.28   0.00    0.60    3284       27 K    0.88    0.18    0.00    0.02      112        0        0     60
+   3    1     0.04   0.28   0.13    1.10      13 M     15 M    0.16    0.20    0.03    0.04       56     1863       35     55
+   4    0     0.00   0.28   0.00    0.60    7529       41 K    0.82    0.16    0.00    0.02       56        0        0     60
+   5    1     0.02   0.45   0.05    0.82     822 K   1742 K    0.53    0.36    0.00    0.01      784       26        6     56
+   6    0     0.02   0.42   0.06    0.91    1181 K   1969 K    0.40    0.33    0.00    0.01     1624        5       11     59
+   7    1     0.08   0.49   0.15    0.72    1443 K   3662 K    0.61    0.41    0.00    0.00       56       39        4     56
+   8    0     0.00   0.25   0.00    0.61      20 K     74 K    0.72    0.15    0.01    0.02      168        1        0     59
+   9    1     0.06   0.21   0.27    1.15      43 M     49 M    0.13    0.18    0.07    0.09      112     6351      183     55
+  10    0     0.04   0.48   0.08    0.91    1759 K   2905 K    0.39    0.34    0.00    0.01     2296       58       19     58
+  11    1     0.04   0.49   0.09    0.99    1356 K   2720 K    0.50    0.39    0.00    0.01      112       97        7     54
+  12    0     0.00   0.23   0.00    0.61      23 K     94 K    0.75    0.16    0.00    0.02      336        0        1     60
+  13    1     0.02   0.45   0.04    0.69     664 K   1447 K    0.54    0.33    0.00    0.01        0       24        3     55
+  14    0     0.00   0.74   0.00    0.60      23 K     70 K    0.66    0.33    0.00    0.01      616        1        0     60
+  15    1     0.17   0.17   1.00    1.28     170 M    194 M    0.12    0.17    0.10    0.12    31360    26640     1271     55
+  16    0     0.00   0.33   0.00    0.60    5728       32 K    0.82    0.25    0.00    0.01        0        0        0     60
+  17    1     0.04   0.38   0.11    1.04    6308 K   8083 K    0.22    0.27    0.02    0.02      168      850       35     55
+  18    0     0.00   0.36   0.00    0.60    6097       31 K    0.81    0.27    0.00    0.01      280        1        0     60
+  19    1     0.00   0.26   0.00    0.60      61 K     90 K    0.32    0.09    0.02    0.03      168        1        1     56
+  20    0     0.00   0.34   0.00    0.60    5928       32 K    0.82    0.27    0.00    0.01        0        0        0     60
+  21    1     0.02   0.45   0.04    0.74     750 K   1575 K    0.52    0.33    0.00    0.01       56       21        2     56
+  22    0     0.00   0.35   0.00    0.60    4875       31 K    0.84    0.25    0.00    0.01       56        0        0     61
+  23    1     0.04   0.32   0.12    1.06    8652 K     10 M    0.19    0.22    0.02    0.03       56     1162       45     57
+  24    0     0.00   0.48   0.00    0.60     276 K    341 K    0.19    0.31    0.03    0.04    23296       30        0     60
+  25    1     0.02   0.45   0.03    0.75     622 K   1281 K    0.51    0.34    0.00    0.01        0       17        3     56
+  26    0     0.00   0.29   0.00    0.60    4228       28 K    0.85    0.20    0.00    0.02      168        0        0     60
+  27    1     0.04   0.50   0.08    0.96    1209 K   2612 K    0.54    0.38    0.00    0.01       56       89        3     56
+---------------------------------------------------------------------------------------------------------------
+ SKT    0     0.00   0.45   0.01    0.87    3370 K   5991 K    0.44    0.32    0.01    0.01    30352       99       33     52
+ SKT    1     0.04   0.28   0.16    1.07     250 M    296 M    0.16    0.20    0.04    0.05    33040    37218     1603     47
+---------------------------------------------------------------------------------------------------------------
+ TOTAL  *     0.02   0.29   0.09    1.05     253 M    302 M    0.16    0.20    0.04    0.04     N/A     N/A     N/A      N/A
+
+ Instructions retired: 6886 M ; Active cycles:   23 G ; Time (TSC):   10 Gticks ; C0 (active,non-halted) core residency: 8.08 %
+
+ C1 core residency: 24.89 %; C3 core residency: 7.93 %; C6 core residency: 59.10 %; C7 core residency: 0.00 %;
+ C2 package residency: 0.00 %; C3 package residency: 0.00 %; C6 package residency: 0.00 %; C7 package residency: 0.00 %;
+
+ PHYSICAL CORE IPC                 : 0.29 => corresponds to 7.22 % utilization for cores in active state
+ Instructions per nominal CPU cycle: 0.02 => corresponds to 0.61 % core utilization over time interval
+ SMI count: 165621179640
+---------------------------------------------------------------------------------------------------------------
+
+Intel(r) QPI traffic estimation in bytes (data and non-data traffic outgoing from CPU/socket through QPI links):
+
+               QPI0     QPI1    |  QPI0   QPI1  
+---------------------------------------------------------------------------------------------------------------
+ SKT    0     4199 M   4223 M   |    4%     4%   
+ SKT    1     4599 M   4573 M   |    4%     4%   
+---------------------------------------------------------------------------------------------------------------
+Total QPI outgoing data and non-data traffic:   17 G
+MEM (GB)->|  READ |  WRITE | CPU energy | DIMM energy
+---------------------------------------------------------------------------------------------------------------
+ SKT   0     2.32     2.66     217.97      30.22
+ SKT   1    19.76    26.55     250.96      41.68
+---------------------------------------------------------------------------------------------------------------
+       *    22.08    29.21     468.93      71.89
+Cleaning up
+ Freeing up all RMIDs
+
+ Processor Counter Monitor: PCIe Bandwidth Monitoring Utility 
+ This utility measures PCIe bandwidth in real-time
+
+ PCIe event definitions (each event counts as a transfer): 
+   PCIe read events (PCI devices reading from memory - application writes to disk/network/PCIe device):
+     PCIePRd   - PCIe UC read transfer (partial cache line)
+     PCIeRdCur* - PCIe read current transfer (full cache line)
+         On Haswell Server PCIeRdCur counts both full/partial cache lines
+     RFO*      - Demand Data RFO
+     CRd*      - Demand Code Read
+     DRd       - Demand Data Read
+     PCIeNSWr  - PCIe Non-snoop write transfer (partial cache line)
+   PCIe write events (PCI devices writing to memory - application reads from disk/network/PCIe device):
+     PCIeWiLF  - PCIe Write transfer (non-allocating) (full cache line)
+     PCIeItoM  - PCIe Write transfer (allocating) (full cache line)
+     PCIeNSWr  - PCIe Non-snoop write transfer (partial cache line)
+     PCIeNSWrF - PCIe Non-snoop write transfer (full cache line)
+     ItoM      - PCIe write full cache line
+     RFO       - PCIe parial Write
+   CPU MMIO events (CPU reading/writing to PCIe devices):
+     PRd       - MMIO Read [Haswell Server only] (Partial Cache Line)
+     WiL       - MMIO Write (Full/Partial)
+
+ * - NOTE: Depending on the configuration of your BIOS, this tool may report '0' if the message
+           has not been selected.
+
+Number of physical cores: 28
+Number of logical cores: 28
+Number of online logical cores: 28
+Threads (logical cores) per physical core: 1
+Num sockets: 2
+Physical cores per socket: 14
+Core PMU (perfmon) version: 3
+Number of core PMU generic (programmable) counters: 8
+Width of generic (programmable) counters: 48 bits
+Number of core PMU fixed counters: 3
+Width of fixed counters: 48 bits
+Nominal core frequency: 2000000000 Hz
+Package thermal spec power: 105 Watt; Package minimum power: 55 Watt; Package maximum power: 210 Watt; 
+Socket 0: 2 memory controllers detected with total number of 4 channels. 2 QPI ports detected.
+Socket 1: 2 memory controllers detected with total number of 4 channels. 2 QPI ports detected.
+Trying to use Linux perf events...
+Successfully programmed on-core PMU using Linux perf
+Socket 0
+Max QPI link 0 speed: 19.2 GBytes/second (9.6 GT/second)
+Max QPI link 1 speed: 19.2 GBytes/second (9.6 GT/second)
+Socket 1
+Max QPI link 0 speed: 19.2 GBytes/second (9.6 GT/second)
+Max QPI link 1 speed: 19.2 GBytes/second (9.6 GT/second)
+
+Detected Intel(R) Xeon(R) CPU E5-2660 v4 @ 2.00GHz "Intel(r) microarchitecture codename Broadwell-EP/EX"
+Update every 1.0 seconds
+delay_ms: 84
+
+Executing "sleep" command:
+DEBUG: caught signal to interrupt (Child exited).
+Program sleep launched with PID: 7616
+Program exited with status 0
+Skt | PCIeRdCur |  RFO  |  CRd  |  DRd  |  ItoM  |  PRd  |  WiL
+ 0    8280          48     506 K   171 K     12       0      60  
+ 1       0          12     759 K   180 K   1044       0      72  
+-----------------------------------------------------------------------
+ *    8280          60    1265 K   351 K   1056       0     132  
+
+Cleaning up
+ Freeing up all RMIDs
+ out collect pcm
+Data collected
