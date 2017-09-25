@@ -432,9 +432,9 @@ sub plot_results {
 	my %hash = ();
 	## can collect from file all the keys automagicaly, but we limit it intentionally
 	foreach my $plot (@plots) {
-		printf "Collecting $plot\n";
 		my @values = qx(grep -P \"$plot\\W\" $name);
-		next unless ($#values > 1);
+		printf "skipping $plot\n@values" and next unless ($#values > 0);
+		printf "Plotting: $plot\n";
 		$hash{$plot} = {};
 		## Create a custom gnuplot file
 		my $fh = prepare_gnuplot $file_path, $test_name, $plot;
