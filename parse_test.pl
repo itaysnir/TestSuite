@@ -71,6 +71,18 @@ sub avarage {
 	}
 	return ($total / ($#{$arr} + 1));
 }
+
+sub stdv {
+	my $arr = shift;
+	my $avg = shift;
+
+	my $sigma = 0;
+
+	for my $i (@{$arr}) {
+		$sigma += $i**2;
+	}
+	return  sqrt(($sigma / ($#{$arr} + 1)) - $avg**2);
+}
 ########################################################
 # PARSE subs
 #######################################################
@@ -216,9 +228,10 @@ sub parse_kernel_result {
 
 	open(my $out_handle, '>>', $out);
 	for my $key (keys(%results)) {
-		my $str = avarage($results{$key});
-		$kernel = basename($kernel);
-		$str = "$kernel:$key:$str";
+		my $avg  = avarage($results{$key});
+		my $stdv = stdv($results{$key}, $avg);
+		$kernel  = basename($kernel);
+		my $str  = "$kernel:$key:$avg:$stdv";
 		print $out_handle "$str\n";
 	}
 	close $out_handle;
