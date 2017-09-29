@@ -244,6 +244,19 @@ my @plots = qw(cpu_total Total_tx_packets Total_tx_bytes Total_rx_packets Total_
 		TOTAL_ipc TOTAL_l3miss TOTAL_l2miss TOTAL_l3hit TOTAL_l2hit TOTAL_l3mpi TOTAL_l2mpi
 		);
 
+my %extra_plots = (
+	'Bandwidth'	=> \&plot_bw,
+	'Ins_Byte'	=> \&plot_ins_byte,
+	'L2miss_Byte'	=> \&plot_miss2_byte,
+	'L3miss_Byte'	=> \&plot_miss3_byte,
+	'Cycles_Byte'	=> \&plot_cyc_byte,
+	'Ins_Packet'	=> \&plot_ins_packet,
+	'Cycles_Packet' => \&plot_cyc_packet,
+	'Ins_cycle'	=> \&plot_ipc,
+	'TX_Bytes_Packets' => \&plot_tx_byte_p_pack,
+	'RX_Bytes_Packets' => \&plot_rx_byte_p_pack,
+);
+
 sub plot_values {
 	my $values = shift;
 	my $fh = shift;
@@ -300,7 +313,7 @@ sub plot_rx_byte_p_pack {
 	my $idx = 0;
 	foreach my $kernel (sort {$sort{$a} <=> $sort{$b}} keys(%{$$hash{Total_rx_bytes}})) {
 		my $bw = 0;
-		unless ($$hash{Total_tx_packets}{$kernel} == 0) {
+		unless ($$hash{Total_rx_packets}{$kernel} == 0) {
 			$bw = $$hash{Total_rx_bytes}{$kernel} / $$hash{Total_rx_packets}{$kernel};
 		}
 		print $fh "$idx $kernel $bw\n";
@@ -445,52 +458,12 @@ sub plot_results {
 		qx(cd $file_path; gnuplot $file_path/${test_name}_$plot.plot; epstopdf ${test_name}_$plot.eps 2> /dev/null ; mv *.pdf $OUT_DIR/$test_name; rm -f *.eps; rm -f *.plot);
 	}
 
-	my $fh = prepare_gnuplot $file_path, $test_name, 'Bandwidth';
-	plot_bw \%hash, $fh;
-	close $fh;
-	qx(cd $file_path; gnuplot $file_path/*.plot; epstopdf *.eps 2> /dev/null ; mv *.pdf $OUT_DIR/$test_name; rm -f *.eps; rm -f *.plot);
-
-	$fh = prepare_gnuplot $file_path, $test_name, 'Ins_Byte';
-	plot_ins_byte \%hash, $fh;
-	close $fh;
-	qx(cd $file_path; gnuplot $file_path/*.plot; epstopdf *.eps 2> /dev/null ; mv *.pdf $OUT_DIR/$test_name; rm -f *.eps; rm -f *.plot);
-	$fh = prepare_gnuplot $file_path, $test_name, 'L2miss_Byte';
-	plot_miss2_byte \%hash, $fh;
-	close $fh;
-	qx(cd $file_path; gnuplot $file_path/*.plot; epstopdf *.eps 2> /dev/null ; mv *.pdf $OUT_DIR/$test_name; rm -f *.eps; rm -f *.plot);
-
-	$fh = prepare_gnuplot $file_path, $test_name, 'L3miss_Byte';
-	plot_miss3_byte \%hash, $fh;
-	close $fh;
-	qx(cd $file_path; gnuplot $file_path/*.plot; epstopdf *.eps 2> /dev/null ; mv *.pdf $OUT_DIR/$test_name; rm -f *.eps; rm -f *.plot);
-
-	$fh = prepare_gnuplot $file_path, $test_name, 'Cycles_Byte';
-	plot_cyc_byte \%hash, $fh;
-	close $fh;
-	qx(cd $file_path; gnuplot $file_path/*.plot; epstopdf *.eps 2> /dev/null ; mv *.pdf $OUT_DIR/$test_name; rm -f *.eps; rm -f *.plot);
-	$fh = prepare_gnuplot $file_path, $test_name, 'Ins_Packet';
-	plot_ins_packet \%hash, $fh;
-	close $fh;
-	qx(cd $file_path; gnuplot $file_path/*.plot; epstopdf *.eps 2> /dev/null ; mv *.pdf $OUT_DIR/$test_name; rm -f *.eps; rm -f *.plot);
-
-	$fh = prepare_gnuplot $file_path, $test_name, 'Cycles_Packet';
-	plot_cyc_packet \%hash, $fh;
-	close $fh;
-	qx(cd $file_path; gnuplot $file_path/*.plot; epstopdf *.eps 2> /dev/null ; mv *.pdf $OUT_DIR/$test_name; rm -f *.eps; rm -f *.plot);
-
-
-	$fh = prepare_gnuplot $file_path, $test_name, 'Ins_cycle';
-	plot_ipc \%hash, $fh;
-	close $fh;
-	qx(cd $file_path; gnuplot $file_path/*.plot; epstopdf *.eps 2> /dev/null ; mv *.pdf $OUT_DIR/$test_name; rm -f *.eps; rm -f *.plot);
-	$fh = prepare_gnuplot $file_path, $test_name, 'TX_Bytes_Packets';
-	plot_tx_byte_p_pack \%hash, $fh;
-	close $fh;
-	qx(cd $file_path; gnuplot $file_path/*.plot; epstopdf *.eps 2> /dev/null ; mv *.pdf $OUT_DIR/$test_name; rm -f *.eps; rm -f *.plot);
-	$fh = prepare_gnuplot $file_path, $test_name, 'RX_Bytes_Packets';
-	plot_rx_byte_p_pack \%hash, $fh;
-	close $fh;
-	qx(cd $file_path; gnuplot $file_path/*.plot; epstopdf *.eps 2> /dev/null ; mv *.pdf $OUT_DIR/$test_name; rm -f *.eps; rm -f *.plot);
+	foreach my $plot (keys(%extra_plots)) {
+		my $fh = prepare_gnuplot $file_path, $test_name, $plot;
+		$extra_plots{$plot}->(\%hash, $fh);
+		close $fh;
+		qx(cd $file_path; gnuplot $file_path/*.plot; epstopdf *.eps 2> /dev/null ; mv *.pdf $OUT_DIR/$test_name; rm -f *.eps; rm -f *.plot);
+	}
 
 	printf("ls -l  $OUT_DIR/$test_name\n");
 }

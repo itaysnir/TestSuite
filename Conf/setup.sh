@@ -48,3 +48,7 @@ sudo sh -c "echo 10 > /proc/sys/kernel/panic"
 #sudo sh -c "echo 1 > /proc/sys/kernel/panic_on_oops"
 #ssh $loader1 sudo sh -c "echo 65535 > /proc/sys/net/ipv4/tcp_min_tso_segs"
 #ssh $loader2 sudo sh -c "echo 65535 > /proc/sys/net/ipv4/tcp_min_tso_segs"
+sudo ethtool -K $if1 tx-nocache-copy off
+sudo ethtool -K $if2 tx-nocache-copy off
+sudo ethtool -K $if3 tx-nocache-copy off
+sudo ethtool -K $if4 tx-nocache-copy off
