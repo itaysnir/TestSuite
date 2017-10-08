@@ -79,9 +79,9 @@ sub stdv {
 	my $sigma = 0;
 
 	for my $i (@{$arr}) {
-		$sigma += $i**2;
+		$sigma += ($i -$avg)**2;
 	}
-	return  sqrt(($sigma / ($#{$arr} + 1)) - $avg**2);
+	return  sqrt($sigma / ($#{$arr} + 1));
 }
 ########################################################
 # PARSE subs
