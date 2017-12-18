@@ -25,9 +25,9 @@ do
 	netperf -H $dip2 -t UDP_STREAM -l $TIME -T $i,$i -P 0 -- -m63K > /dev/null &
 	netperf -H $dip4 -t UDP_STREAM -l $TIME -T $i,$i -P 0 -- -m63K > /dev/null &
 done
-sleep 5
-sudo sh -c "echo 1 > /sys/kernel/debug/alloc_trace/active"
-sudo sh -c "cat /sys/kernel/debug/alloc_trace/active"
+#sleep 5
+#sudo sh -c "echo 1 > /sys/kernel/debug/alloc_trace/active"
+#sudo sh -c "cat /sys/kernel/debug/alloc_trace/active"
 
 sleep $TIME
 sleep 10
