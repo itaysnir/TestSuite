@@ -8,7 +8,7 @@ use File::Grep qw (fgrep);
 use Cwd 'abs_path';
 use Switch;
 
-my $OUT_DIR="~/Dropbox/eurosys2018";
+my $OUT_DIR="~/Dropbox/atc2018";
 
 my %sort = (
 	'4.8.0-unsafe' => 50,
@@ -32,6 +32,9 @@ my %sort = (
 	'4.7.0-damn-strict_32' => 20,
 	'4.7.0-damn-strict_16' => 10,
 	'4.7.0-damn-strict_4' => 0,
+	'4.13.0-unsafe' => 3,
+	'4.13.0PCOP-unsafe' => 2,
+
 );
 
 #4.7.0-copy-plus-strict/

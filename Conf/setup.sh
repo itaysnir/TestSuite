@@ -1,6 +1,5 @@
 [ -e "./config.sh" ] && source ./config.sh
 `dirname $0`/replace.sh
-sleep 20
 PFC='on'
 LRO='on'
 
