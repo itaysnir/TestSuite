@@ -7,8 +7,8 @@ cd `dirname $0`
 source ./Conf/config.sh
 ./Conf/setup.sh
 
-NAME="`./Conf/get_name.sh`_${MAG_SIZE}"
-[ -z "$MAG_SIZE" ] && NAME="`./Conf/get_name.sh`"
+NAME="`./Conf/get_name.sh`_${SETUP_NAME}"
+[ -z "$SETUP_NAME" ] && NAME="`./Conf/get_name.sh`"
 
 Tests=TestDir/*
 

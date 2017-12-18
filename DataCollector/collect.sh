@@ -1,6 +1,7 @@
 #!/bin/bash
 
-perf=/homes/markuze/copy/tools/perf/perf
+export HOME=/homes/markuze
+perf="/homes/markuze/copy/tools/perf/perf"
 pcm=/homes/markuze/pcm/
 time=5
 
@@ -12,9 +13,9 @@ function collect_cpu {
 
 function collect_pstats {
 	echo " in collect pstas" >&2
-	sudo taskset -c 15 $perf stat -a -B -e cycles,instructions,cache-misses,cache-references sleep $time
-	sudo taskset -c 15 $perf stat -a -B -e LLC-store,LLC-store-misses sleep $time
-	sudo taskset -c 15 $perf stat -a -B -e LLC-load,LLC-load-misses sleep $time
+	sudo taskset -c 0 $perf stat -a -B -e cycles,instructions,cache-misses,cache-references sleep $time
+	sudo taskset -c 0 $perf stat -a -B -e LLC-store,LLC-store-misses sleep $time
+	sudo taskset -c 0 $perf stat -a -B -e LLC-load,LLC-load-misses sleep $time
 	echo " out collect pstas" >&2
 }
 
@@ -26,7 +27,7 @@ function collect_mem_bw {
 
 function collect_functions {
 	echo " in collect funcs" >&2
-	sudo taskset -c 15 $perf record -g -a sleep $time
+	sudo taskset -c 0 $perf mem record -e ldlat-loads,ldlat-stores sleep $time
 	echo " out collect funcs" >&2
 }
 
