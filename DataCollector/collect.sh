@@ -26,11 +26,15 @@ function collect_mem_bw {
 }
 
 function collect_functions {
-	echo " in collect funcs" >&2
+	echo " in collect funcs" #>&2
 	sudo taskset -c 0 $perf mem record -e ldlat-loads,ldlat-stores &
-	sleep time
-	sudo kill $!
-	echo " out collect funcs" >&2
+	sleep $time
+	#sudo pkill perf #$!
+	#ps -ef|grep "perf mem"
+	#ps -ef|grep "perf mem"|head -2|tail -1|cut -d" " -f 7
+	## Magic line to kill perf mem - pkill perf : kills netperf, kill $! : kills something...
+	sudo kill `ps -ef|grep "perf mem"|head -2|tail -1|cut -d" " -f 7`
+	echo " out collect funcs" #>&2
 }
 
 function collect_pcm {

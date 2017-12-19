@@ -8,7 +8,7 @@ use File::Grep qw (fgrep);
 use Cwd 'abs_path';
 use Switch;
 
-my $OUT_DIR="~/Dropbox/atc2018";
+my $OUT_DIR="/homes/markuze/plots/next";
 
 my %sort = (
 	'4.8.0-unsafe' => 50,
@@ -34,7 +34,10 @@ my %sort = (
 	'4.7.0-damn-strict_4' => 0,
 	'4.13.0-unsafe' => 3,
 	'4.13.0PCOP-unsafe' => 2,
-
+	'4.14.0-damn-ne-unsafe' => 1,
+	'4.14.0-PCOP-unsafe' => 2,
+	'4.14.0-damn-ne-unsafe_run1' => 1,
+	'4.14.0-damn-ne-unsafe_run2' => 2,
 );
 
 #4.7.0-copy-plus-strict/
@@ -70,7 +73,8 @@ sub avarage {
 	my $total = 0;
 
 	for my $i (@{$arr}) {
-		$total += $i;
+		$total += $i if ($i =~ /^[0-9._,]+$/);
+		printf "$i : not numeric\n" unless ($i =~ /^[0-9,._]+$/ or $i =~ "N/A");
 	}
 	return ($total / ($#{$arr} + 1));
 }
@@ -82,7 +86,7 @@ sub stdv {
 	my $sigma = 0;
 
 	for my $i (@{$arr}) {
-		$sigma += ($i -$avg)**2;
+		$sigma += ($i -$avg)**2 if ($i =~ /^[0-9._,]+$/);
 	}
 	return  sqrt($sigma / ($#{$arr} + 1));
 }
@@ -133,6 +137,11 @@ sub fill_pcm_hash {
 	my $l2mpi = $line[14];
 	$$hash{"${prfx}_l2mpi"} = [] unless (exists $$hash{"${prfx}_l2mpi"});
 	push (@{$$hash{"${prfx}_l2mpi"}}, $l2mpi);
+
+	my $l3occ = $line[15];
+	$$hash{"${prfx}_l3occ"} = [] unless (exists $$hash{"${prfx}_l3occ"});
+	push (@{$$hash{"${prfx}_l3occ"}}, $l3occ);
+
 }
 
 sub parse_pcm_line {
@@ -254,18 +263,18 @@ sub parse_test {
 #########################################################################################################
 # PLOT subs
 #################################################################
-my @plots = qw(cpu_total Total_tx_packets Total_tx_bytes Total_rx_packets Total_rx_bytes cycles instructions Memory iops
-		SKT0_ipc SKT0_l3miss SKT0_l2miss SKT0_l3hit SKT0_l2hit SKT0_l3mpi SKT0_l2mpi
-		SKT1_ipc SKT1_l3miss SKT1_l2miss SKT1_l3hit SKT1_l2hit SKT1_l3mpi SKT1_l2mpi
+my @plots = qw(cpu_total Total_tx_packets Total_tx_bytes Total_rx_packets Total_rx_bytes Memory iops instructions cycles
+		SKT0_ipc SKT0_l3miss SKT0_l2miss SKT0_l3hit SKT0_l2hit SKT0_l3mpi SKT0_l2mpi SKT0_l3occ
+		SKT1_ipc SKT1_l3miss SKT1_l2miss SKT1_l3hit SKT1_l2hit SKT1_l3mpi SKT1_l2mpi SKT1_l3occ
 		TOTAL_ipc TOTAL_l3miss TOTAL_l2miss TOTAL_l3hit TOTAL_l2hit TOTAL_l3mpi TOTAL_l2mpi
 		);
 
 my %extra_plots = (
 	'Bandwidth'	=> \&plot_bw,
-	'Ins_Byte'	=> \&plot_ins_byte,
 	'L2miss_Byte'	=> \&plot_miss2_byte,
 	'L3miss_Byte'	=> \&plot_miss3_byte,
 	'Cycles_Byte'	=> \&plot_cyc_byte,
+	'Ins_Byte'	=> \&plot_ins_byte,
 	'Ins_Packet'	=> \&plot_ins_packet,
 	'Cycles_Packet' => \&plot_cyc_packet,
 	'Ins_cycle'	=> \&plot_ipc,
@@ -286,10 +295,11 @@ sub plot_values {
 		my @line = split(/:/, $val);
 		$idx = $sort{$line[0]};
 
-		die "$idx $line[0] $line[2]" unless defined $idx;
+		die "$line[0] not defined in the %sort hash" unless defined $idx;
 
-		$plot[$idx]  = "$idx $line[0] $line[2]";
-		${$hash}{$line[0]} = $line[2];
+		die "$val wheres my arror bitch?" unless defined $line[3];
+		$plot[$idx]  = "$idx $line[0] $line[2] $line[3]";
+		${$hash}{$line[0]} = $line[2]; #store the result for compound graphs
 	}
 	foreach my $val (@plot) {
 		$val = 0 unless defined $val;
@@ -298,10 +308,13 @@ sub plot_values {
 }
 
 sub prepare_gnuplot {
-		my ($file_path, $test_name, $plot) = @_;
-		qx(rm -f $file_path/*.plot; cp $file_path/single_bar._plot $file_path/${test_name}_$plot.plot);
+		my ($file_path, $test_name, $plot, $xrange, $err) = @_;
+		$err = "_err" if defined $err;
+		$err = "_" unless defined $err;
+		qx(rm -f $file_path/*.plot; cp $file_path/single${err}bar._plot $file_path/${test_name}_$plot.plot);
 		qx(sed -i s/FILE_NAME/${test_name}_$plot/g $file_path/${test_name}_$plot.plot);
 		qx(sed -i s/VAL_NAME/$plot/g $file_path/${test_name}_$plot.plot);
+		qx(sed -i s/XRANGE/$xrange/g $file_path/${test_name}_$plot.plot);
 
 		open( my $fh, '>', "$file_path/data.dat");
 		return $fh;
@@ -311,7 +324,7 @@ sub plot_tx_byte_p_pack {
 	my $hash = shift;
 	my $fh = shift;
 
-	my $idx = 0;
+	my $idx = 1;
 	foreach my $kernel (sort {$sort{$a} <=> $sort{$b}} keys(%{$$hash{Total_tx_bytes}})) {
 		my $bw = 0;
 		unless ($$hash{Total_tx_packets}{$kernel} == 0) {
@@ -326,7 +339,7 @@ sub plot_rx_byte_p_pack {
 	my $hash = shift;
 	my $fh = shift;
 
-	my $idx = 0;
+	my $idx = 1;
 	foreach my $kernel (sort {$sort{$a} <=> $sort{$b}} keys(%{$$hash{Total_rx_bytes}})) {
 		my $bw = 0;
 		unless ($$hash{Total_rx_packets}{$kernel} == 0) {
@@ -341,7 +354,7 @@ sub plot_bw {
 	my $hash = shift;
 	my $fh = shift;
 
-	my $idx = 0;
+	my $idx = 1;
 	foreach my $kernel (sort {$sort{$a} <=> $sort{$b}} keys(%{$$hash{Total_tx_bytes}})) {
 		my $bw = $$hash{Total_tx_bytes}{$kernel} + $$hash{Total_rx_bytes}{$kernel};
 		$bw *= 8;
@@ -355,7 +368,7 @@ sub plot_cyc_packet {
 	my $hash = shift;
 	my $fh = shift;
 
-	my $idx = 0;
+	my $idx = 1;
 	foreach my $kernel (sort {$sort{$a} <=> $sort{$b}} keys(%{$$hash{Total_tx_packets}})) {
 		my $bw = $$hash{Total_tx_packets}{$kernel} + $$hash{Total_rx_packets}{$kernel};
 		my $val = 0;
@@ -369,7 +382,7 @@ sub plot_ins_packet {
 	my $hash = shift;
 	my $fh = shift;
 
-	my $idx = 0;
+	my $idx = 1;
 	foreach my $kernel (sort {$sort{$a} <=> $sort{$b}} keys(%{$$hash{Total_tx_packets}})) {
 		my $bw = $$hash{Total_tx_packets}{$kernel} + $$hash{Total_rx_packets}{$kernel};
 		my $val = 0;
@@ -383,7 +396,7 @@ sub plot_miss2_byte {
 	my $hash = shift;
 	my $fh = shift;
 
-	my $idx = 0;
+	my $idx = 1;
 	foreach my $kernel (sort {$sort{$a} <=> $sort{$b}} keys(%{$$hash{Total_tx_bytes}})) {
 		my $bw = $$hash{Total_tx_bytes}{$kernel} + $$hash{Total_rx_bytes}{$kernel};
 		my $val = 0;
@@ -397,7 +410,7 @@ sub plot_miss3_byte {
 	my $hash = shift;
 	my $fh = shift;
 
-	my $idx = 0;
+	my $idx = 1;
 	foreach my $kernel (sort {$sort{$a} <=> $sort{$b}} keys(%{$$hash{Total_tx_bytes}})) {
 		my $bw = $$hash{Total_tx_bytes}{$kernel} + $$hash{Total_rx_bytes}{$kernel};
 		my $val = 0;
@@ -411,7 +424,7 @@ sub plot_cyc_byte {
 	my $hash = shift;
 	my $fh = shift;
 
-	my $idx = 0;
+	my $idx = 1;
 	foreach my $kernel (sort {$sort{$a} <=> $sort{$b}} keys(%{$$hash{Total_tx_bytes}})) {
 		my $bw = $$hash{Total_tx_bytes}{$kernel} + $$hash{Total_rx_bytes}{$kernel};
 		my $val = 0;
@@ -425,7 +438,7 @@ sub plot_ins_byte {
 	my $hash = shift;
 	my $fh = shift;
 
-	my $idx = 0;
+	my $idx = 1;
 	foreach my $kernel (sort {$sort{$a} <=> $sort{$b}} keys(%{$$hash{Total_tx_bytes}})) {
 		my $bw = $$hash{Total_tx_bytes}{$kernel} + $$hash{Total_rx_bytes}{$kernel};
 		my $val = 0;
@@ -439,7 +452,7 @@ sub plot_ipc {
 	my $hash = shift;
 	my $fh = shift;
 
-	my $idx = 0;
+	my $idx = 1;
 	foreach my $kernel (sort {$sort{$a} <=> $sort{$b}} keys(%{$$hash{instructions}})) {
 		my $ins = $$hash{instructions}{$kernel};
 		my $val = $ins/$$hash{cycles}{$kernel};
@@ -458,6 +471,7 @@ sub plot_results {
 	qx(mkdir -p $OUT_DIR/$test_name; rm -f $file_path/*.eps);
 
 	## per test: hash{plot}{kernel} = value
+	my $xrange = 0;
 	my %hash = ();
 	## can collect from file all the keys automagicaly, but we limit it intentionally
 	foreach my $plot (@plots) {
@@ -466,7 +480,8 @@ sub plot_results {
 		printf "Plotting: $plot\n";
 		$hash{$plot} = {};
 		## Create a custom gnuplot file
-		my $fh = prepare_gnuplot $file_path, $test_name, $plot;
+		$xrange = ($#values + 2) if ($xrange < ($#values + 2));
+		my $fh = prepare_gnuplot $file_path, $test_name, $plot, $#values + 2, 'err';
 		plot_values \@values, $fh, $hash{$plot};
 		close $fh;
 
@@ -475,7 +490,7 @@ sub plot_results {
 	}
 
 	foreach my $plot (keys(%extra_plots)) {
-		my $fh = prepare_gnuplot $file_path, $test_name, $plot;
+		my $fh = prepare_gnuplot $file_path, $test_name, $plot, $xrange;
 		$extra_plots{$plot}->(\%hash, $fh);
 		close $fh;
 		qx(cd $file_path; gnuplot $file_path/*.plot; epstopdf *.eps 2> /dev/null ; mv *.pdf $OUT_DIR/$test_name; rm -f *.eps; rm -f *.plot);
