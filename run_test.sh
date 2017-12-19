@@ -8,9 +8,9 @@ Test=$1
 
 source $Test/config.sh
 [ -z "$repeat" ] && repeat=1
-[ -z "$DELAY" ] && DELAY=15
+[ -z "$DELAY" ] && DELAY=10
 
-export TIME=90
+export TIME=60
 echo "source $Test/config.sh"
 
 #rm -rf $OUT_FILE/result.txt
@@ -25,6 +25,7 @@ for i in `seq 1 $repeat`; do
 	sleep $DELAY
 	DataCollector/collect.sh &>> $OUT_FILE/result.txt
 	DataCollector/collect_pcm.sh &>> $OUT_FILE/result_pcm.txt
+	# collection is ±40sec
 	echo "$date waiting for test and collector ($Test)"
 	wait ${!}
 	echo "$date running post ($Test)"

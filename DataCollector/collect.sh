@@ -6,9 +6,9 @@ pcm=/homes/markuze/pcm/
 time=5
 
 function collect_cpu {
-	echo " in collect cpu" >&2
-	`dirname $0`/collect_net_cpu.pl
-	echo " out collect cpu" >&2
+#	echo " in collect cpu" >&2
+	`dirname $0`/collect_net_cpu.pl &
+#	echo " out collect cpu" >&2
 }
 
 function collect_pstats {
@@ -27,7 +27,9 @@ function collect_mem_bw {
 
 function collect_functions {
 	echo " in collect funcs" >&2
-	sudo taskset -c 0 $perf mem record -e ldlat-loads,ldlat-stores sleep $time
+	sudo taskset -c 0 $perf mem record -e ldlat-loads,ldlat-stores &
+	sleep time
+	sudo kill $!
 	echo " out collect funcs" >&2
 }
 
@@ -43,5 +45,9 @@ function collect_pcm {
 [ "$collect_mem_bw" != "no" ] && collect_mem_bw
 [ "$collect_functions" != "no" ] && collect_functions
 #[ "$collect_pcm" != "no" ] && collect_pcm
+
+wait
+
+#35s
 
 echo "Data collected"

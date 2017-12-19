@@ -16,7 +16,7 @@ foreach my $port (@ports) {
 }
 start_proc_cpu;
 
-sleep 1;
+sleep 30;
 
 foreach my $port (@ports) {
 	my $stat = stop_ethtool $port;
