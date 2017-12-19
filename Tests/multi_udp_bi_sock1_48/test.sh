@@ -11,12 +11,11 @@ let cpus=cpus-1
 i=1
 while [ $i -le $cpus ]
 do
-	netperf -H $dip1 -t TCP_STREAM -l $TIME -T $i,$i -P 0 -- -m1M &
-	netperf -H $dip2 -t TCP_STREAM -l $TIME -T $i,$i -P 0 -- -m1M &
-	netperf -H $dip1 -t TCP_MAERTS -l $TIME -T $i,$i -P 0 -- -m1M &
-	netperf -H $dip2 -t TCP_MAERTS -l $TIME -T $i,$i -P 0 -- -m1M &
+	netperf -H $dip4 -t UDP_STREAM -l $TIME -T $i,$i -P 0 -- -m63K &
+	netperf -H $dip2 -t UDP_STREAM -l $TIME -T $i,$i -P 0 -- -m63K &
+	ssh $loader1 netperf -H $ip4 -t UDP_STREAM -l $TIME -T $i,$i -P 0 -- -m63K &
+	ssh $loader2 netperf -H $ip2 -t UDP_STREAM -l $TIME -T $i,$i -P 0 -- -m63K &
 	let i=i+2
 done
 
-sleep $TIME
-sleep 3
+wait
