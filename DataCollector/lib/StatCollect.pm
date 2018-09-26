@@ -10,17 +10,43 @@ use Term::ANSIColor qw(:constants colored);
 require Exporter;
 
 our @ISA=qw(Exporter);
-our @EXPORT=qw(start_proc_cpu stop_proc_cpu start_ethtool stop_ethtool draw_cpu_util);
+our @EXPORT=qw(start_proc_cpu stop_proc_cpu start_ethtool stop_ethtool draw_cpu_util start_proc_interrupts stop_proc_interrupts);
 
 use constant USER_HZ => 100;
 #################################### GLOBALS ######################################################
 my $proc_start_time = 0;
+my %proc_start_time = ();
+
+my %proc_out = ();
 my @proc_cpu_out = ();
 
 my %eth_start_time = ();
 my %eth_out = ();
 
 #################################### STATICS ######################################################
+sub sum_irq {
+	my $out = shift;
+	my $sum = 0;
+
+	foreach (@{$out}) {
+		next unless (/^\s*\d+:([\d\s]+)\w/);
+		my @irqs = split /\s+/, $1;
+		foreach my $irq (@irqs) {
+			next unless ($irq =~ /\d+/);
+			$sum += $irq;
+		}
+	}
+	return $sum;
+}
+
+sub diff_proc_interrupts
+{
+	my $ref = shift;
+	my $start = sum_irq $proc_out{'irq'};
+	my $end = sum_irq $ref;
+	return ($end - $start);
+}
+
 # proc stat based cpu util, proc/stat misses some ticks so only idle(idx 4) are valid
 # int(time * USER_HZ) = expected total ticks ET.
 # cpu util = ET - Ticks/ET;
@@ -68,6 +94,29 @@ sub diff_ethtool
 
 ##################################### EXPORTS #####################################################
 #proc/stat based cpu util functions
+sub start_proc_interrupts
+{
+	die "proc start is not 0" if (defined($proc_start_time{'irq'}) and ($proc_start_time{'irq'} != 0));
+	$proc_start_time{'irq'} = time;
+
+	open(my $fh, '<', "/proc/interrupts");
+	my @out = grep {$_ =~ 'mlx5'} <$fh>;
+	$proc_out{'irq'} = \@out;
+	close $fh;
+}
+
+sub stop_proc_interrupts
+{
+	die "proc start is 0" if ($proc_start_time{'irq'} == 0);
+	my $time = time - $proc_start_time{'irq'};
+	$proc_start_time{'irq'} = 0;
+
+	open(my $fh, '<', "/proc/interrupts");
+	my @out = grep {$_ =~ 'mlx5'} <$fh>;
+	close $fh;
+	return (diff_proc_interrupts \@out)/$time;
+}
+
 sub start_proc_cpu
 {
 	die "proc start is not 0" unless ($proc_start_time == 0);
