@@ -269,7 +269,7 @@ sub parse_test {
 #########################################################################################################
 # PLOT subs
 #################################################################
-my @plots = qw(cpu_total Total_tx_packets Total_tx_bytes Total_rx_packets Total_rx_bytes Memory iops instructions cycles
+my @plots = qw(irq_total cpu_total Total_tx_packets Total_tx_bytes Total_rx_packets Total_rx_bytes Memory iops instructions cycles
 		SKT0_ipc SKT0_l3miss SKT0_l2miss SKT0_l3hit SKT0_l2hit SKT0_l3mpi SKT0_l2mpi SKT0_l3occ
 		SKT1_ipc SKT1_l3miss SKT1_l2miss SKT1_l3hit SKT1_l2hit SKT1_l3mpi SKT1_l2mpi SKT1_l3occ
 		TOTAL_ipc TOTAL_l3miss TOTAL_l2miss TOTAL_l3hit TOTAL_l2hit TOTAL_l3mpi TOTAL_l2mpi

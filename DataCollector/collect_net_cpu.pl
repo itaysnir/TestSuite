@@ -15,6 +15,7 @@ foreach my $port (@ports) {
 	start_ethtool $port;
 }
 start_proc_cpu;
+start_proc_interrupts;
 
 sleep 30;
 
@@ -24,7 +25,8 @@ foreach my $port (@ports) {
 }
 
 $cpu_stats = stop_proc_cpu;
-
+my $irq = stop_proc_interrupts;
+printf "irq_total: $irq\n";
 printf "cpu_total: %3.2f\n", ${$cpu_stats}[0];
 
 my $idx = 0;
