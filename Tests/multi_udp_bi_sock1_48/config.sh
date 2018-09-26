@@ -22,5 +22,9 @@ if [ -z "$ip2" ]; then
 	exit -1
 fi
 
-sudo set_irq_affinity_bynode.sh  1 $if1
-sudo set_irq_affinity_bynode.sh  1 $if2
+sudo set_irq_affinity.sh   $if1
+sudo set_irq_affinity.sh   $if2
+sudo set_irq_affinity.sh   $if3
+sudo set_irq_affinity.sh   $if4
+#sudo set_irq_affinity_bynode.sh  0 $if2
+#sudo set_irq_affinity_bynode.sh  1 $if4

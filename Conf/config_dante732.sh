@@ -15,8 +15,8 @@ export if3=enp4s0f0
 export if4=enp130s0f0
 
 export dif1=eth11
-export dif2=p2p2
-export dif3=p2p1
+export dif2=enp5s0f1
+export dif3=enp5s0f0
 export dif4=eth12
 
 export mtu=9000

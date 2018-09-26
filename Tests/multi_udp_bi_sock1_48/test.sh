@@ -11,11 +11,12 @@ let cpus=cpus-1
 i=1
 while [ $i -le $cpus ]
 do
-	netperf -H $dip4 -t UDP_STREAM -l $TIME -T $i,$i -P 0 -- -m63K &
 	netperf -H $dip2 -t UDP_STREAM -l $TIME -T $i,$i -P 0 -- -m63K &
+	netperf -H $dip4 -t UDP_STREAM -l $TIME -T $i,$i -P 0 -- -m63K &
+	let i=i+1
 	ssh $loader1 netperf -H $ip4 -t UDP_STREAM -l $TIME -T $i,$i -P 0 -- -m63K &
 	ssh $loader2 netperf -H $ip2 -t UDP_STREAM -l $TIME -T $i,$i -P 0 -- -m63K &
-	let i=i+2
+	let i=i+1
 done
 
 wait

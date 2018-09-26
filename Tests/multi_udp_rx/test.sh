@@ -20,10 +20,10 @@ let cpus=cpus-1
 
 for i in `seq 0  $cpus`
 do
-	ssh $loader1 netperf -H $ip1 -t UDP_STREAM -l $TIME -T $i,$i -P 0 -- -m63K > /dev/null &
-	ssh $loader2 netperf -H $ip2 -t UDP_STREAM -l $TIME -T $i,$i -P 0 -- -m63K > /dev/null &
-	ssh $loader1 netperf -H $ip4 -t UDP_STREAM -l $TIME -T $i,$i -P 0 -- -m63K > /dev/null &
-	ssh $loader2 netperf -H $ip3 -t UDP_STREAM -l $TIME -T $i,$i -P 0 -- -m63K > /dev/null &
+	ssh $loader1 netperf -H $ip1 -t UDP_STREAM -l $TIME -T $i,$i -P 0 -- -m8K > /dev/null &
+	ssh $loader2 netperf -H $ip2 -t UDP_STREAM -l $TIME -T $i,$i -P 0 -- -m8K > /dev/null &
+	ssh $loader1 netperf -H $ip4 -t UDP_STREAM -l $TIME -T $i,$i -P 0 -- -m8K > /dev/null &
+	ssh $loader2 netperf -H $ip3 -t UDP_STREAM -l $TIME -T $i,$i -P 0 -- -m8K > /dev/null &
 done
 
 sleep $TIME

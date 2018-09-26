@@ -12,4 +12,7 @@ if [ -z "$ip1" ]; then
 	exit -1
 fi
 
-sudo set_irq_affinity_cpulist.sh  2 $if2 $if1
+sudo set_irq_affinity_cpulist.sh  2 $if1
+sudo set_irq_affinity_cpulist.sh  2 $if2
+sudo set_irq_affinity_cpulist.sh  2 $if3
+sudo set_irq_affinity_cpulist.sh  2 $if4

@@ -12,5 +12,8 @@ if [ -z "$ip1" ]; then
 	exit -1
 fi
 
-sudo ifconfig $if1 $ip1 netmask 255.255.0.0 mtu $mtu
+#sudo ifconfig $if1 $ip1 netmask 255.255.0.0 mtu $mtu
 sudo set_irq_affinity_cpulist.sh 1 $if1
+sudo set_irq_affinity_cpulist.sh 1 $if2
+sudo set_irq_affinity_cpulist.sh 1 $if3
+sudo set_irq_affinity_cpulist.sh 1 $if4

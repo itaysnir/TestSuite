@@ -2,24 +2,35 @@
 `dirname $0`/replace.sh
 PFC='on'
 LRO='on'
+GRO='on'
+RING=256
 
 sudo ifconfig $if1 $ip1 netmask 255.255.255.0 mtu $mtu
 sudo ifconfig $if2 $ip2 netmask 255.255.255.0 mtu $mtu
 sudo ifconfig $if3 $ip3 netmask 255.255.255.0 mtu $mtu
 sudo ifconfig $if4 $ip4 netmask 255.255.255.0 mtu $mtu
 
-sudo ethtool -G $if1 rx 256 tx 256
-sudo ethtool -G $if2 rx 256 tx 256
-sudo ethtool -G $if3 rx 256 tx 256
-sudo ethtool -G $if4 rx 256 tx 256
+#sudo set_irq_affinity_cpulist.sh 0 $if1
+#sudo set_irq_affinity_cpulist.sh 0 $if2
+#sudo set_irq_affinity_cpulist.sh 0 $if3
+#sudo set_irq_affinity_cpulist.sh 0 $if4
+
+sudo ethtool -G $if1 rx $RING tx $RING
+sudo ethtool -G $if2 rx $RING tx $RING
+sudo ethtool -G $if3 rx $RING tx $RING
+sudo ethtool -G $if4 rx $RING tx $RING
 
 sudo ethtool -K $if1 lro $LRO
+sudo ethtool -K $if1 gro $GRO
 sudo ethtool -A $if1 rx $PFC tx $PFC
 sudo ethtool -K $if2 lro $LRO
+sudo ethtool -K $if1 gro $GRO
 sudo ethtool -A $if2 rx $PFC tx $PFC
 sudo ethtool -K $if3 lro $LRO
+sudo ethtool -K $if1 gro $GRO
 sudo ethtool -A $if3 rx $PFC tx $PFC
 sudo ethtool -K $if4 lro $LRO
+sudo ethtool -K $if1 gro $GRO
 sudo ethtool -A $if4 rx $PFC tx $PFC
 
 #sudo ethtool -K $if3 lro$LRO
@@ -37,11 +48,14 @@ ssh $loader2 sudo ethtool -K $dif2 lro $LRO
 ssh $loader2 sudo ethtool -A $dif2 rx $PFC tx $PFC
 
 ssh $loader1 sudo set_irq_affinity.sh $dif1
+ssh $loader1 sudo set_irq_affinity.sh $dif4
 ssh $loader2 sudo set_irq_affinity.sh $dif2
-ssh $loader2 sudo set_irq_affinity_cpulist.sh 0-15 $dif3
-ssh $loader1 sudo set_irq_affinity_cpulist.sh 0-15 $dif4
+ssh $loader2 sudo set_irq_affinity.sh $dif3
+#ssh $loader2 sudo set_irq_affinity_cpulist.sh 0-15 $dif3
+#ssh $loader1 sudo set_irq_affinity_cpulist.sh 0-15 $dif4
 
 sudo modprobe msr
+sudo sh -c "echo 8 > /proc/sys/vm/percpu_pagelist_fraction"
 sudo sh -c "echo 0 > /proc/sys/kernel/nmi_watchdog"
 sudo sh -c "echo 10 > /proc/sys/kernel/panic"
 #sudo sh -c "echo 1 > /proc/sys/kernel/panic_on_oops"

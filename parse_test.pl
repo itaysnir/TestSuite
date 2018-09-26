@@ -8,7 +8,7 @@ use File::Grep qw (fgrep);
 use Cwd 'abs_path';
 use Switch;
 
-my $OUT_DIR="/homes/markuze/plots/next";
+my $OUT_DIR="/homes/markuze/plots/next-all";
 
 my %sort = (
 	'4.8.0-unsafe' => 50,
@@ -34,8 +34,14 @@ my %sort = (
 	'4.7.0-damn-strict_4' => 0,
 	'4.13.0-unsafe' => 3,
 	'4.13.0PCOP-unsafe' => 2,
+	'4.14.0-PCOP-defer' => 2,
+	'4.13.0PCOP-defer' => 3,
+	'4.14.0-PCOP-PF-unsafe' => 3,
+	'4.14.0-PCOP-PF-defer' => 4,
 	'4.14.0-damn-ne-unsafe' => 1,
 	'4.14.0-PCOP-unsafe' => 2,
+	'4.14.0-damn-ne_v1-defer' => 1,
+	'4.14.0-defer' => 2,
 	'4.14.0-damn-ne-unsafe_run1' => 1,
 	'4.14.0-damn-ne-unsafe_run2' => 2,
 );
@@ -267,6 +273,8 @@ my @plots = qw(cpu_total Total_tx_packets Total_tx_bytes Total_rx_packets Total_
 		SKT0_ipc SKT0_l3miss SKT0_l2miss SKT0_l3hit SKT0_l2hit SKT0_l3mpi SKT0_l2mpi SKT0_l3occ
 		SKT1_ipc SKT1_l3miss SKT1_l2miss SKT1_l3hit SKT1_l2hit SKT1_l3mpi SKT1_l2mpi SKT1_l3occ
 		TOTAL_ipc TOTAL_l3miss TOTAL_l2miss TOTAL_l3hit TOTAL_l2hit TOTAL_l3mpi TOTAL_l2mpi
+		cache-misses cache-references LLC-store LLC-store-misses LLC-load LLC-load-misses
+
 		);
 
 my %extra_plots = (
@@ -495,7 +503,7 @@ sub plot_results {
 		close $fh;
 		qx(cd $file_path; gnuplot $file_path/*.plot; epstopdf *.eps 2> /dev/null ; mv *.pdf $OUT_DIR/$test_name; rm -f *.eps; rm -f *.plot);
 	}
-
+	qx(cp $name $OUT_DIR/$test_name);
 	printf("ls -l  $OUT_DIR/$test_name\n");
 }
 ############################################ PCM RESULTS #######################################
