@@ -10,7 +10,8 @@ use Term::ANSIColor qw(:constants colored);
 require Exporter;
 
 our @ISA=qw(Exporter);
-our @EXPORT=qw(start_proc_cpu stop_proc_cpu start_ethtool stop_ethtool draw_cpu_util start_proc_interrupts stop_proc_interrupts);
+our @EXPORT=qw(start_proc_cpu stop_proc_cpu start_ethtool stop_ethtool draw_cpu_util start_proc_interrupts stop_proc_interrupts
+		start_ethtool_full stop_ethtool_full);
 
 use constant USER_HZ => 100;
 #################################### GLOBALS ######################################################
@@ -157,18 +158,18 @@ sub stop_proc_cpu
 }
 
 #collect bytes/packets for a specific interface
-sub start_ethtool
+sub start_ethtool_full
 {
 	my $if = shift;
 	die "usage start_ethtool <if_name>\n" unless (defined($if));
 	die "eth start was called twice for $if" if (defined ($eth_start_time{$if}));
 	$eth_start_time{$if} = time;
 
-	my @eth_out = grep {$_ =~ '\s[tr]x_packets|\s[tr]x_bytes|tx_queue_stopped'} qx(ethtool -S $if);
+	my @eth_out = qx(ethtool -S $if);
 	$eth_out{$if} = \@eth_out;
 }
 
-sub stop_ethtool
+sub stop_ethtool_full
 {
 	my $if = shift;
 	die "usage stop_ethtool <if_name>\n" unless (defined($if));
@@ -177,7 +178,7 @@ sub stop_ethtool
 	my $time = time - $eth_start_time{$if};
 	undef $eth_start_time{$if};
 
-	my @eth_out = grep {$_ =~ '\s[tr]x_packets|\s[tr]x_bytes|tx_queue_stopped'} qx(ethtool -S $if);
+	my @eth_out =  qx(ethtool -S $if);
 	my $num_ref = diff_ethtool $if, $time, \@eth_out;
 
 	undef $eth_out{$if};
@@ -191,7 +192,7 @@ sub draw_cpu_util
 	die "usage draw_cpu_util <cpu_util_ref(stop_proc_cpu)>" unless (defined $cpu_ref);
 
 	foreach (1 .. $#$cpu_ref) {
-		my $util = ($$cpu_ref[$_] >= 0 ) ? $$cpu_ref[$_] : 0;
+		my $util = ($$cpu_ref[$_] >= 0 ) ? int($$cpu_ref[$_]) : 0;
 		my $util_str;
 		if ($util > 95) {
 			$util_str = RED '|'x$util;

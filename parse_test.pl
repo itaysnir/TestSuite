@@ -44,6 +44,7 @@ my %sort = (
 	'4.14.0-damn-ne_v1-unsafe' => 1,
 	'4.14.0-defer' => 2,
 	'4.14.0-unsafe' => 2,
+	'4.14.0no-send_buff-unsafe' => 3,
 	'4.14.0-damn-ne-unsafe_run1' => 1,
 	'4.14.0-damn-ne-unsafe_run2' => 2,
 );
