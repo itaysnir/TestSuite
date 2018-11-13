@@ -14,7 +14,7 @@ sudo ifconfig $if4 $ip4 netmask 255.255.255.0 mtu $mtu
 #sudo set_irq_affinity_cpulist.sh 0 $if2
 #sudo set_irq_affinity_cpulist.sh 0 $if3
 #sudo set_irq_affinity_cpulist.sh 0 $if4
-
+exit
 sudo ethtool -G $if1 rx $RING tx $RING
 sudo ethtool -G $if2 rx $RING tx $RING
 sudo ethtool -G $if3 rx $RING tx $RING
@@ -65,3 +65,18 @@ sudo ethtool -K $if1 tx-nocache-copy off
 sudo ethtool -K $if2 tx-nocache-copy off
 sudo ethtool -K $if3 tx-nocache-copy off
 sudo ethtool -K $if4 tx-nocache-copy off
+
+exit
+SOCK_SIZE=1073741824
+sudo sh -c "echo $SOCK_SIZE > /proc/sys/net/core/optmem_max"
+sudo sh -c "echo $SOCK_SIZE > /proc/sys/net/core/rmem_max"
+sudo sh -c "echo $SOCK_SIZE > /proc/sys/net/core/wmem_max"
+sudo sh -c "echo $SOCK_SIZE > /proc/sys/net/core/rmem_default"
+sudo sh -c "echo $SOCK_SIZE > /proc/sys/net/core/wmem_default"
+
+
+cat /proc/sys/net/core/optmem_max
+cat /proc/sys/net/core/rmem_max
+cat /proc/sys/net/core/wmem_max
+cat /proc/sys/net/core/rmem_default
+cat /proc/sys/net/core/wmem_default

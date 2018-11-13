@@ -18,9 +18,9 @@ mkdir TestDir
 #ln -s `pwd`/Tests/multi_udp_bi TestDir/
 #ln -s `pwd`/Tests/multi_udp_rx TestDir/
 #ln -s `pwd`/Tests/multi_udp_tx TestDir/
-#ln -s `pwd`/Tests/single_tcp_rx TestDir/
+ln -s `pwd`/Tests/single_tcp_rx TestDir/
 ln -s `pwd`/Tests/single_tcp_tx TestDir/
-#ln -s `pwd`/Tests/single_udp_rx TestDir/
+ln -s `pwd`/Tests/single_udp_rx TestDir/
 ln -s `pwd`/Tests/single_udp_tx TestDir/
 #ln -s `pwd`/Tests/single_udp_rr TestDir/
 #ln -s `pwd`/Tests/single_tcp_rr TestDir/
