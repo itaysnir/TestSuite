@@ -18,7 +18,7 @@ sleep 5
 for Test in $Tests;
 do
 	export OUT_FILE=Results/$DATE/`basename $Test`/$NAME
-	export repeat=1
+	export repeat=5
 	mkdir -p $OUT_FILE
 	echo "running $Test"
 	./run_test.sh $Test

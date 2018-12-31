@@ -195,11 +195,11 @@ sub draw_cpu_util
 		my $util = ($$cpu_ref[$_] >= 0 ) ? int($$cpu_ref[$_]) : 0;
 		my $util_str;
 		if ($util > 95) {
-			$util_str = RED '|'x$util;
+			$util_str = RED '|'x($util *0.5);
 		} else {
-			$util_str = BLUE '|'x$util;
+			$util_str = BLUE '|'x($util *0.5);
 		}
-		printf "cpu%2d [%s%s%s]%3d\n", $_ -1, $util_str , RESET,' 'x(100 - $util), $util;
+		printf "cpu%2d [%s%s%s]%3d\n", $_ -1, $util_str , RESET,' 'x(50 - $util), $util;
 	}
 }
 

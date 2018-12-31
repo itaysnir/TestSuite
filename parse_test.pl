@@ -47,6 +47,10 @@ my %sort = (
 	'4.14.0no-send_buff-unsafe' => 3,
 	'4.14.0-damn-ne-unsafe_run1' => 1,
 	'4.14.0-damn-ne-unsafe_run2' => 2,
+	'4.14.0-damn-no-irq-unsafe' => 1,
+	'4.14.0-damn-unsafe'	=> 2,
+	'4.14.0-no-irq-unsafe' => 3,
+	'4.14.0-orphan-unsafe' => 4
 );
 
 #4.7.0-copy-plus-strict/
