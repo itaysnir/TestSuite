@@ -11,7 +11,7 @@ require Exporter;
 
 our @ISA=qw(Exporter);
 our @EXPORT=qw(start_proc_cpu stop_proc_cpu start_ethtool stop_ethtool draw_cpu_util start_proc_interrupts stop_proc_interrupts
-		start_ethtool_full stop_ethtool_full);
+		start_ethtool_full stop_ethtool_full draw_mem);
 
 use constant USER_HZ => 100;
 #################################### GLOBALS ######################################################
@@ -158,6 +158,33 @@ sub stop_proc_cpu
 }
 
 #collect bytes/packets for a specific interface
+sub start_ethtool
+{
+	my $if = shift;
+	die "usage start_ethtool <if_name>\n" unless (defined($if));
+	die "eth start was called twice for $if" if (defined ($eth_start_time{$if}));
+	$eth_start_time{$if} = time;
+
+	my @eth_out = grep {$_ =~ '\s[tr]x_packets|\s[tr]x_bytes'} qx(ethtool -S $if);
+	$eth_out{$if} = \@eth_out;
+}
+
+sub stop_ethtool
+{
+	my $if = shift;
+	die "usage stop_ethtool <if_name>\n" unless (defined($if));
+	die "eth stop was called before start for $if" unless (defined $eth_start_time{$if});
+
+	my $time = time - $eth_start_time{$if};
+	undef $eth_start_time{$if};
+
+	my @eth_out = grep {$_ =~ '\s[tr]x_packets|\s[tr]x_bytes'} qx(ethtool -S $if);
+	my $num_ref = diff_ethtool $if, $time, \@eth_out;
+
+	undef $eth_out{$if};
+	return $num_ref
+}
+
 sub start_ethtool_full
 {
 	my $if = shift;
@@ -202,6 +229,32 @@ sub draw_cpu_util
 		printf "cpu%2d [%s%s%s]%3d\n", $_ -1, $util_str , RESET,' 'x(50 - $util), $util;
 	}
 }
+
+sub line2num {
+	my $line = shift;
+	my @tmp = split /:/, $line;
+	chomp $tmp[1];
+	my $total = $tmp[1];
+	$total =~ /(\d+)/g;
+	return $1;
+}
+
+sub draw_mem {
+
+	open(my $fh, '<', "/proc/meminfo");
+	my @total = grep {$_ =~ /Mem[TF]/} <$fh>;
+
+	my $total = line2num $total[0];
+	my $free = line2num $total[1];
+	my $len = int((100 * ($total -$free)/$total)/2);
+
+	my $str =  GREEN '|'x$len;
+	my $blank = ' 'x(50-$len);
+	printf "Memory [%s%s%s] %3.2f/%3.2fGB\n", $str, RESET, $blank,
+		, ($total-$free)/(1024  * 1024)	, $total/(1024  * 1024);
+
+}
+
 
 ###################################################################################################
 1

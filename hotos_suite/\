@@ -1,0 +1,37 @@
+#./run_single.sh -t ./Tests/hotos/multi_sendfile_tx/
+#./run_single.sh -t ./Tests/hotos/multi_sendfile_tx/
+#./run_single.sh -t ./Tests/hotos/multi_sendfile_os/
+#./run_single.sh -t ./Tests/hotos/multi_sendfile/
+#./run_single.sh -t ./Tests/hotos/multi_tcp_bi_single_nic
+#./run_single.sh -t ./Tests/hotos/multi_tcp_bi_single_nic_sock0
+#./run_single.sh -t ./Tests/hotos/multi_tcp_bi_single_nic_sock0x2
+#./run_single.sh -t ./Tests/hotos/multi_tcp_bi_single_nicx2
+#./run_single.sh -c -t ./Tests/hotos/multi_rx/
+#./run_single.sh -t ./Tests/hotos/multi_rx_remote/
+
+function post()
+{
+	./parse_test.sh
+	cd Results/HOTOS/
+	pwd
+	git add *;
+	git commit -a -m"$SETUP_NAME"
+	git push
+	cd -
+	./sock.sh -d
+}
+
+cd ..
+export RING=8192
+export SOCK_SIZE=1
+export TX_CACHE='on'
+export SETUP_NAME=_RBU_RBK_NTC
+./run_single.sh -c -t ./Tests/hotos/multi_sendfile_txos/
+post
+
+export TX_CACHE=''
+export SETUP_NAME=_RBU_RBK_TC
+./run_single.sh -c -t ./Tests/hotos/multi_sendfile_txos/
+post
+
+MSG_SIZE=16K

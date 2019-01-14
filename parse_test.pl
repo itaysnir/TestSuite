@@ -522,13 +522,14 @@ sub plot_results {
 
 
 ##########################
-my $dir = lazy_dir();
+my $dir = '/homes/markuze/TestSuite/Results/HOTOS';#lazy_dir();
 my @tests = glob($dir.'/*');
 
 printf "working on $dir\n";
 for my $test (@tests) {
+	printf "parsing $test\n";
 	parse_test $test;
 	## When possible create pm file and sepparate parse from plot
-	plot_results $test;
+	#plot_results $test;
 }
 

@@ -3,7 +3,8 @@
 PFC='on'
 LRO='on'
 GRO='on'
-RING=256
+[ -z "$RING" ] && RING=256
+[ -z "$TX_CACHE" ] && TX_CACHE='off'
 
 sudo ifconfig $if1 $ip1 netmask 255.255.255.0 mtu $mtu
 sudo ifconfig $if2 $ip2 netmask 255.255.255.0 mtu $mtu
@@ -61,18 +62,26 @@ sudo sh -c "echo 10 > /proc/sys/kernel/panic"
 #sudo sh -c "echo 1 > /proc/sys/kernel/panic_on_oops"
 #ssh $loader1 sudo sh -c "echo 65535 > /proc/sys/net/ipv4/tcp_min_tso_segs"
 #ssh $loader2 sudo sh -c "echo 65535 > /proc/sys/net/ipv4/tcp_min_tso_segs"
-sudo ethtool -K $if1 tx-nocache-copy off
-sudo ethtool -K $if2 tx-nocache-copy off
-sudo ethtool -K $if3 tx-nocache-copy off
-sudo ethtool -K $if4 tx-nocache-copy off
+sudo ethtool -K $if1 tx-nocache-copy $TX_CACHE
+sudo ethtool -K $if2 tx-nocache-copy $TX_CACHE
+sudo ethtool -K $if3 tx-nocache-copy $TX_CACHE
+sudo ethtool -K $if4 tx-nocache-copy $TX_CACHE
 
-exit
-SOCK_SIZE=1073741824
+echo "Ring size: $RING"
+echo "TX no cache: $TX_CACHE"
+
+[ -z  "$SOCK_SIZE" ] && exit
+
+echo "Sock size: $SOCK_SIZE"
+#SOCK_SIZE=1073741824
+SOCK_SIZE=270217728
 sudo sh -c "echo $SOCK_SIZE > /proc/sys/net/core/optmem_max"
 sudo sh -c "echo $SOCK_SIZE > /proc/sys/net/core/rmem_max"
 sudo sh -c "echo $SOCK_SIZE > /proc/sys/net/core/wmem_max"
 sudo sh -c "echo $SOCK_SIZE > /proc/sys/net/core/rmem_default"
 sudo sh -c "echo $SOCK_SIZE > /proc/sys/net/core/wmem_default"
+sudo sh -c "echo $SOCK_SIZE > /proc/sys/net/core/rmem_min"
+sudo sh -c "echo $SOCK_SIZE > /proc/sys/net/core/wmem_min"
 
 
 cat /proc/sys/net/core/optmem_max

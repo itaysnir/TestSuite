@@ -12,15 +12,15 @@ my @net_stats = ();
 my $cpu_stats = undef;
 
 foreach my $port (@ports) {
-	start_ethtool_full $port;
+	start_ethtool $port;
 }
 start_proc_cpu;
 start_proc_interrupts;
 
-sleep 40;
+sleep 10;
 
 foreach my $port (@ports) {
-	my $stat = stop_ethtool_full $port;
+	my $stat = stop_ethtool $port;
 	push(@net_stats, $stat);
 }
 

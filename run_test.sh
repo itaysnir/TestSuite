@@ -13,7 +13,7 @@ source $Test/config.sh
 export TIME=120
 echo "source $Test/config.sh"
 
-#rm -rf $OUT_FILE/result.txt
+rm -rf $OUT_FILE/result.txt
 
 echo "$date starting ($Test $repeat [$DELAY])"
 for i in `seq 1 $repeat`; do
@@ -23,13 +23,14 @@ for i in `seq 1 $repeat`; do
 	testid=$!
 	echo "$date $Test/test.sh & $OUT_FILE"
 	sleep $DELAY
-	DataCollector/collect_man.sh &>> $OUT_FILE/result.txt
+	sudo DataCollector/collect_hotos.sh &>> $OUT_FILE/result.txt
+	cp $OUT_FILE/result.txt $OUT_FILE/result_pcm.txt
 	#DataCollector/collect_pcm.sh &>> $OUT_FILE/result_pcm.txt
 	# collection is ±40sec
 	echo "$date waiting for test and collector ($Test)"
 	wait ${!}
-	echo "$date running post ($Test)"
-	DataCollector/post_process.sh &>> $OUT_FILE/post.txt
+	#echo "$date running post ($Test)"
+	#DataCollector/post_process.sh &>> $OUT_FILE/post.txt
 done
 date=`date +"%H:%M.%s:"`
 echo "$date Done ($Test)"

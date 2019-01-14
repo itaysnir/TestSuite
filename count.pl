@@ -4,11 +4,26 @@ use strict;
 use autodie;
 
 my $count = 0;
+my $i = 0;
+my @array = ();
 
 while (<>) {
 	chomp;
-	printf "$_\n";
-	$count += $1 if (/^\s+([\d\.]+)%/);
+#	printf "$_\n";
+	next unless (/^\s+([\d\.]+)/);
+	push @array, $1;
+	$count += $1;
+	$i++;
+
 }
 
-printf "Count $count\n";
+printf "avg %.2f\n", $count/$i;
+my $l1 = 0;
+$count = $count/$i;
+
+my $diff;
+foreach (@array) {
+	 $diff += abs($count -$_);
+}
+printf "avg l1 %.2f\n", $diff/$i;
+
