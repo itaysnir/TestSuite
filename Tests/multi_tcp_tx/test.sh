@@ -12,9 +12,9 @@ for i in `seq 0  $cpus`;
 do
 m=$(( $i % 4))
 [ $m == 0 ] && netperf -H $dip1 -t TCP_STREAM -l $TIME -T $i,$i -- -m1M &
-[ $m == 2 ] && netperf -H $dip1 -t TCP_STREAM -l $TIME -T $i,$i -- -m1M &
 [ $m == 1 ] && netperf -H $dip2 -t TCP_STREAM -l $TIME -T $i,$i -- -m1M &
-[ $m == 3 ] && netperf -H $dip2 -t TCP_STREAM -l $TIME -T $i,$i -- -m1M &
+[ $m == 3 ] && netperf -H $dip3 -t TCP_STREAM -l $TIME -T $i,$i -- -m1M &
+[ $m == 3 ] && netperf -H $dip4 -t TCP_STREAM -l $TIME -T $i,$i -- -m1M &
 
 done
 #cpus=15

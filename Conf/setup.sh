@@ -4,6 +4,7 @@ PFC='on'
 LRO='on'
 GRO='on'
 [ -z "$RING" ] && RING=256
+[ -z "$TX_RING" ] && TX_RING=256
 [ -z "$TX_CACHE" ] && TX_CACHE='off'
 
 sudo ifconfig $if1 $ip1 netmask 255.255.255.0 mtu $mtu
@@ -16,10 +17,15 @@ sudo ifconfig $if4 $ip4 netmask 255.255.255.0 mtu $mtu
 #sudo set_irq_affinity_cpulist.sh 0 $if3
 #sudo set_irq_affinity_cpulist.sh 0 $if4
 
-sudo ethtool -G $if1 rx $RING tx $RING
-sudo ethtool -G $if2 rx $RING tx $RING
-sudo ethtool -G $if3 rx $RING tx $RING
-sudo ethtool -G $if4 rx $RING tx $RING
+sudo ethtool -G $if1 rx $RING tx $TX_RING
+sudo ethtool -G $if2 rx $RING tx $TX_RING
+sudo ethtool -G $if3 rx $RING tx $TX_RING
+sudo ethtool -G $if4 rx $RING tx $TX_RING
+
+sudo ethtool -g $if1
+sudo ethtool -g $if2
+sudo ethtool -g $if3
+sudo ethtool -g $if4
 
 sudo ethtool -K $if1 lro $LRO
 sudo ethtool -K $if1 gro $GRO
@@ -39,21 +45,24 @@ sudo ethtool -A $if4 rx $PFC tx $PFC
 #sudo set_irq_affinity_cpulist.sh 0-15 $if1
 #sudo set_irq_affinity_cpulist.sh 0-15 $if2
 
-#ssh $loader1 sudo ifconfig $dif1 $dip1 netmask 255.255.255.0 mtu $mtu
-ssh $loader2 sudo ifconfig $dif2 $dip2 netmask 255.255.255.0 mtu $mtu
-ssh $loader2 sudo ifconfig $dif3 $dip3 netmask 255.255.255.0 mtu $mtu
-#ssh $loader1 sudo ifconfig $dif4 $dip4 netmask 255.255.255.0 mtu $mtu
-#ssh $loader1 sudo ethtool -K $dif1 lro $LRO
-#ssh $loader1 sudo ethtool -A $dif1 rx $PFC tx $PFC
-ssh $loader2 sudo ethtool -K $dif2 lro $LRO
-ssh $loader2 sudo ethtool -A $dif2 rx $PFC tx $PFC
+function setup_peers {
 
-#ssh $loader1 sudo set_irq_affinity.sh $dif1
-#ssh $loader1 sudo set_irq_affinity.sh $dif4
-ssh $loader2 sudo set_irq_affinity.sh $dif2
-ssh $loader2 sudo set_irq_affinity.sh $dif3
-#ssh $loader2 sudo set_irq_affinity_cpulist.sh 0-15 $dif3
-#ssh $loader1 sudo set_irq_affinity_cpulist.sh 0-15 $dif4
+	ssh $loader1 sudo ifconfig $dif1 $dip1 netmask 255.255.255.0 mtu $mtu
+	ssh $loader2 sudo ifconfig $dif2 $dip2 netmask 255.255.255.0 mtu $mtu
+	ssh $loader2 sudo ifconfig $dif3 $dip3 netmask 255.255.255.0 mtu $mtu
+	ssh $loader1 sudo ifconfig $dif4 $dip4 netmask 255.255.255.0 mtu $mtu
+	ssh $loader1 sudo ethtool -K $dif1 lro $LRO
+	ssh $loader1 sudo ethtool -A $dif1 rx $PFC tx $PFC
+	ssh $loader2 sudo ethtool -K $dif2 lro $LRO
+	ssh $loader2 sudo ethtool -A $dif2 rx $PFC tx $PFC
+
+	ssh $loader1 sudo set_irq_affinity.sh $dif1
+	ssh $loader1 sudo set_irq_affinity.sh $dif4
+	ssh $loader2 sudo set_irq_affinity.sh $dif2
+	ssh $loader2 sudo set_irq_affinity.sh $dif3
+}
+
+#setup_peers
 
 sudo modprobe msr
 sudo sh -c "echo 8 > /proc/sys/vm/percpu_pagelist_fraction"

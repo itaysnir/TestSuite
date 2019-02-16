@@ -6,11 +6,11 @@
 Test=$1
 [ -z "$Test" ] && echo "$0 ERROR: not test defined" && exit -1;
 
-source $Test/config.sh
+source $Test/config.sh >> $OUT_FILE/test_raw.txt
 [ -z "$repeat" ] && repeat=1
 [ -z "$DELAY" ] && DELAY=10
 
-export TIME=120
+export TIME=50
 echo "source $Test/config.sh"
 
 rm -rf $OUT_FILE/result.txt
@@ -19,6 +19,7 @@ echo "$date starting ($Test $repeat [$DELAY])"
 for i in `seq 1 $repeat`; do
 	date=`date +"%H:%M.%s:"`
 	export OUT_FILE=$OUT_FILE
+	echo "Sock: $SOCK_SIZE"
 	$Test/test.sh >> $OUT_FILE/test_raw.txt &
 	testid=$!
 	echo "$date $Test/test.sh & $OUT_FILE"

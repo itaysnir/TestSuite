@@ -522,7 +522,7 @@ sub plot_results {
 
 
 ##########################
-my $dir = '/homes/markuze/TestSuite/Results/HOTOS';#lazy_dir();
+my $dir = '/homes/markuze/TestSuite/Results/HOTOS/RUN_5';#lazy_dir();
 my @tests = glob($dir.'/*');
 
 printf "working on $dir\n";

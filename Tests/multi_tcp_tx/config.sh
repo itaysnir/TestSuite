@@ -25,7 +25,7 @@ fi
 sudo set_irq_affinity.sh $if1 $if2
 sudo set_irq_affinity.sh $if3 $if4
 
-sudo set_irq_affinity_bynode.sh  0 $if1
-sudo set_irq_affinity_bynode.sh  1 $if2
-sudo set_irq_affinity_bynode.sh  0 $if3
-sudo set_irq_affinity_bynode.sh  1 $if4
+#sudo set_irq_affinity_bynode.sh  0 $if1
+#sudo set_irq_affinity_bynode.sh  1 $if2
+#sudo set_irq_affinity_bynode.sh  0 $if3
+#sudo set_irq_affinity_bynode.sh  1 $if4
