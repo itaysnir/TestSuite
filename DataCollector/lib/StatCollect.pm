@@ -10,8 +10,9 @@ use Term::ANSIColor qw(:constants colored);
 require Exporter;
 
 our @ISA=qw(Exporter);
-our @EXPORT=qw(start_proc_cpu stop_proc_cpu start_ethtool stop_ethtool draw_cpu_util start_proc_interrupts stop_proc_interrupts
-		start_ethtool_full stop_ethtool_full draw_mem);
+our @EXPORT=qw(start_proc_cpu stop_proc_cpu start_ethtool stop_ethtool
+		draw_cpu_util start_proc_interrupts stop_proc_interrupts
+		start_ethtool_full stop_ethtool_full draw_mem get_ifs);
 
 use constant USER_HZ => 100;
 #################################### GLOBALS ######################################################
@@ -255,6 +256,27 @@ sub draw_mem {
 
 }
 
+#returns list of configured(!) interfaces for supported drivers.
+# current list: mlx5_core
+sub get_ifs {
+	my @list = ();
+	my %supported_drivers = (mlx5_core => undef,);
+	my @ifcfg = qx (ifconfig);
 
+	foreach (@ifcfg) {
+		chomp;
+		next unless (/^(\w+)/);
+		my $if = $1;
+		my @drv = qx(ethtool -i $1);
+
+		foreach (@drv) {
+			next unless (/driver\s*:\s*(\w+)/);
+			#printf "$if -> $1\n" if (exists($supported_drivers{$1}));
+			push @list, $if if (exists($supported_drivers{$1}));
+		}
+
+	}
+	return \@list;
+}
 ###################################################################################################
 1
