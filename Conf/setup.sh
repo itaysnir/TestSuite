@@ -7,43 +7,34 @@ GRO='on'
 [ -z "$TX_RING" ] && TX_RING=256
 [ -z "$TX_CACHE" ] && TX_CACHE='off'
 
-sudo ifconfig $if1 $ip1 netmask 255.255.255.0 mtu $mtu
-sudo ifconfig $if2 $ip2 netmask 255.255.255.0 mtu $mtu
-sudo ifconfig $if3 $ip3 netmask 255.255.255.0 mtu $mtu
-sudo ifconfig $if4 $ip4 netmask 255.255.255.0 mtu $mtu
 
-#sudo set_irq_affinity_cpulist.sh 0 $if1
-#sudo set_irq_affinity_cpulist.sh 0 $if2
-#sudo set_irq_affinity_cpulist.sh 0 $if3
-#sudo set_irq_affinity_cpulist.sh 0 $if4
+function die
+{
+	echo "$@"
+	exit -1;
+}
 
-sudo ethtool -G $if1 rx $RING tx $TX_RING
-sudo ethtool -G $if2 rx $RING tx $TX_RING
-sudo ethtool -G $if3 rx $RING tx $TX_RING
-sudo ethtool -G $if4 rx $RING tx $TX_RING
+for i in `seq 1 6`;
+do
+	name="if$i"
+	eval if=\$$name;
+	name="ip$i"
+	eval ip=\$$name;
 
-sudo ethtool -g $if1
-sudo ethtool -g $if2
-sudo ethtool -g $if3
-sudo ethtool -g $if4
+	if [ ! -z "$if" ]; then
+		[ -z "$ip" ] && die "ERROR: echo ip$i ($ip) not configured for $if"
 
-sudo ethtool -K $if1 lro $LRO
-sudo ethtool -K $if1 gro $GRO
-sudo ethtool -A $if1 rx $PFC tx $PFC
-sudo ethtool -K $if2 lro $LRO
-sudo ethtool -K $if1 gro $GRO
-sudo ethtool -A $if2 rx $PFC tx $PFC
-sudo ethtool -K $if3 lro $LRO
-sudo ethtool -K $if1 gro $GRO
-sudo ethtool -A $if3 rx $PFC tx $PFC
-sudo ethtool -K $if4 lro $LRO
-sudo ethtool -K $if1 gro $GRO
-sudo ethtool -A $if4 rx $PFC tx $PFC
-
-#sudo ethtool -K $if3 lro$LRO
-#sudo ethtool -K $if4 lro$LRO
-#sudo set_irq_affinity_cpulist.sh 0-15 $if1
-#sudo set_irq_affinity_cpulist.sh 0-15 $if2
+		sudo ifconfig $if $ip netmask 255.255.255.0 mtu $mtu
+		sudo ethtool -G $if rx $RING tx $TX_RING
+		sudo ethtool -K $if lro $LRO
+		sudo ethtool -K $if gro $GRO
+		sudo ethtool -A $if rx $PFC tx $PFC
+		sudo ethtool -K $if1 tx-nocache-copy $TX_CACHE
+		sudo ethtool -g $if
+		sudo ethtool -k $if
+		sudo ethtool -a $if
+	fi
+done
 
 function setup_peers {
 
@@ -71,10 +62,6 @@ sudo sh -c "echo 10 > /proc/sys/kernel/panic"
 #sudo sh -c "echo 1 > /proc/sys/kernel/panic_on_oops"
 #ssh $loader1 sudo sh -c "echo 65535 > /proc/sys/net/ipv4/tcp_min_tso_segs"
 #ssh $loader2 sudo sh -c "echo 65535 > /proc/sys/net/ipv4/tcp_min_tso_segs"
-sudo ethtool -K $if1 tx-nocache-copy $TX_CACHE
-sudo ethtool -K $if2 tx-nocache-copy $TX_CACHE
-sudo ethtool -K $if3 tx-nocache-copy $TX_CACHE
-sudo ethtool -K $if4 tx-nocache-copy $TX_CACHE
 
 echo "Ring size: $RING"
 echo "TX no cache: $TX_CACHE"
@@ -83,14 +70,12 @@ echo "TX no cache: $TX_CACHE"
 
 echo "Sock size: $SOCK_SIZE"
 #SOCK_SIZE=1073741824
-SOCK_SIZE=270217728
+#SOCK_SIZE=270217728
 sudo sh -c "echo $SOCK_SIZE > /proc/sys/net/core/optmem_max"
 sudo sh -c "echo $SOCK_SIZE > /proc/sys/net/core/rmem_max"
 sudo sh -c "echo $SOCK_SIZE > /proc/sys/net/core/wmem_max"
 sudo sh -c "echo $SOCK_SIZE > /proc/sys/net/core/rmem_default"
 sudo sh -c "echo $SOCK_SIZE > /proc/sys/net/core/wmem_default"
-sudo sh -c "echo $SOCK_SIZE > /proc/sys/net/core/rmem_min"
-sudo sh -c "echo $SOCK_SIZE > /proc/sys/net/core/wmem_min"
 
 
 cat /proc/sys/net/core/optmem_max
