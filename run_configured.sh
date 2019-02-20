@@ -2,6 +2,7 @@
 
 cd `dirname $0`
 
+DATE=`date +"%y_%m_%d_%H.%M.%S"`
 [ -z "$DATE" ] && DATE=TMP
 
 source ./Conf/config.sh

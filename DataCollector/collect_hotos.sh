@@ -12,9 +12,9 @@ function collect_cpu {
 
 function collect_pstats {
 	echo " in collect pstas" >&2
-	sudo taskset -c 15 $perf stat -a -B -e cycles,instructions,cache-misses,cache-references sleep $time
-	sudo taskset -c 15 $perf stat -a -B -e LLC-store,LLC-store-misses sleep $time
-	sudo taskset -c 15 $perf stat -a -B -e LLC-load,LLC-load-misses sleep $time
+	taskset -c 15 $perf stat -a -B -e cycles,instructions,cache-misses,cache-references sleep $time
+	taskset -c 15 $perf stat -a -B -e LLC-store,LLC-store-misses sleep $time
+	taskset -c 15 $perf stat -a -B -e LLC-load,LLC-load-misses sleep $time
 	echo " out collect pstas" >&2
 }
 
@@ -26,12 +26,13 @@ function collect_mem_bw {
 
 function collect_functions {
 	echo " in collect funcs" >&2
-	sudo taskset -c 15 $perf record -g -a sleep $time
+	taskset -c 15 $perf record -g -a sleep $time
 	echo " out collect funcs" >&2
 }
 
 function collect_pcm {
 	echo " in collect pcm" >&2
+	$pcm/pcm-pcie.x -- sleep $time
 	$pcm/pcm.x -- sleep $time
 	echo " out collect pcm" >&2
 }

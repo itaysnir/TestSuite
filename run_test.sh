@@ -10,7 +10,7 @@ source $Test/config.sh >> $OUT_FILE/test_raw.txt
 [ -z "$repeat" ] && repeat=1
 [ -z "$DELAY" ] && DELAY=10
 
-export TIME=50
+export TIME=40
 echo "source $Test/config.sh"
 
 rm -rf $OUT_FILE/result.txt
