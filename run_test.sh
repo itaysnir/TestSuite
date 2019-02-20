@@ -8,7 +8,7 @@ Test=$1
 
 source $Test/config.sh >> $OUT_FILE/test_raw.txt
 [ -z "$repeat" ] && repeat=1
-[ -z "$DELAY" ] && DELAY=10
+[ -z "$DELAY" ] && DELAY=5
 
 export TIME=40
 echo "source $Test/config.sh"
@@ -24,7 +24,7 @@ for i in `seq 1 $repeat`; do
 	testid=$!
 	echo "$date $Test/test.sh & $OUT_FILE"
 	sleep $DELAY
-	sudo DataCollector/collect_hotos.sh &>> $OUT_FILE/result.txt
+	sudo OUT_FILE=$OUT_FILE DataCollector/collect_membw.sh &>> $OUT_FILE/result.txt
 	cp $OUT_FILE/result.txt $OUT_FILE/result_pcm.txt
 	#DataCollector/collect_pcm.sh &>> $OUT_FILE/result_pcm.txt
 	# collection is ±40sec

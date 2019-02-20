@@ -5,9 +5,7 @@ pcm=/homes/markuze/pcm/
 time=5
 
 function collect_cpu {
-	echo " in collect cpu" >&2
-	`dirname $0`/collect_net_cpu.pl
-	echo " out collect cpu" >&2
+	`dirname $0`/collect_net_cpu.pl &
 }
 
 function collect_pstats {
