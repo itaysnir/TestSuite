@@ -5,6 +5,7 @@
 
 Test=$1
 [ -z "$Test" ] && echo "$0 ERROR: not test defined" && exit -1;
+[  ! -e "$Test/test.sh" ] && echo "No File" && exit -1
 
 source $Test/config.sh >> $OUT_FILE/test_raw.txt
 [ -z "$repeat" ] && repeat=1
