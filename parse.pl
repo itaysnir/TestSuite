@@ -38,6 +38,43 @@ sub str2num {
 	}
 }
 
+sub pcm_parser {
+	my $file = shift;
+	my %tmp;
+	printf "$file\n";
+
+	my @header = ();
+	my $parse = 0;
+
+	open (my $fh, '<', $file);
+	foreach (<$fh>) {
+		chomp;
+		next unless /Core|SKT|TOTAL/;
+
+		if (/Core/) {
+			$parse = 1;
+			@header = split /\s\|\s/;
+			#printf "$#header: @header\n";
+			next;
+		}
+		next unless ($parse);
+		if (/TOTAL/) {
+			$parse = 0 ;
+			next;
+		}
+		my @line = split /\s{2,}/;
+		#printf "$#line: @line\n";
+		for (my $i = 2; $i <= $#line; $i++) {
+			my $key = "s$line[1]";
+			$key = "${key}_$header[$i -1]";
+			$key =~ s/\s//g;
+			push @{$tmp{$key}}, str2num($line[$i]);
+		}
+	}
+	close ($fh);
+	return hash2csv \%tmp;
+}
+
 sub power_parser {
 	my $file = shift;
 	my %tmp;
@@ -152,6 +189,7 @@ sub latency_parser {
 my %parser = (
 	'latency.txt' => \&latency_parser,
 	'memory.txt' => \&memory_parser,
+	'pcm.txt' => \&pcm_parser,
 	'pcie.txt' => \&pcie_parser,
 	'power.txt' => \&power_parser,
 );
