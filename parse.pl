@@ -27,6 +27,46 @@ sub hash2csv {
 	return \@csv, \@title;
 }
 
+sub str2num {
+	my @num = split /\s/, shift;
+	#printf "$#num: @num\n";
+	return $num[0] if ($#num == 0);
+	switch ($num[1]) {
+		case 'M' {return $num[0] * 1_000_000}
+		case 'K' {return $num[0] * 1_000}
+		else {die "$_ impossible switch...\n"}
+	}
+}
+
+sub pcie_parser {
+	my $file = shift;
+	my %tmp;
+	printf "$file\n";
+	open (my $fh, '<', $file);
+
+	my @ops = ();
+
+	foreach (<$fh>) {
+		chomp;
+		if (/^Skt/) {
+			@ops = split /\s+\|\s+/, $_;
+			#printf "[$#ops] @ops\n";
+			next;
+		}
+		next unless /^\s/;
+		my @vals = split /\s{2,}/;
+		#printf "[$#vals] @vals\n";
+		my $skt = $vals[0];
+		$skt = 'sys' unless ($vals[0] =~ /\d+/);
+		for (my $i = 1; $i <= $#vals; $i++) {
+			my $key = "${skt}_$ops[$i]";
+			push 	@{$tmp{$key}}, str2num $vals[$i];
+		}
+	}
+	close ($fh);
+	return hash2csv \%tmp;
+}
+
 sub memory_parser {
 	my $file = shift;
 	my %tmp;
@@ -88,6 +128,7 @@ sub latency_parser {
 my %parser = (
 	'latency.txt' => \&latency_parser,
 	'memory.txt' => \&memory_parser,
+	'pcie.txt' => \&pcie_parser,
 );
 
 sub parse_result_files {
