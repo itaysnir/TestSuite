@@ -14,6 +14,49 @@ use Switch;
 ###################### MOVE TO .pm ########################
 #<Name>,Test Name, kernel,
 my @csv = ("Test", "Kernel");
+sub hash2csv {
+	my $tmp = shift;
+	my @csv = ();
+	my @title = ();
+	foreach (sort keys %{$tmp}) {
+		my $avg = sum(@{${$tmp}{$_}})/@{${$tmp}{$_}};
+		#printf "$_: %.2f\n", $avg;
+		push @title, $_;
+		push @csv, $avg;
+	}
+	return \@csv, \@title;
+}
+
+sub memory_parser {
+	my $file = shift;
+	my %tmp;
+	printf "$file\n";
+	open (my $fh, '<', $file);
+	foreach (<$fh>) {
+		chomp;
+		if (/NODE\s+\d/) {
+			#printf "Per node: $_\n ";
+			while (/NODE\s+(\d)\s+([\w\s\.]+)\(\D+([\d\.]+)/g) {
+				#printf "Node $1 : OP $2 Val $3\n";
+				my $key = "node_$1_$2";
+				my $val = $3;
+				$key =~ s/\s/_/g;
+				push @{$tmp{$key}}, $val;
+			}
+			next;
+		}
+		if (/System/) {
+			#printf "Per sys: $_\n ";
+			/System\s+(\w+)\D+([\d\.]+)/g;
+			#printf "Sys $1 : $2\n";
+			my $key = "sys_$1";
+			push @{$tmp{$key}}, $2;
+			next;
+		}
+	}
+	close ($fh);
+	return hash2csv \%tmp;
+}
 
 sub latency_parser {
 	my $file = shift;
@@ -39,19 +82,12 @@ sub latency_parser {
 	}
 	close ($fh);
 
-	my @csv = ();
-	my @title = ();
-	foreach (sort keys %tmp) {
-		my $avg = sum(@{$tmp{$_}})/@{$tmp{$_}};
-		printf "$_: %.2f\n", $avg;
-		push @title, $_;
-		push @csv, $avg;
-	}
-	return \@csv, \@title;
+	return hash2csv \%tmp;
 }
 
 my %parser = (
 	'latency.txt' => \&latency_parser,
+	'memory.txt' => \&memory_parser,
 );
 
 sub parse_result_files {
@@ -63,13 +99,15 @@ sub parse_result_files {
 		my $file = basename($_);
 
 		if (defined($parser{$file})) {
-			my ($title, $csv) = $parser{$file}->($_);
+			my ($csv, $title) = $parser{$file}->($_);
 			push @csv, @{$csv};
 			push @title, @{$title};
+		} else {
+			printf "Parser not configured $file\n";
 		}
 	}
-	printf "@title\n";
-	printf "@csv\n";
+	printf "> title: @title\n";
+	printf "> val :@csv\n";
 }
 
 sub parse_test {
