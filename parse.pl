@@ -38,6 +38,30 @@ sub str2num {
 	}
 }
 
+sub power_parser {
+	my $file = shift;
+	my %tmp;
+	printf "$file\n";
+	open (my $fh, '<', $file);
+	foreach (<$fh>) {
+		chomp;
+		next unless (/Consumed/);
+		my $key = 'total';
+		$key = 'dram' if (/DRAM/);
+		my @line = split /;/, $_;
+		#printf "$#line: @line\n";
+		$key = "$line[0]_$key";
+		for (my $i = 1; $i <= $#line; $i++) {
+			#printf "$line[$i]\n";
+			$line[$i] =~ /(\w+)\s*:\s*([\d\.]+)/g;
+			#printf "${key}_$1 => $2\n";
+			push @{$tmp{"${key}_$1"}}, $2;
+		}
+	}
+	close ($fh);
+	return hash2csv \%tmp;
+}
+
 sub pcie_parser {
 	my $file = shift;
 	my %tmp;
@@ -129,6 +153,7 @@ my %parser = (
 	'latency.txt' => \&latency_parser,
 	'memory.txt' => \&memory_parser,
 	'pcie.txt' => \&pcie_parser,
+	'power.txt' => \&power_parser,
 );
 
 sub parse_result_files {
