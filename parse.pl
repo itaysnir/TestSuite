@@ -38,6 +38,11 @@ sub str2num {
 	}
 }
 
+sub bytes2gbs {
+	my $byte = shift;
+	return ($byte * 8)/(1000 * 1000 * 1000);
+}
+
 my @nop  = ();
 
 sub nop {return \@nop, \@nop;}
@@ -55,8 +60,10 @@ sub result_parser {
 		# Noise dure to combinded output
 		next if /^Socket\d/;
 		next if /^delay_ms/;
-
-		push @{$tmp{$1}}, $2;
+		my $key = $1;
+		my $val = $2;
+		$val = bytes2gbs($val) if ($key =~ /bytes/);
+		push @{$tmp{$key}}, $val;
 	}
 	close ($fh);
 	return hash2csv \%tmp;
@@ -237,27 +244,52 @@ sub parse_result_files {
 			printf "Parser not configured $file\n";
 		}
 	}
-	printf "> title: @title\n";
-	printf "> val :@csv\n";
+	#printf "> title: @title\n";
+	#printf "> val :@csv\n";
+	return \@title, \@csv;
 }
 
+my $otitle;
 sub parse_test {
+	my $fh = shift;
 	my $dir = shift;
+	my $name = shift;
 	my $test = basename($dir);
+	my $csv;
+	my $title;
 
 	for (glob($dir."/*")) {
 		my $kern = basename($_);
 		#printf "($test)$kern\n" if (-d $_);
-		parse_result_files $_;
+		($title, $csv) = parse_result_files $_;
+		#my $t = validate_title ($otitle, $title);
+		unless (defined ($otitle)) {
+			print $fh "name,test,";
+			foreach (@{$title}) {
+				printf $fh "$_,";
+			}
+			printf $fh "\n";
+			$otitle = \$title;
+		}
+		print $fh "$name,$test,";
+		foreach (@{$csv}) {
+			printf $fh "$_,";
+		}
+		printf $fh "\n";
 	}
 }
 
 sub parse_dir {
 	my $dir = shift;
+	my $name = basename ($dir);
+	printf "setup: $name\n";
+
+	open my $fh, '>', "$name.csv";
 	for (glob($dir."/*")) {
-		#printf "$_\n";
-		parse_test $_ if (-d $_);
+		next unless (-d $_);
+		parse_test $fh, $_, $name;
 	}
+	close $fh;
 }
 
 #################### MAIN ##################################
@@ -282,6 +314,3 @@ for (split (/,/, $opts{'d'})) {
 	printf "Parsing: $_\n";
 	parse_dir ($_);
 }
-
-for (keys (%parser)) { printf "$_\n"};
-for (@csv) { printf "$_\n"};
