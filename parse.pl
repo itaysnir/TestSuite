@@ -2,6 +2,7 @@
 
 use warnings;
 use strict;
+use autodie;
 use Getopt::Std;
 use List::Util qw(sum);
 use File::Basename;
