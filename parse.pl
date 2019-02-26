@@ -38,6 +38,30 @@ sub str2num {
 	}
 }
 
+my @nop  = ();
+
+sub nop {return \@nop, \@nop;}
+
+sub result_parser {
+	my $file = shift;
+	my %tmp;
+	printf "$file\n";
+
+	open (my $fh, '<', $file);
+	foreach (<$fh>) {
+		chomp;
+		next unless /^(\w+)\s*:\s*([\d\.]+)$/;
+
+		# Noise dure to combinded output
+		next if /^Socket\d/;
+		next if /^delay_ms/;
+
+		push @{$tmp{$1}}, $2;
+	}
+	close ($fh);
+	return hash2csv \%tmp;
+}
+
 sub pcm_parser {
 	my $file = shift;
 	my %tmp;
@@ -192,6 +216,9 @@ my %parser = (
 	'pcm.txt' => \&pcm_parser,
 	'pcie.txt' => \&pcie_parser,
 	'power.txt' => \&power_parser,
+	'result.txt' => \&result_parser,
+	'result_pcm.txt' => \&nop,
+	'test_raw.txt' => \&nop,
 );
 
 sub parse_result_files {
