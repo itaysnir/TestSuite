@@ -17,7 +17,7 @@ function collect_mem_bw {
 
 function collect_pcm {
 	echo " in collect pcm" >&2
-	$pcm/pcm-pcie.x 1 -csv=$OUT_FILE/pcie.txt -- sleep $time#| tee -a $OUT_FILE/pcie.txt
+	$pcm/pcm-pcie.x 1 -csv=$OUT_FILE/pcie_csv.txt -- sleep $time#| tee -a $OUT_FILE/pcie.txt
 	$pcm/pcm-latency.x -- sleep $time| tee -a $OUT_FILE/latency.txt
 	$pcm/pcm-power.x -- sleep $time| tee -a $OUT_FILE/power.txt
 	$pcm/pcm.x 1 -- sleep $time| tee -a $OUT_FILE/pcm.txt

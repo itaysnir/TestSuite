@@ -131,6 +131,36 @@ sub power_parser {
 	return hash2csv \%tmp;
 }
 
+sub pcie_csv_parser {
+	my $file = shift;
+	my %tmp;
+	printf "$file\n";
+	open (my $fh, '<', $file);
+
+	my @ops = ();
+
+	foreach (<$fh>) {
+		chomp;
+		if (/^total/) {
+			@ops = split /,/, $_;
+			#printf "[$#ops] @ops\n";
+			next;
+		}
+		next unless /^\s/;
+		my @vals = split /,/;
+		#printf "[$#vals] @vals\n";
+		my $type = $vals[0];
+		my $skt = $vals[1];
+		for (my $i = 1; $i <= $#vals; $i++) {
+			my $key = "${skt}_${type}_$ops[$i]";
+			push 	@{$tmp{$key}}, str2num $vals[$i];
+		}
+	}
+	close ($fh);
+	return hash2csv \%tmp;
+}
+
+
 sub pcie_parser {
 	my $file = shift;
 	my %tmp;
@@ -223,6 +253,7 @@ my %parser = (
 	'memory.txt' => \&memory_parser,
 	'pcm.txt' => \&pcm_parser,
 	'pcie.txt' => \&pcie_parser,
+	'pcie_csv.txt' => \&pcie_csv_parser,
 	'power.txt' => \&power_parser,
 	'result.txt' => \&result_parser,
 	'result_pcm.txt' => \&nop,
