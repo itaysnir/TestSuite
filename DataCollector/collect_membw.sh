@@ -11,16 +11,16 @@ function collect_cpu {
 
 function collect_mem_bw {
 	echo " in collect mem bw" >&2
-	$pcm/pcm-memory.x -- sleep $time | tee -a $OUT_FILE/memory.txt
+	$pcm/pcm-memory.x 1 -- sleep $time | tee -a $OUT_FILE/memory.txt
 	echo " out collect mem bw" >&2
 }
 
 function collect_pcm {
 	echo " in collect pcm" >&2
-	$pcm/pcm-pcie.x -- sleep $time| tee -a $OUT_FILE/pcie.txt
+	$pcm/pcm-pcie.x 1 -csv=$OUT_FILE/pcie.txt -- sleep $time#| tee -a $OUT_FILE/pcie.txt
 	$pcm/pcm-latency.x -- sleep $time| tee -a $OUT_FILE/latency.txt
 	$pcm/pcm-power.x -- sleep $time| tee -a $OUT_FILE/power.txt
-	$pcm/pcm.x -- sleep $time| tee -a $OUT_FILE/pcm.txt
+	$pcm/pcm.x 1 -- sleep $time| tee -a $OUT_FILE/pcm.txt
 	echo " out collect pcm" >&2
 }
 
