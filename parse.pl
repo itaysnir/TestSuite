@@ -141,18 +141,17 @@ sub pcie_csv_parser {
 
 	foreach (<$fh>) {
 		chomp;
-		if (/^total/) {
+		if (/^type/) {
 			@ops = split /,/, $_;
-			#printf "[$#ops] @ops\n";
+			printf "[$#ops] @ops\n";
 			next;
 		}
-		next unless /^\s/;
 		my @vals = split /,/;
-		#printf "[$#vals] @vals\n";
 		my $type = $vals[0];
 		my $skt = $vals[1];
-		for (my $i = 1; $i <= $#vals; $i++) {
+		for (my $i = 2; $i <= $#vals; $i++) {
 			my $key = "${skt}_${type}_$ops[$i]";
+			printf "$key => $vals[$i]\n";
 			push 	@{$tmp{$key}}, str2num $vals[$i];
 		}
 	}

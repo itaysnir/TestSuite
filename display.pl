@@ -10,7 +10,7 @@ my %opts = ();
 getopts('d:n:', \%opts);
 
 sub usage {
-        die "$0 -d <list of Dirs to parse, separated by ','> -n <coinfig name>\n";
+        die "$0 -d <list of csvs to parse, separated by ','> -n <coinfig name>\n";
 }
 
 usage() unless (defined($opts{'d'}));
