@@ -35,8 +35,12 @@ sub str2num {
 	switch ($num[1]) {
 		case 'M' {return $num[0] * 1_000_000}
 		case 'K' {return $num[0] * 1_000}
-		else {die "$_ impossible switch...\n"}
+		else {
+			printf "ERROR:<$_> impossible switch...\n";
+			return 0;
+			}
 	}
+	return 1;
 }
 
 sub bytes2gbs {
@@ -100,6 +104,7 @@ sub pcm_parser {
 			my $key = "s$line[1]";
 			$key = "${key}_$header[$i -1]";
 			$key =~ s/\s//g;
+			last unless str2num($line[$i]);
 			push @{$tmp{$key}}, str2num($line[$i]);
 		}
 	}
@@ -143,7 +148,7 @@ sub pcie_csv_parser {
 		chomp;
 		if (/^type/) {
 			@ops = split /,/, $_;
-			printf "[$#ops] @ops\n";
+			#printf "[$#ops] @ops\n";
 			next;
 		}
 		my @vals = split /,/;
@@ -151,7 +156,7 @@ sub pcie_csv_parser {
 		my $skt = $vals[1];
 		for (my $i = 2; $i <= $#vals; $i++) {
 			my $key = "${skt}_${type}_$ops[$i]";
-			printf "$key => $vals[$i]\n";
+			#printf "$key => $vals[$i]\n";
 			push 	@{$tmp{$key}}, str2num $vals[$i];
 		}
 	}
@@ -312,15 +317,16 @@ sub parse_test {
 
 sub parse_dir {
 	my $dir = shift;
+	my $fh = shift;
 	my $name = basename ($dir);
 	printf "setup: $name\n";
 
-	open my $fh, '>', "$name.csv";
+	open $fh, '>', "$name.csv" unless (defined($fh));
 	for (glob($dir."/*")) {
 		next unless (-d $_);
 		parse_test $fh, $_, $name;
 	}
-	close $fh;
+	close $fh unless (defined($fh));
 }
 
 #################### MAIN ##################################
@@ -334,14 +340,18 @@ sub usage {
 }
 
 usage() unless (defined($opts{'d'}));
-my $OUT_DIR="/homes/markuze/plots/membw";
-$OUT_DIR = $opts{'-o'} if (defined($opts{'-o'}));
 
-printf "Name $opts{'n'}\n" if (defined($opts{'n'}));
-unshift @csv, $opts{'n'} if (defined($opts{'n'}));
+my $fh;
+
+if (defined($opts{'n'})) {
+	#printf "Name $opts{'n'}\n";
+	#unshift @csv, $opts{'n'};
+	open $fh, '>', "$opts{'n'}.csv";
+}
 
 for (split (/,/, $opts{'d'})) {
 	next unless ( -d $_);
 	printf "Parsing: $_\n";
-	parse_dir ($_);
+	parse_dir $_, $fh;
 }
+close $fh if (defined($fh));

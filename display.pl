@@ -46,12 +46,20 @@ for (split (/,/, $opts{'d'})) {
         printf "Parsing: $_\n";
         parse_csv ($_);
 }
+
+###################################################33 OUT ##################################
+#TODO: Read from cfg file
+my @keys = qw(ddr_1 ddr_0 sys_Memory sys_Read sys_Write);
+
+
 my $idnt = 0;
 
 printf "Headers: $#header\n";
 foreach (@header) {
-	printf "$_ ";
+	push @keys, $_ and printf "$_\n" if (/PCIeRdCur/);#|RFO|ItoM/);
+	#push @keys, $_ and printf "$_\n" if (/RFO|ItoM/);
 	$idnt++;
+	printf "$_ ";
 	unless ($idnt & 0x3) {
 		printf "\n";
 	}
@@ -68,14 +76,6 @@ foreach (sort keys %options) {
 	}
 }
 
-#TODO: Read from cfg file
-my @keys = qw(
-	sys_Memory cpu_total sys_Read sys_Write Total_rx_bytes Total_tx_bytes ddr_0  ddr_1
-	sys_total_CRd sys_total_DRd sys_total_ItoM sys_total_PCIeRd sys_total_PCIeRdCur
-	sys_total_PCIeWr sys_total_PRd sys_total_RFO sys_total_WiL
-
-);
-
 my @tests = qw(
 	tcp_bi_s1_nL_p2 tcp_bi_s1_n2_pR tcp_bi_s1_n2_pT
 	tcp_bi_s1_n2_p2
@@ -84,7 +84,7 @@ my @tests = qw(
 printf "\n";
 
 open my $fh, '>', "setup.csv";
-printf $fh "test, setup, bandwidth ";
+printf $fh "test, setup, bandwidth, nic1_tx, nic1_rx, nic0_tx, nic0_rx ";
 foreach my $key (@keys) {
 	printf $fh ",$key";
 }
@@ -93,13 +93,27 @@ printf $fh "\n";
 #foreach my $test (@tests) {
 foreach my $test (sort keys %options) {
 	for my $setup (sort keys (%hash)) {
+		printf "$test, $setup\n";
+		printf " Undefined!!!\n" and next unless (defined($hash{$setup}{$test}));
 		printf $fh "$test, $setup ";
-		printf " Undefined!!!" unless (defined($hash{$setup}{$test}));
+
 		printf $fh ", %.2f", $hash{$setup}{$test}{'Total_rx_bytes'}
 					+ $hash{$setup}{$test}{'Total_tx_bytes'};
+
+		printf $fh ", %.2f", $hash{$setup}{$test}{'enp130s0f0_tx_bytes'}
+					+ $hash{$setup}{$test}{'enp130s0f1_tx_bytes'};
+		printf $fh ", %.2f", $hash{$setup}{$test}{'enp130s0f0_rx_bytes'}
+					+ $hash{$setup}{$test}{'enp130s0f1_rx_bytes'};
+		printf $fh ", %.2f", $hash{$setup}{$test}{'enp4s0f0_tx_bytes'}
+					+ $hash{$setup}{$test}{'enp4s0f1_tx_bytes'};
+		printf $fh ", %.2f", $hash{$setup}{$test}{'enp4s0f0_rx_bytes'}
+					+ $hash{$setup}{$test}{'enp4s0f1_rx_bytes'};
+
 		foreach my $key (@keys) {
-		#	next unless defined  ($hash{$setup}{$test}{$key});
-			printf $fh ", %.2f", $hash{$setup}{$test}{$key};
+			my $div = 1;
+			$div = 1_000_000 if ($key =~ /RFO|ItoM|PCIeRdCur/);
+			$div = 1_000 if ($key =~ /sys_Read|sys_Write|sys_Memory/);
+			printf $fh ", %.2f", $hash{$setup}{$test}{$key}/$div;
 		}
 		printf $fh "\n";
 	}
