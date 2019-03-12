@@ -282,6 +282,7 @@ sub parse_result_files {
 	}
 	#printf "> title: @title\n";
 	#printf "> val :@csv\n";
+	die "Shit..." unless ($#title == $#csv);
 	return \@title, \@csv;
 }
 
@@ -317,16 +318,19 @@ sub parse_test {
 
 sub parse_dir {
 	my $dir = shift;
-	my $fh = shift;
+	my $ofh = shift;
+	my $fh = $ofh;
 	my $name = basename ($dir);
+
 	printf "setup: $name\n";
 
-	open $fh, '>', "$name.csv" unless (defined($fh));
+	open $fh, '>', "$name.csv" unless (defined($ofh));
 	for (glob($dir."/*")) {
 		next unless (-d $_);
 		parse_test $fh, $_, $name;
 	}
-	close $fh unless (defined($fh));
+	close $fh unless (defined($ofh));
+	$otitle = undef unless (defined($ofh));
 }
 
 #################### MAIN ##################################

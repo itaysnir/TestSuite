@@ -93,10 +93,15 @@ printf $fh "\n";
 #foreach my $test (@tests) {
 foreach my $test (sort keys %options) {
 	for my $setup (sort keys (%hash)) {
-		printf "$test, $setup\n";
-		printf " Undefined!!!\n" and next unless (defined($hash{$setup}{$test}));
+		printf " $test, $setup Undefined!!!\n" and next unless (defined($hash{$setup}{$test}));
 		printf $fh "$test, $setup ";
 
+		unless	(defined ($hash{$setup}{$test}{'Total_rx_bytes'})) {
+			my @keys = keys $hash{$setup}{$test};
+			printf "VALUES not defined";
+			printf "@keys\n";
+			next;
+		}
 		printf $fh ", %.2f", $hash{$setup}{$test}{'Total_rx_bytes'}
 					+ $hash{$setup}{$test}{'Total_tx_bytes'};
 
@@ -110,6 +115,7 @@ foreach my $test (sort keys %options) {
 					+ $hash{$setup}{$test}{'enp4s0f1_rx_bytes'};
 
 		foreach my $key (@keys) {
+			die "wtf?? $key" unless defined($hash{$setup}{$test}{$key});
 			my $div = 1;
 			$div = 1_000_000 if ($key =~ /RFO|ItoM|PCIeRdCur/);
 			$div = 1_000 if ($key =~ /sys_Read|sys_Write|sys_Memory/);
