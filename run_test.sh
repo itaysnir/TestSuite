@@ -30,7 +30,9 @@ for i in `seq 1 $repeat`; do
 	#DataCollector/collect_pcm.sh &>> $OUT_FILE/result_pcm.txt
 	# collection is ±40sec
 	echo "$date waiting for test and collector ($Test)"
-	wait ${!}
+	sleep $DELAY
+	sudo pkill netperf
+	#	wait ${!}
 	#echo "$date running post ($Test)"
 	#DataCollector/post_process.sh &>> $OUT_FILE/post.txt
 done

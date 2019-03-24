@@ -11,8 +11,7 @@ source ./Conf/config.sh
 NAME="`./Conf/get_name.sh`_${SETUP_NAME}"
 [ -z "$SETUP_NAME" ] && NAME="`./Conf/get_name.sh`"
 
-#Tests=Tests/membwl/*/
-Tests=TestDir/*
+Tests=Tests/ioctopus/*/
 
 sudo sh -c "/sbin/sysctl -w kernel.panic=3"
 sleep 5
