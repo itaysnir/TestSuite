@@ -12,8 +12,8 @@ if [ -z "$ip1" ]; then
 	exit -1
 fi
 
+[ -z "$NODE" ] && NODE=0
 #sudo ifconfig $if4 $ip4 netmask 255.255.0.0 mtu $mtu
-sudo set_irq_affinity_cpulist.sh 1 $if1
-sudo set_irq_affinity_cpulist.sh 1 $if2
-sudo set_irq_affinity_cpulist.sh 1 $if3
-sudo set_irq_affinity_cpulist.sh 1 $if4
+sudo set_irq_affinity_cpulist.sh $NODE $if1
+sudo set_irq_affinity_cpulist.sh $NODE $if2
+sudo set_irq_affinity_cpulist.sh $NODE $if3

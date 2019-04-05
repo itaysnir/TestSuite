@@ -58,7 +58,7 @@ foreach (@header) {
 }
 
 my @keys = qw(
-	mlx0_tx_packets mlx0_rx_packets cpu_total sys_Memory sys_Read sys_Write Total_rx_bytes Total_tx_bytes
+	  sys_Memory sys_Read sys_Write Total_rx_bytes Total_tx_bytes
 );
 
 
@@ -76,7 +76,7 @@ foreach (sort keys %options) {
 printf "\n";
 
 open my $fh, '>', "setup.csv";
-printf $fh "test, setup, bandwidth ";
+printf $fh "test,setup,bandwidth,cpu";
 foreach my $key (@keys) {
 	printf $fh ",$key";
 }
@@ -88,6 +88,8 @@ foreach my $test (sort keys %options) {
 		printf " Undefined!!!" unless (defined($hash{$setup}{$test}));
 		printf $fh ", %.2f", $hash{$setup}{$test}{'Total_rx_bytes'}
 					+ $hash{$setup}{$test}{'Total_tx_bytes'};
+		printf $fh ", %.2f", $hash{$setup}{$test}{'cpu_1'}
+					+ $hash{$setup}{$test}{'cpu_0'};
 		foreach my $key (@keys) {
 		#	next unless defined  ($hash{$setup}{$test}{$key});
 			printf $fh ", %.2f", $hash{$setup}{$test}{$key};

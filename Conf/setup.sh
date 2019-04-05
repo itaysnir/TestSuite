@@ -3,6 +3,7 @@
 PFC='on'
 LRO='on'
 GRO='on'
+
 [ -z "$RING" ] && RING=256
 [ -z "$TX_RING" ] && TX_RING=256
 [ -z "$TX_CACHE" ] && TX_CACHE='off'

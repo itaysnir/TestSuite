@@ -46,7 +46,12 @@ sub bytes2gbs {
 
 my @nop  = ();
 
-sub nop {return \@nop, \@nop;}
+sub nop {
+	my $file = shift;
+	printf "$file\n";
+
+	return \@nop, \@nop;
+}
 
 sub result_parser {
 	my $file = shift;
@@ -143,7 +148,7 @@ sub pcie_csv_parser {
 		chomp;
 		if (/^type/) {
 			@ops = split /,/, $_;
-			printf "[$#ops] @ops\n";
+			#printf "[$#ops] @ops\n";
 			next;
 		}
 		my @vals = split /,/;
@@ -151,7 +156,7 @@ sub pcie_csv_parser {
 		my $skt = $vals[1];
 		for (my $i = 2; $i <= $#vals; $i++) {
 			my $key = "${skt}_${type}_$ops[$i]";
-			printf "$key => $vals[$i]\n";
+			#printf "$key => $vals[$i]\n";
 			push 	@{$tmp{$key}}, str2num $vals[$i];
 		}
 	}
@@ -289,6 +294,7 @@ sub parse_test {
 	my $csv;
 	my $title;
 
+	printf "$dir: %s\n", (-d $_) ? "DIR": "FILE";
 	for (glob($dir."/*")) {
 		my $kern = basename($_);
 		#printf "($test)$kern\n" if (-d $_);

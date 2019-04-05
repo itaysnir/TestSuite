@@ -104,8 +104,8 @@ done
 NAME="`./Conf/get_name.sh`_${SETUP_NAME}"
 [ -z "$SETUP_NAME" ] && NAME="`./Conf/get_name.sh`"
 
-export OUT_FILE=Results/$DATE/"`basename $Test`_${SETUP_NAME}"
-export repeat=1
+export OUT_FILE=Results/$DATE/"`basename $Test`_${SETUP_NAME}"/`uname -r`/
+export repeat=2
 rm -rf $OUT_FILE
 mkdir -p $OUT_FILE
 echo "running $Test $OUT_FILE"
@@ -113,5 +113,4 @@ echo "running $Test $OUT_FILE"
 show
 
 ./run_test.sh $Test
-post
 

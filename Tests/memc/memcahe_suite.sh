@@ -9,7 +9,7 @@ TIME=180
 
 CPU_LINE=`nproc`
 #` lscpu|grep -P '^CPU\(s\):'|cut -d: -f2`
-cfg_file="`dirname $0`/conf.memc"
+cfg_file="/tmp/conf.memc"
 
 function set_memcached {
 
@@ -28,13 +28,13 @@ function set_memcached {
 function lunch_memcslap {
 
 	REMOTE=$1
-	port$2
+	port=$2
 	cpu=`nproc`
 
 	[ -z "$port" ] && port=11211
-	if [ -z "$TIME" ]; then
+	#if [ -z "$TIME" ]; then
 		TIME=40s
-	fi
+	#fi
 
 	while [ "$cpu" -gt 0 ];
 	do
@@ -43,6 +43,7 @@ function lunch_memcslap {
 		do
 			let cpu--
 			let rcpu--
+			echo "$MEMSLAP -s $REMOTE:$port  -T 1 -o 0.5 -d 4 --concurrency=128 -t $TIME -F $cfg_file &"
 			$MEMSLAP -s $REMOTE:$port  -T 1 -o 0.5 -d 4 --concurrency=128 -t $TIME -F $cfg_file &
 			let port++
 		done
