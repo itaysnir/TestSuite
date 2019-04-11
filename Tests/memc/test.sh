@@ -12,9 +12,9 @@ cd `dirname $0`
 scp conf.memc $loader1:/tmp/
 scp memcahe_suite.sh $loader1:/tmp
 ### Memcahed Server
-`pwd`/memcahe_suite.sh memcached $ip1 11211
+`pwd`/memcahe_suite.sh memcached $ip2 11211
 #`pwd`/memcahe_suite.sh memcached $ip2 11211
-ssh $loader1 /tmp/memcahe_suite.sh memslap $ip1 11211|`pwd`/sum_memc.pl
+ssh $loader1 /tmp/memcahe_suite.sh memslap $ip2 11211|`pwd`/sum_memc.pl
 #ssh $loader2 `pwd`/memcahe_suite.sh memslap $ip1 21211|`pwd`/sum_memc.pl
 
 sleep $TIME

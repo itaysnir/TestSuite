@@ -45,6 +45,7 @@ function lunch_memcslap {
 			let rcpu--
 			echo "$MEMSLAP -s $REMOTE:$port  -T 1 -o 0.5 -d 4 --concurrency=128 -t $TIME -F $cfg_file &"
 			$MEMSLAP -s $REMOTE:$port  -T 1 -o 0.5 -d 4 --concurrency=128 -t $TIME -F $cfg_file &
+			#$MEMSLAP -s $REMOTE:$port  -T 1 -o 0.5 -d 4 --concurrency=128 -t $TIME  &
 			let port++
 		done
 	done

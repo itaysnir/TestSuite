@@ -4,8 +4,11 @@ PFC='on'
 LRO='on'
 GRO='on'
 
-[ -z "$RING" ] && RING=256
-[ -z "$TX_RING" ] && TX_RING=256
+[ -z "$TSO" ] && TSO='on'
+[ -z "$GSO" ] && GSO=$TSO
+
+[ -z "$RING" ] && RING=1024
+[ -z "$TX_RING" ] && TX_RING=1024
 [ -z "$TX_CACHE" ] && TX_CACHE='off'
 
 
@@ -29,6 +32,8 @@ do
 		sudo ethtool -G $if rx $RING tx $TX_RING
 		sudo ethtool -K $if lro $LRO
 		sudo ethtool -K $if gro $GRO
+		sudo ethtool -K $if gso $GSO
+		sudo ethtool -K $if tso $TSO
 		sudo ethtool -A $if rx $PFC tx $PFC
 		sudo ethtool -K $if1 tx-nocache-copy $TX_CACHE
 		sudo ethtool -g $if
@@ -39,19 +44,24 @@ done
 
 function setup_peers {
 
-	ssh $loader1 sudo ifconfig $dif1 $dip1 netmask 255.255.255.0 mtu $mtu
-	ssh $loader2 sudo ifconfig $dif2 $dip2 netmask 255.255.255.0 mtu $mtu
-	ssh $loader2 sudo ifconfig $dif3 $dip3 netmask 255.255.255.0 mtu $mtu
-	ssh $loader1 sudo ifconfig $dif4 $dip4 netmask 255.255.255.0 mtu $mtu
-	ssh $loader1 sudo ethtool -K $dif1 lro $LRO
-	ssh $loader1 sudo ethtool -A $dif1 rx $PFC tx $PFC
-	ssh $loader2 sudo ethtool -K $dif2 lro $LRO
-	ssh $loader2 sudo ethtool -A $dif2 rx $PFC tx $PFC
+	if [ ! -z "$loader1" ]; then
+		ssh $loader1 sudo ifconfig $dif1 $dip1 netmask 255.255.255.0 mtu $mtu
+		ssh $loader1 sudo ifconfig $dif4 $dip4 netmask 255.255.255.0 mtu $mtu
+		ssh $loader1 sudo ethtool -K $dif1 lro $LRO
+		ssh $loader1 sudo ethtool -A $dif1 rx $PFC tx $PFC
+		ssh $loader1 sudo set_irq_affinity.sh $dif1
+		ssh $loader1 sudo set_irq_affinity.sh $dif4
+	fi
 
-	ssh $loader1 sudo set_irq_affinity.sh $dif1
-	ssh $loader1 sudo set_irq_affinity.sh $dif4
-	ssh $loader2 sudo set_irq_affinity.sh $dif2
-	ssh $loader2 sudo set_irq_affinity.sh $dif3
+	if [ ! -z "$loader2" ]; then
+		ssh $loader2 sudo ifconfig $dif2 $dip2 netmask 255.255.255.0 mtu $mtu
+		ssh $loader2 sudo ifconfig $dif3 $dip3 netmask 255.255.255.0 mtu $mtu
+		ssh $loader2 sudo ethtool -K $dif2 lro $LRO
+		ssh $loader2 sudo ethtool -A $dif2 rx $PFC tx $PFC
+
+		ssh $loader2 sudo set_irq_affinity.sh $dif2
+		ssh $loader2 sudo set_irq_affinity.sh $dif3
+	fi
 }
 
 #setup_peers

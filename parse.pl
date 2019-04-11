@@ -261,7 +261,7 @@ my %parser = (
 	'power.txt' => \&power_parser,
 	'result.txt' => \&result_parser,
 	'result_pcm.txt' => \&nop,
-	'test_raw.txt' => \&nop,
+	'test_raw.txt' => \&nop, #TODO: collect RPS on memcached
 );
 
 sub parse_result_files {

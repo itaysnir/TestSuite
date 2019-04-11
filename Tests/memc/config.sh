@@ -31,8 +31,6 @@ DELAY=90
 #Get setup info
 cd `dirname $0`
 
-`pwd`/Tests/memc/memcahe_suite.sh cleanup
-ssh $loader `pwd`/Tests/memc/memcahe_suite.sh cleanup
-ssh $loader rm -f $OUT_FILE/memc.out
-ssh $loader mkdir -p  $OUT_FILE
+`pwd`/memcahe_suite.sh cleanup
+ssh $loader1 /tmp/memcahe_suite.sh cleanup
 

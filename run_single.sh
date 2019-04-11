@@ -74,7 +74,9 @@ function usage() {
 	exit -1
 }
 
-while getopts "nbhkuct:" var; do
+TSO='on'
+
+while getopts "nbhkucot:" var; do
 	case $var in
 	n)	tiny_kernel;;
 	b)	big_kernel;;
@@ -83,6 +85,8 @@ while getopts "nbhkuct:" var; do
 	u)	small_user;;
 	c)
 		unset DO_CONF;;
+	o)
+		TSO='off';;
 	t)
 		if [ -d $OPTARG ]; then
 			Test=$OPTARG;
@@ -99,7 +103,7 @@ done
 
 
 
-[ -z "$DO_CONF" ] && ./Conf/setup.sh
+[ -z "$DO_CONF" ] && TSO=$TSO ./Conf/setup.sh
 
 NAME="`./Conf/get_name.sh`_${SETUP_NAME}"
 [ -z "$SETUP_NAME" ] && NAME="`./Conf/get_name.sh`"
@@ -110,7 +114,7 @@ rm -rf $OUT_FILE
 mkdir -p $OUT_FILE
 echo "running $Test $OUT_FILE"
 
-show
+#show
 
 ./run_test.sh $Test
 
