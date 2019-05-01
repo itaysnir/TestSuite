@@ -58,7 +58,7 @@ foreach (@header) {
 }
 
 my @keys = qw(
-	  sys_Memory sys_Read sys_Write Total_rx_bytes Total_tx_bytes
+	 tps ops sys_Memory sys_Read sys_Write Total_rx_bytes Total_tx_bytes
 );
 
 

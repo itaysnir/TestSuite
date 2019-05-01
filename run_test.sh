@@ -6,7 +6,7 @@
 Test=$1
 
 [ -z "$Test" ] && echo "$0 ERROR: not test defined" && exit -1;
-[  ! -e "$Test/test.sh" ] && echo "No File" && exit -1
+[  ! -e "$Test/test.sh" ] && echo "No File ($Test)" && exit -1
 
 $Test/config.sh >> $OUT_FILE/test_config.txt
 sleep 5
@@ -39,10 +39,10 @@ for i in `seq 1 $repeat`; do
 	# collection is ±40sec
 	date=`date +"%H:%M.%S:"`
 	echo "$date waiting for test and collector ($Test)"
-	#sudo pkill netperf
 	#sudo pkill pktgen
 	#wait $testid
 	sleep 20
+	sudo pkill netperf
 	date=`date +"%H:%M.%S:"`
 	echo "$date running post ($Test)"
 	#DataCollector/post_process.sh &>> $OUT_FILE/post.txt

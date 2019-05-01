@@ -23,8 +23,7 @@ function post()
 function tiny_kernel()
 {
 	./sock.sh -d
-	export RING='64'
-	export SOCK_SIZE=''
+	export RING='256'
 }
 
 function small_kernel()
@@ -75,6 +74,7 @@ function usage() {
 }
 
 TSO='on'
+LRO='on'
 
 while getopts "nbhkucot:" var; do
 	case $var in
@@ -86,7 +86,8 @@ while getopts "nbhkucot:" var; do
 	c)
 		unset DO_CONF;;
 	o)
-		TSO='off';;
+		TSO='off'
+		LRO='off';;
 	t)
 		if [ -d $OPTARG ]; then
 			Test=$OPTARG;
@@ -103,18 +104,17 @@ done
 
 
 
-[ -z "$DO_CONF" ] && TSO=$TSO ./Conf/setup.sh
+[ -z "$DO_CONF" ] && TSO=$TSO ./Conf/setup.sh &> /dev/null
 
-NAME="`./Conf/get_name.sh`_${SETUP_NAME}"
+NAME="`./Conf/get_name.sh`${SETUP_NAME}"
 [ -z "$SETUP_NAME" ] && NAME="`./Conf/get_name.sh`"
 
-export OUT_FILE=Results/$DATE/"`basename $Test`_${SETUP_NAME}"/`uname -r`/
-export repeat=2
+export OUT_FILE=Results/$DATE/"`basename $Test`${SETUP_NAME}"/`uname -r`/
+export repeat=5
 rm -rf $OUT_FILE
 mkdir -p $OUT_FILE
 echo "running $Test $OUT_FILE"
 
-#show
-
-./run_test.sh $Test
+echo "<$Test>"
+BG=$BG ./run_test.sh $Test
 

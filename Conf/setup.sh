@@ -1,9 +1,10 @@
 [ -e "./config.sh" ] && source ./config.sh
 `dirname $0`/replace.sh
 PFC='on'
-LRO='on'
 GRO='on'
 
+
+[ -z "$LRO" ] && LRO='on'
 [ -z "$TSO" ] && TSO='on'
 [ -z "$GSO" ] && GSO=$TSO
 
@@ -35,7 +36,7 @@ do
 		sudo ethtool -K $if gso $GSO
 		sudo ethtool -K $if tso $TSO
 		sudo ethtool -A $if rx $PFC tx $PFC
-		sudo ethtool -K $if1 tx-nocache-copy $TX_CACHE
+		#sudo ethtool -K $if1 tx-nocache-copy $TX_CACHE
 		sudo ethtool -g $if
 		sudo ethtool -k $if
 		sudo ethtool -a $if
@@ -63,8 +64,8 @@ function setup_peers {
 		ssh $loader2 sudo set_irq_affinity.sh $dif3
 	fi
 }
-
-#setup_peers
+sudo ./setup_dual.sh
+setup_peers
 
 sudo modprobe msr
 sudo sh -c "echo 8 > /proc/sys/vm/percpu_pagelist_fraction"

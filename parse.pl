@@ -53,6 +53,26 @@ sub nop {
 	return \@nop, \@nop;
 }
 
+sub test_raw_parser {
+	my $file = shift;
+	my %tmp;
+	printf "$file\n";
+
+	open (my $fh, '<', $file);
+	foreach (<$fh>) {
+		chomp;
+		next unless /Ops:\s*(\d+)\s*TPS:\s*(\d+)/;
+
+		# Noise dure to combinded output
+		my $ops = $1;
+		my $tps = $2;
+		push @{$tmp{'ops'}}, $ops;
+		push @{$tmp{'tps'}}, $tps;
+	}
+	close ($fh);
+	return hash2csv \%tmp;
+}
+
 sub result_parser {
 	my $file = shift;
 	my %tmp;
@@ -261,7 +281,8 @@ my %parser = (
 	'power.txt' => \&power_parser,
 	'result.txt' => \&result_parser,
 	'result_pcm.txt' => \&nop,
-	'test_raw.txt' => \&nop, #TODO: collect RPS on memcached
+	'test_raw.txt' => \&test_raw_parser, #TODO: collect RPS on memcached
+	'netperf.txt' => \&test_raw_parser, #TODO: collect RPS on memcached
 );
 
 sub parse_result_files {

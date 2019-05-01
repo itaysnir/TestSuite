@@ -27,10 +27,11 @@ printf "TX:\n";
 foreach (@{$ifs}) {
 	my $stats = $if_stats{$_};
 	my $tx = $$stats{"tx_bytes"} * 8/(1000 * 1000);
-	printf "%-10s: %8.2f Mb/s\n", $_, $tx;
+	my $tx_p = $$stats{"tx_bytes_phy"} * 8/(1000 * 1000);
+	printf "%-10s: %8.2f (%8.2f)Mb/s\n", $_, $tx, $tx_p;
 	$tx_total += $tx;
 }
-printf "TX Total : %8.2f\n", $tx_total;
+printf "TX Total : %7.2f\n", $tx_total;
 
 my $rx_total = 0;
 printf "\nRX:\n";
@@ -38,7 +39,8 @@ printf "\nRX:\n";
 foreach (@{$ifs}) {
 	my $stats = $if_stats{$_};
 	my $rx = $$stats{"rx_bytes"} * 8/(1000 * 1000);
-	printf "%-10s: %8.2f Mb/s\n", $_, $rx;
+	my $rx_p = $$stats{"rx_bytes_phy"} * 8/(1000 * 1000);
+	printf "%-10s: %8.2f (%8.2f)Mb/s\n", $_, $rx, $rx_p;
 	$rx_total += $rx;
 }
 printf "RX Total : %8.2f\n", $rx_total;
