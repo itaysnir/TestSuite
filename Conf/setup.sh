@@ -8,8 +8,8 @@ GRO='on'
 [ -z "$TSO" ] && TSO='on'
 [ -z "$GSO" ] && GSO=$TSO
 
-[ -z "$RING" ] && RING=1024
-[ -z "$TX_RING" ] && TX_RING=1024
+[ -z "$RING" ] && RING=512
+[ -z "$TX_RING" ] && TX_RING=512
 [ -z "$TX_CACHE" ] && TX_CACHE='off'
 
 
@@ -47,11 +47,13 @@ function setup_peers {
 
 	if [ ! -z "$loader1" ]; then
 		ssh $loader1 sudo ifconfig $dif1 $dip1 netmask 255.255.255.0 mtu $mtu
-		ssh $loader1 sudo ifconfig $dif4 $dip4 netmask 255.255.255.0 mtu $mtu
+		ssh $loader1 sudo ifconfig $dif2 $dip2 netmask 255.255.255.0 mtu $mtu
 		ssh $loader1 sudo ethtool -K $dif1 lro $LRO
 		ssh $loader1 sudo ethtool -A $dif1 rx $PFC tx $PFC
+		ssh $loader1 sudo ethtool -K $dif2 lro $LRO
+		ssh $loader1 sudo ethtool -A $dif2 rx $PFC tx $PFC
 		ssh $loader1 sudo set_irq_affinity.sh $dif1
-		ssh $loader1 sudo set_irq_affinity.sh $dif4
+		ssh $loader1 sudo set_irq_affinity.sh $dif2
 	fi
 
 	if [ ! -z "$loader2" ]; then
@@ -83,14 +85,21 @@ echo "TX no cache: $TX_CACHE"
 echo "Sock size: $SOCK_SIZE"
 #SOCK_SIZE=1073741824
 #SOCK_SIZE=270217728
-sudo sh -c "echo $SOCK_SIZE > /proc/sys/net/core/optmem_max"
+#sudo sh -c "echo $SOCK_SIZE > /proc/sys/net/core/optmem_max"
 sudo sh -c "echo $SOCK_SIZE > /proc/sys/net/core/rmem_max"
 sudo sh -c "echo $SOCK_SIZE > /proc/sys/net/core/wmem_max"
 sudo sh -c "echo $SOCK_SIZE > /proc/sys/net/core/rmem_default"
 sudo sh -c "echo $SOCK_SIZE > /proc/sys/net/core/wmem_default"
 
+#if [ ! -z "$loader1" ]; then
+#	sudo sh -c "echo $SOCK_SIZE > /proc/sys/net/core/rmem_max"
+#	sudo sh -c "echo $SOCK_SIZE > /proc/sys/net/core/wmem_max"
+#	sudo sh -c "echo $SOCK_SIZE > /proc/sys/net/core/rmem_default"
+#	sudo sh -c "echo $SOCK_SIZE > /proc/sys/net/core/wmem_default"
+#fi
 
-cat /proc/sys/net/core/optmem_max
+
+#cat /proc/sys/net/core/optmem_max
 cat /proc/sys/net/core/rmem_max
 cat /proc/sys/net/core/wmem_max
 cat /proc/sys/net/core/rmem_default
