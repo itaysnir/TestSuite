@@ -8,14 +8,21 @@ fi
 [ -z "$core" ] && core=0
 [ -z "$rcore" ] && rcore=3
 
-for i in `seq 0 3`;
+for i in `seq 0 12`;
 do
-netperf -L $ip2 -H $dip2 -t TCP_STREAM -T $core,$rcore -l $TIME -- -m $MSG_SIZE &
-let rcore++
-let core++
-netperf -L $ip3 -H $dip2 -t TCP_STREAM -T $core,$rcore -l $TIME -- -m $MSG_SIZE &
-let rcore++
-let core++
+	if [ -z "$L" ]; then
+		netperf -L $ip2 -H $dip2 -t TCP_STREAM -T $core,$rcore -l $TIME -- -m $MSG_SIZE &
+	fi
+
+	let rcore++
+	let core++
+
+	if [ -z "$R" ]; then
+		netperf -L $ip3 -H $dip2 -t TCP_STREAM -T $core,$rcore -l $TIME -- -m $MSG_SIZE &
+	fi
+
+	let rcore++
+	let core++
 done
 
 wait

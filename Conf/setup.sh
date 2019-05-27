@@ -3,7 +3,6 @@
 PFC='on'
 GRO='on'
 
-
 [ -z "$LRO" ] && LRO='on'
 [ -z "$TSO" ] && TSO='on'
 [ -z "$GSO" ] && GSO=$TSO

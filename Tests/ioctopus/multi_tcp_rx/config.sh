@@ -12,11 +12,10 @@ if [ -z "$ip1" ]; then
 	exit -1
 fi
 
-[ -z "$NODE" ] && NODE=0
-[ -z "$RNODE" ] && RNODE=1
+[ ! -z "$NODE" ] && NODE=1 && RNODE=0
+[ -z "$NODE" ] && NODE=0 && RNODE=1
 
-sudo set_irq_affinity_bynode.sh $NODE $if1
 sudo set_irq_affinity_bynode.sh $NODE $if2
-sudo set_irq_affinity_bynode.sh $NODE $if3
+sudo set_irq_affinity_bynode.sh $RNODE $if3
 
 ssh $loader1 sudo set_irq_affinity.sh $dif2

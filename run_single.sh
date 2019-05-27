@@ -104,7 +104,7 @@ done
 
 
 
-[ -z "$DO_CONF" ] && TSO=$TSO ./Conf/setup.sh &> /dev/null
+[ -z "$DO_CONF" ] && TSO=$TSO LRO=$LRO ./Conf/setup.sh &> /dev/null
 
 NAME="`./Conf/get_name.sh`${SETUP_NAME}"
 [ -z "$SETUP_NAME" ] && NAME="`./Conf/get_name.sh`"

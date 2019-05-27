@@ -10,14 +10,19 @@ fi
 
 netperf=/homes/markuze/misc/netperf/src/netperf
 
-for i in `seq 0 13`;
+for i in `seq 0 12`;
 do
-netperf -L $ip1 -H $dip1 -t TCP_MAERTS -T $core,$rcore -l $TIME -- -m 64K,64K -M $MSG_SIZE,$MSG_SIZE &
-let rcore++
-let core++
-netperf -L $ip1 -H $dip1 -t TCP_MAERTS -T $core,$rcore -l $TIME -- -m 64K,64K -M $MSG_SIZE,$MSG_SIZE &
-let rcore++
-let core++
+	if [ -z "$L" ]; then
+		netperf -L $ip2 -H $dip2 -t TCP_MAERTS -T $core,$rcore -l $TIME -- -m 64K,64K -M $MSG_SIZE,$MSG_SIZE &
+	fi
+	let rcore++
+	let core++
+
+	if [ -z "$R" ]; then
+		netperf -L $ip3 -H $dip2 -t TCP_MAERTS -T $core,$rcore -l $TIME -- -m 64K,64K -M $MSG_SIZE,$MSG_SIZE &
+	fi
+	let rcore++
+	let core++
 done
 
 echo "$core"

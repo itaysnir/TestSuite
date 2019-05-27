@@ -35,7 +35,7 @@ sub str2num {
 	switch ($num[1]) {
 		case 'M' {return $num[0] * 1_000_000}
 		case 'K' {return $num[0] * 1_000}
-		else {die "$_ impossible switch...\n"}
+		else {die "$_ \n:$num[0] // $num[1]\n: impossible switch...\n"}
 	}
 }
 
