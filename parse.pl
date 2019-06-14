@@ -61,13 +61,16 @@ sub test_raw_parser {
 	open (my $fh, '<', $file);
 	foreach (<$fh>) {
 		chomp;
-		next unless /Ops:\s*(\d+)\s*TPS:\s*(\d+)/;
+		#next unless /Ops:\s*(\d+)\s*TPS:\s*(\d+)/;
+		#avg-latency=9.365 (std-dev=4.845)
+		next unless /avg-latency=([\d\.]+)\s+\(std-dev=([\d\.]+)\)/;
 
 		# Noise dure to combinded output
-		my $ops = $1;
-		my $tps = $2;
-		push @{$tmp{'ops'}}, $ops;
-		push @{$tmp{'tps'}}, $tps;
+		my $avg = $1;
+		my $std = $2;
+		push @{$tmp{'avg_rr'}}, $avg;
+		push @{$tmp{'std_rr'}}, $std;
+		#printf "avg $avg\n";
 	}
 	close ($fh);
 	return hash2csv \%tmp;

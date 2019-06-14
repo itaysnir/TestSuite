@@ -7,8 +7,8 @@ GRO='on'
 [ -z "$TSO" ] && TSO='on'
 [ -z "$GSO" ] && GSO=$TSO
 
-[ -z "$RING" ] && RING=512
-[ -z "$TX_RING" ] && TX_RING=512
+[ -z "$RING" ] && RING=1024
+[ -z "$TX_RING" ] && TX_RING=1024
 [ -z "$TX_CACHE" ] && TX_CACHE='off'
 
 
@@ -47,6 +47,8 @@ function setup_peers {
 	if [ ! -z "$loader1" ]; then
 		ssh $loader1 sudo ifconfig $dif1 $dip1 netmask 255.255.255.0 mtu $mtu
 		ssh $loader1 sudo ifconfig $dif2 $dip2 netmask 255.255.255.0 mtu $mtu
+		ssh $loader1 sudo ethtool -G $dif1 rx $RING tx $TX_RING
+		ssh $loader1 sudo ethtool -G $dif2 rx $RING tx $TX_RING
 		ssh $loader1 sudo ethtool -K $dif1 lro $LRO
 		ssh $loader1 sudo ethtool -A $dif1 rx $PFC tx $PFC
 		ssh $loader1 sudo ethtool -K $dif2 lro $LRO
@@ -65,6 +67,7 @@ function setup_peers {
 		ssh $loader2 sudo set_irq_affinity.sh $dif3
 	fi
 }
+
 sudo ./setup_dual.sh
 setup_peers
 

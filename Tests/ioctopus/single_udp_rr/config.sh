@@ -12,10 +12,17 @@ if [ -z "$ip1" ]; then
 	exit -1
 fi
 
-[ -z "$NODE" ] && NODE=2
-[ -z "$RNODE" ] && RNODE=1
+sockperf=/homes/markuze/sockperf/sockperf
+
+[ -z "$NODE" ] && NODE=0
+[ -z "$RNODE" ]&& RNODE=1
 
 sudo set_irq_affinity_cpulist.sh $NODE $if2
 sudo set_irq_affinity_cpulist.sh $NODE $if3
 
+ssh $loader1 sudo pkill sockperf
+scp $sockperf $loader1:/tmp/
+ssh $loader1 sudo sudo numactl -C $RNODE /tmp/sockperf server --daemonize &
 ssh $loader1 sudo set_irq_affinity_cpulist.sh $RNODE $dif2
+
+echo "NODE = $NODE , RNODE = $RNODE"

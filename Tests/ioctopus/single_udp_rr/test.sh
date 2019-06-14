@@ -3,12 +3,11 @@ if [ -z "$dip1" ]; then
 	exit -1
 fi
 
-[ -z "$TIME" ] && TIME=60
-[ -z "$MSG_SIZE" ] && MSG_SIZE='63K'
-[ -z "$core" ] && core=2
-[ -z "$rcore" ] && rcore=1
+[ -z "$TIME" ] && TIME=10
+[ -z "$MSG_SIZE" ] && MSG_SIZE='1024'
+[ -z "$core" ] && core=0
 
-netperf=/homes/markuze/misc/netperf/src/netperf
+sockperf=/homes/markuze/sockperf/sockperf
+sudo numactl -C $core $sockperf ping-pong -i $dip2 -t $TIME -m $MSG_SIZE
 
-netperf -H $dip2 -t UDP_RR -T $core,$rcore -l $TIME -- -r $MSG_SIZE #-o TRANSACTION_RATE
-#ssh $loader1 netperf -H $ip2 -t TCP_STREAM -T $rcore,$core -l $TIME -- -m $MSG_SIZE
+

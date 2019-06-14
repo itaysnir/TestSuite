@@ -1,0 +1,12 @@
+[] netperf rr: netperf -t UDP_RR -L 2.2.2.2 -H 2.2.2.1 -T 2,0 -- -r 63K,63K -o STDDEV_LATENCY,MEAN_LATENCY,P90_LATENCY,P99_LATENCY
+[] use explicit -L
+[] memc integration
+[] colocation x {netperf, memc}
+[] STREAM/DELL
+
+
+* Naming convention:
+{test}_{conf}__{kernel/numa}_{conf enum}
+
+single_tcp_rx_nlro__l_64K
+single_memc_nirq_128K__r_19

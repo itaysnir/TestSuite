@@ -6,7 +6,7 @@ fi
 [ -z "$TIME" ] && TIME=60
 [ -z "$MSG_SIZE" ] && MSG_SIZE='64K'
 [ -z "$core" ] && core=0
-[ -z "$rcore" ] && rcore=3
+[ -z "$rcore" ] && rcore=1
 
 for i in `seq 0 12`;
 do
