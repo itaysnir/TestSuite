@@ -4,6 +4,7 @@
 #rm -rf $OUT_FILE/*
 
 Test=$1
+name=`basename $1`
 
 [ -z "$Test" ] && echo "$0 ERROR: not test defined" && exit -1;
 [  ! -e "$Test/test.sh" ] && echo "No File ($Test)" && exit -1
@@ -47,6 +48,7 @@ for i in `seq 1 $repeat`; do
 		echo "using sleep $TIME"
 		sleep $TIME
 	fi
+	cp $OUT_FILE/test_raw.txt $OUT_FILE/$name.txt
 done
 date=`date +"%H:%M.%S:"`
 echo "$date Done ($Test)"

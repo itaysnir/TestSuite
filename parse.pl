@@ -53,6 +53,23 @@ sub nop {
 	return \@nop, \@nop;
 }
 
+sub memc_single_parser {
+	my $file = shift;
+	my %tmp;
+	printf "$file\n";
+
+	open (my $fh, '<', $file);
+	foreach (<$fh>) {
+		chomp;
+		next unless /Ops:\s*(\d+)\s*TPS:\s*(\d+)/;
+
+		my $tps = $2;
+		push @{$tmp{'tps'}}, $tps;
+	}
+	close ($fh);
+	return hash2csv \%tmp;
+}
+
 sub test_raw_parser {
 	my $file = shift;
 	my %tmp;
@@ -284,8 +301,9 @@ my %parser = (
 	'power.txt' => \&power_parser,
 	'result.txt' => \&result_parser,
 	'result_pcm.txt' => \&nop,
-	'test_raw.txt' => \&test_raw_parser, #TODO: collect RPS on memcached
-	'netperf.txt' => \&test_raw_parser, #TODO: collect RPS on memcached
+	'memc_single.txt' => &memc_single_parser,
+	'test_raw.txt' => \&test_raw_parser,
+	'netperf.txt' => \&test_raw_parser,
 );
 
 sub parse_result_files {
