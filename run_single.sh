@@ -120,8 +120,9 @@ function usage() {
 TSO='on'
 LRO='on'
 
-while getopts "nbhkucCost:" var; do
+while getopts "jnbhkucCost:" var; do
 	case $var in
+	j)	export MTU=9000;;
 	n)	tiny_kernel;;
 	b)	big_kernel;;
 	h)	big_user;;

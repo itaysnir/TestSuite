@@ -1,7 +1,16 @@
+#!/bin/bash
+
+cd `dirname $0`
+
 [ -e "./config.sh" ] && source ./config.sh
-`dirname $0`/replace.sh
+./replace.sh
+
 PFC='on'
 GRO='on'
+
+[ -z "$MTU" ] || mtu=$MTU
+
+echo "mtu : $mtu"
 
 [ -z "$LRO" ] && LRO='on'
 [ -z "$TSO" ] && TSO='on'
