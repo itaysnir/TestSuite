@@ -301,7 +301,7 @@ my %parser = (
 	'power.txt' => \&power_parser,
 	'result.txt' => \&result_parser,
 	'result_pcm.txt' => \&nop,
-	'memc_single.txt' => &memc_single_parser,
+	'memc_single.txt' => \&memc_single_parser,
 	'test_raw.txt' => \&test_raw_parser,
 	'netperf.txt' => \&test_raw_parser,
 );

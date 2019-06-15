@@ -12,3 +12,4 @@ export dip2=2.2.2.1
 export dif2=oct0
 
 export mtu=1500
+#export mtu=9000
