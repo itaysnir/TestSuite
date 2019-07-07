@@ -52,6 +52,24 @@ sub nop {
 
 	return \@nop, \@nop;
 }
+#Trial Time:          60.33766
+sub pr_parser {
+	my $file = shift;
+	my %tmp;
+	printf "$file\n";
+
+	open (my $fh, '<', $file);
+	foreach (<$fh>) {
+		chomp;
+		next unless /Trial Time:\s+([\d\.]+)$/;
+
+		my $pr = $1;
+		push @{$tmp{'pr'}}, $pr;
+		#printf "pr: $pr\n";
+	}
+	close ($fh);
+	return hash2csv \%tmp;
+}
 
 sub memc_single_parser {
 	my $file = shift;
@@ -293,6 +311,8 @@ sub latency_parser {
 }
 
 my %parser = (
+	'coloc_memc.txt' => \&memc_single_parser,
+	'memc_single.txt' => \&memc_single_parser,
 	'latency.txt' => \&latency_parser,
 	'memory.txt' => \&memory_parser,
 	'pcm.txt' => \&pcm_parser,
@@ -301,7 +321,7 @@ my %parser = (
 	'power.txt' => \&power_parser,
 	'result.txt' => \&result_parser,
 	'result_pcm.txt' => \&nop,
-	'memc_single.txt' => \&memc_single_parser,
+	'pr.log' => \&pr_parser,
 	'test_raw.txt' => \&test_raw_parser,
 	'netperf.txt' => \&test_raw_parser,
 );
