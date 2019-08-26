@@ -3,8 +3,8 @@
 PFC='on'
 LRO='on'
 GRO='on'
-[ -z "$RING" ] && RING=256
-[ -z "$TX_RING" ] && TX_RING=256
+[ -z "$RING" ] && RING=1024
+[ -z "$TX_RING" ] && TX_RING=1024
 [ -z "$TX_CACHE" ] && TX_CACHE='off'
 
 
@@ -59,6 +59,7 @@ sudo modprobe msr
 sudo sh -c "echo 8 > /proc/sys/vm/percpu_pagelist_fraction"
 sudo sh -c "echo 0 > /proc/sys/kernel/nmi_watchdog"
 sudo sh -c "echo 10 > /proc/sys/kernel/panic"
+#sudo sh -c "echo 64 > /sys/kernel/debug/tracing/buffer_size_kb"
 #sudo sh -c "echo 1 > /proc/sys/kernel/panic_on_oops"
 #ssh $loader1 sudo sh -c "echo 65535 > /proc/sys/net/ipv4/tcp_min_tso_segs"
 #ssh $loader2 sudo sh -c "echo 65535 > /proc/sys/net/ipv4/tcp_min_tso_segs"

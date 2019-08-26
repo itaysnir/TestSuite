@@ -1,8 +1,8 @@
 rm -rf TestDir
 mkdir TestDir
 
-ln -s `pwd`/Tests/membwl/tcp_tx_s1_nL_p2 TestDir/
-ln -s `pwd`/Tests/membwl/tcp_tx_s1_n2_p2 TestDir/
+#ln -s `pwd`/Tests/membwl/tcp_tx_s1_nL_p2 TestDir/
+#ln -s `pwd`/Tests/membwl/tcp_tx_s1_n2_p2 TestDir/
 #ln -s `pwd`/Tests/membwl/tcp_bi_s1_nL_p2 TestDir/
 #ln -s `pwd`/Tests/membwl/tcp_bi_s1_n2_pR TestDir/
 #ln -s `pwd`/Tests/membwl/tcp_bi_s1_n2_pT TestDir/
@@ -21,15 +21,15 @@ ln -s `pwd`/Tests/membwl/tcp_tx_s1_n2_p2 TestDir/
 #ln -s `pwd`/Tests/multi_tcp_bi_sock1_12 TestDir/
 
 #ln -s `pwd`/Tests/multi_tcp_bi TestDir/
-#ln -s `pwd`/Tests/multi_tcp_rx TestDir/
-#ln -s `pwd`/Tests/multi_tcp_tx TestDir/
+ln -s `pwd`/Tests/multi_tcp_rx TestDir/
+ln -s `pwd`/Tests/multi_tcp_tx TestDir/
 #ln -s `pwd`/Tests/multi_udp_bi TestDir/
-#ln -s `pwd`/Tests/multi_udp_rx TestDir/
-#ln -s `pwd`/Tests/multi_udp_tx TestDir/
-#ln -s `pwd`/Tests/single_tcp_rx TestDir/
-#ln -s `pwd`/Tests/single_tcp_tx TestDir/
-#ln -s `pwd`/Tests/single_udp_rx TestDir/
-#ln -s `pwd`/Tests/single_udp_tx TestDir/
+ln -s `pwd`/Tests/multi_udp_rx TestDir/
+ln -s `pwd`/Tests/multi_udp_tx TestDir/
+ln -s `pwd`/Tests/single_tcp_rx TestDir/
+ln -s `pwd`/Tests/single_tcp_tx TestDir/
+ln -s `pwd`/Tests/single_udp_rx TestDir/
+ln -s `pwd`/Tests/single_udp_tx TestDir/
 #ln -s `pwd`/Tests/single_udp_rr TestDir/
 #ln -s `pwd`/Tests/single_tcp_rr TestDir/
 

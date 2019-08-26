@@ -17,5 +17,5 @@ netperf -H $dip1 -t TCP_STREAM -T 0,1 -l $TIME  -- -m1M -s16M &
 netperf -H $dip1 -t TCP_STREAM -T 0,2 -l $TIME  -- -m1M -s16M &
 netperf -H $dip1 -t TCP_STREAM -T 0,3 -l $TIME  -- -m1M -s16M &
 netperf -H $dip1 -t TCP_STREAM -T 0,4 -l $TIME  -- -m1M -s16M &
-netperf -H $dip1 -t TCP_STREAM -T 0,5 -l $TIME  -- -m1M -s16M &
+#netperf -H $dip1 -t TCP_STREAM -T 0,5 -l $TIME  -- -m1M -s16M &
 wait

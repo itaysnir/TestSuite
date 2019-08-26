@@ -12,9 +12,9 @@ let cpus=cpus-1
 for i in `seq 0  $cpus`;
 do
 	netperf -H $dip1 -t TCP_MAERTS -l $TIME -T $i,$i -- -m1M &
-	netperf -H $dip2 -t TCP_MAERTS -l $TIME -T $i,$i -- -m1M &
-	netperf -H $dip3 -t TCP_MAERTS -l $TIME -T $i,$i -- -m1M &
-	netperf -H $dip4 -t TCP_MAERTS -l $TIME -T $i,$i -- -m1M &
+#	netperf -H $dip2 -t TCP_MAERTS -l $TIME -T $i,$i -- -m1M &
+#	netperf -H $dip3 -t TCP_MAERTS -l $TIME -T $i,$i -- -m1M &
+#	netperf -H $dip4 -t TCP_MAERTS -l $TIME -T $i,$i -- -m1M &
 done
 
 wait

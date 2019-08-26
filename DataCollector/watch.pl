@@ -24,10 +24,17 @@ my $irq = stop_proc_interrupts;
 my $tx_total = 0;
 printf "TX:\n";
 
+
+#	my $stats = $if_stats{$$ifs[0]};
+#	foreach (keys(%{$stats})) {
+#		printf ">$_<\n";
+#	}
+
 foreach (@{$ifs}) {
 	my $stats = $if_stats{$_};
 	my $tx = $$stats{"tx_bytes"} * 8/(1000 * 1000);
-	printf "%-10s: %8.2f Mb/s\n", $_, $tx;
+	my $tx_phy = $$stats{"tx_packets"}/(1000 * 1000);
+	printf "%-10s: %8.2f Mb/s (%8.2f)Mpps\n", $_, $tx, $tx_phy;
 	$tx_total += $tx;
 }
 printf "TX Total : %8.2f\n", $tx_total;
@@ -38,7 +45,8 @@ printf "\nRX:\n";
 foreach (@{$ifs}) {
 	my $stats = $if_stats{$_};
 	my $rx = $$stats{"rx_bytes"} * 8/(1000 * 1000);
-	printf "%-10s: %8.2f Mb/s\n", $_, $rx;
+	my $rx_phy = $$stats{"rx_packets"}/(1000 * 1000);
+	printf "%-10s: %8.2f Mb/s (%8.2f)Mpps\n", $_, $rx, $rx_phy;
 	$rx_total += $rx;
 }
 printf "RX Total : %8.2f\n", $rx_total;

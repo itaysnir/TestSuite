@@ -11,8 +11,8 @@ source ./Conf/config.sh
 NAME="`./Conf/get_name.sh`_${SETUP_NAME}"
 [ -z "$SETUP_NAME" ] && NAME="`./Conf/get_name.sh`"
 
-Tests=Tests/membwl/*/
-#Tests=TestDir/*
+#Tests=Tests/membwl/*/
+Tests=TestDir/*
 
 sudo sh -c "/sbin/sysctl -w kernel.panic=3"
 sleep 5
@@ -20,7 +20,7 @@ sleep 5
 for Test in $Tests;
 do
 	export OUT_FILE=Results/$DATE/`basename $Test`/$NAME
-	export repeat=10
+	export repeat=25
 	mkdir -p $OUT_FILE
 	echo "running $Test"
 	./run_test.sh $Test

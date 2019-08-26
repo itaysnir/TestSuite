@@ -301,14 +301,14 @@ sub parse_test {
 		($title, $csv) = parse_result_files $_;
 		#my $t = validate_title ($otitle, $title);
 		unless (defined ($otitle)) {
-			print $fh "name,test,";
+			print $fh "name,kernel,test,";
 			foreach (@{$title}) {
 				printf $fh "$_,";
 			}
 			printf $fh "\n";
 			$otitle = \$title;
 		}
-		print $fh "$name,$test,";
+		print $fh "$name,$kern,$test,";
 		foreach (@{$csv}) {
 			printf $fh "$_,";
 		}

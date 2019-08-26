@@ -19,6 +19,6 @@ export dif2=enp5s0f1
 export dif3=enp5s0f0
 export dif4=enp94s0f0
 
-export mtu=9000
+export mtu=1500
 export loader1=danger38
 export loader2=tapuz30

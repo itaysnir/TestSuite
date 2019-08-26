@@ -12,6 +12,6 @@ fi
 #wait
 netperf -H $dip4 -t TCP_MAERTS -T 1,2 -l $TIME &
 netperf -H $dip4 -t TCP_MAERTS -T 1,3 -l $TIME &
-netperf -H $dip4 -t TCP_MAERTS -T 1,0 -l $TIME &
-netperf -H $dip4 -t TCP_MAERTS -T 1,1 -l $TIME &
+#netperf -H $dip4 -t TCP_MAERTS -T 1,0 -l $TIME &
+#netperf -H $dip4 -t TCP_MAERTS -T 1,1 -l $TIME &
 wait

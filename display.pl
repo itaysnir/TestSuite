@@ -76,25 +76,23 @@ foreach (sort keys %options) {
 	}
 }
 
-my @tests = qw(
-	tcp_bi_s1_nL_p2 tcp_bi_s1_n2_pR tcp_bi_s1_n2_pT
-	tcp_bi_s1_n2_p2
-);
+my @tests = qw(tcp_bi_s1_n2_p2);
 
 printf "\n";
 
 open my $fh, '>', "setup.csv";
-printf $fh "test, setup, bandwidth, nic1_tx, nic1_rx, nic0_tx, nic0_rx ";
+#printf $fh "test, setup, bandwidth, nic1_tx, nic1_rx, nic0_tx, nic0_rx ";
+printf $fh "setup, bandwidth, nic1_tx, nic1_rx, nic0_tx, nic0_rx ";
 foreach my $key (@keys) {
 	printf $fh ",$key";
 }
 printf $fh "\n";
 
-#foreach my $test (@tests) {
-foreach my $test (sort keys %options) {
+@tests = (sort keys %options) unless (@tests);
+foreach my $test (@tests) {
 	for my $setup (sort keys (%hash)) {
 		printf " $test, $setup Undefined!!!\n" and next unless (defined($hash{$setup}{$test}));
-		printf $fh "$test, $setup ";
+		printf $fh "$setup";
 
 		unless	(defined ($hash{$setup}{$test}{'Total_rx_bytes'})) {
 			my @keys = keys $hash{$setup}{$test};

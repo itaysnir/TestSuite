@@ -22,9 +22,12 @@ COUNT="300000000"   # Zero means indefinitely
 [ -z "$UDP_MIN" ] && UDP_MIN=1980
 UDP_MAX=$UDP_MIN
 
+#enp94s0f1 Link encap:Ethernet  HWaddr 7c:fe:90:72:6e:17
+#         inet addr:10.1.4.38  Bcast:10.1.4.255  Mask:255.255.255.0
+
 # (example of setting default params in your script)
-[ -z "$DEST_IP" ] && DEST_IP="10.0.100.31"
-[ -z "$DST_MAC" ] && DST_MAC="7c:fe:90:6f:39:5a"
+[ -z "$DEST_IP" ] && DEST_IP="10.1.4.38"
+[ -z "$DST_MAC" ] && DST_MAC="7c:fe:90:72:6e:17"
 
 PKT_SIZE=64
 # General cleanup everything since last run
@@ -62,7 +65,9 @@ echo "ip:[$DEST_IP] mac:[$DST_MAC]"
 pg_set $dev "dst_mac $DST_MAC"
 pg_set $dev "dst $DEST_IP"
 
-SRC_MAC="7c:fe:90:6f:3a:ce"
+#enp4s0f1  Link encap:Ethernet  HWaddr 7c:fe:90:6f:3a:cf
+#          inet addr:10.1.4.100  Bcast:10.1.4.255  Mask:255.255.255.0
+SRC_MAC="7c:fe:90:6f:3a:cf"
 pg_set $dev "src_mac $SRC_MAC"
 # start_run
 echo "Running... ctrl^C to stop" >&2
