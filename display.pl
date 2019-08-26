@@ -35,7 +35,12 @@ sub parse_csv {
 		my @line = split /,/,$_;
 		$options{$line[$__test]} = undef;
 		for (my $i = 3; $i <= $#header; $i++) {
-			$hash{$line[$__kernel]}{$line[$__test]}{$header[$i]} = $line[$i];
+			my $kernel = $line[$__kernel];
+			$kernel =~ s/unsafe//g;
+			$kernel =~ s/5.1.12//g;
+			$kernel = "vanila" if ($kernel eq "-");
+			$kernel =~ s/-/ /g;
+			$hash{$kernel}{$line[$__test]}{$header[$i]} = $line[$i];
 			#if ($header[$i] =~ /Total_[rt]x_bytes/) {
 			#	printf "$line[0]:$line[1]:$header[$i] => $line[$i]\n";
 			#}
