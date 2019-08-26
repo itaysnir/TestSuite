@@ -84,6 +84,7 @@ sudo modprobe msr
 sudo sh -c "echo 8 > /proc/sys/vm/percpu_pagelist_fraction"
 sudo sh -c "echo 0 > /proc/sys/kernel/nmi_watchdog"
 sudo sh -c "echo 10 > /proc/sys/kernel/panic"
+sudo sh -c "echo 1 > /proc/sys/kernel/ftrace_dump_on_oops"
 #sudo sh -c "echo 1 > /proc/sys/kernel/panic_on_oops"
 #ssh $loader1 sudo sh -c "echo 65535 > /proc/sys/net/ipv4/tcp_min_tso_segs"
 #ssh $loader2 sudo sh -c "echo 65535 > /proc/sys/net/ipv4/tcp_min_tso_segs"

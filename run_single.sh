@@ -165,7 +165,7 @@ fi
 NAME="`./Conf/get_name.sh`${SETUP_NAME}"
 [ -z "$SETUP_NAME" ] && NAME="`./Conf/get_name.sh`"
 
-[ -z "$repeat" ] && repeat=5
+[ -z "$repeat" ] && repeat=7
 export OUT_FILE=Results/$DATE/"`basename $Test`${SETUP_NAME}"/`uname -r`/
 export repeat=$repeat
 [ -z "$TIME" ] && TIME=40

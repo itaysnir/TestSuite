@@ -19,15 +19,18 @@ function ex {
 
 j=1
 i=8
-for cnt in `seq 0 $loop`;
-do
-	ex sudo numactl -m $j -C $i $stream &
-	let  i++
-	let j^=1
-	ex sudo numactl -m $j -C $i $stream &
-	let  i++
-	let j^=1
-done
+if [ $loop -ge 0 ]; then
+
+	for cnt in `seq 0 $loop`;
+	do
+		ex sudo numactl -m $j -C $i $stream &
+		let  i++
+		let j^=1
+		ex sudo numactl -m $j -C $i $stream &
+		let  i++
+		let j^=1
+	done
+fi
 
 netperf -H $dip2 -t TCP_MAERTS -T $core,$rcore -l $TIME -- -M $MSG_SIZE,$MSG_SIZE &
 wait

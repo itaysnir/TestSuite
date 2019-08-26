@@ -12,7 +12,7 @@ if [ -z "$ip1" ]; then
 	exit -1
 fi
 
-[ -z "$NODE" ] && NODE=2
+[ -z "$NODE" ] && NODE=0
 [ -z "$RNODE" ] && RNODE=1
 
 sudo set_irq_affinity_cpulist.sh $NODE $if2

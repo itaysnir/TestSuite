@@ -20,15 +20,18 @@ function ex {
 
 j=1
 i=8
-for cnt in `seq 0 $loop`;
-do
-	ex sudo numactl -m $j -C $i $stream &
-	let  i++
-	let j^=1
-	ex sudo numactl -m $j -C $i $stream &
-	let  i++
-	let j^=1
-done
+
+if [ $loop -ge 0 ]; then
+	for cnt in `seq 0 $loop`;
+	do
+		ex sudo numactl -m $j -C $i $stream &
+		let  i++
+		let j^=1
+		ex sudo numactl -m $j -C $i $stream &
+		let  i++
+		let j^=1
+	done
+fi
 
 ex sudo numactl -C $core $sockperf ping-pong --tcp --tcp-avoid-nodelay -i $dip2 -t $TIME -m $MSG_SIZE
 

@@ -6,6 +6,11 @@ use lib "$FindBin::Bin/lib/";
 
 use StatCollect;
 
+my $time = 25;
+
+$time = $ENV{'time'};
+
+#printf "$time\n";
 #TODO: Add auto detect feature
 my $ifs = get_ifs;
 my @ports = @{$ifs};
@@ -13,15 +18,15 @@ my @net_stats = ();
 my $cpu_stats = undef;
 
 foreach my $port (@ports) {
-	start_ethtool $port;
+	start_ethtool_full $port;
 }
 start_proc_cpu;
 start_proc_interrupts;
 
-sleep 25;
+sleep $time;
 
 foreach my $port (@ports) {
-	my $stat = stop_ethtool $port;
+	my $stat = stop_ethtool_full $port;
 	push(@net_stats, $stat);
 }
 

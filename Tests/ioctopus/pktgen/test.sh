@@ -12,8 +12,10 @@ cd `dirname $0`
 echo "[$sif,$ip $dmac, $pkt_size]"
 
 export COUNT=$COUNT
-./pktgen.sh -i $sif -d $ip -c 1024 -t $core -m $dmac -s $pkt_size
+./pktgen.sh -i $sif -d $ip -c $COUNT -t $core -m $dmac -s $pkt_size
 
+echo " sudo cat /proc/net/pktgen/$sif@$core > /tmp/$sif@$core.txt"
+sudo cat /proc/net/pktgen/$sif@$core > /tmp/$sif@$core.txt
 
 #time ./pktgen.sh -i mlx0 -d 1.1.1.1 -m 24:8a:07:b5:7b:34 -v -t 1
 # Print results

@@ -5,7 +5,7 @@ fi
 
 [ -z "$TIME" ] && TIME=60
 [ -z "$MSG_SIZE" ] && MSG_SIZE='64K'
-[ -z "$core" ] && core=2
+[ -z "$core" ] && core=0
 [ -z "$rcore" ] && rcore=3
 
 netperf=/homes/markuze/misc/netperf/src/netperf

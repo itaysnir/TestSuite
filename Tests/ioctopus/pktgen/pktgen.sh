@@ -22,6 +22,7 @@ root_check_run_with_sudo "$@"
 source ${basedir}/parameters.sh
 
 # Base Config
+COUNT=0
 info "COUNT: $COUNT"
 DELAY="0"        # Zero means max speed
 [ -z "$CLONE_SKB" ] && CLONE_SKB="1"

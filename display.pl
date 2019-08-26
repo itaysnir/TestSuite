@@ -58,7 +58,7 @@ foreach (@header) {
 }
 
 my @keys = qw(
-	 avg_rr std_avg sys_Memory sys_Read sys_Write Total_rx_bytes Total_tx_bytes
+	  sys_Memory sys_Read sys_Write Total_rx_bytes Total_tx_bytes Total_rx_packets Total_tx_packets
 );
 
 

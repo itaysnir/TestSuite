@@ -8,8 +8,9 @@ fi
 [ -z "$core" ] && core=0
 [ -z "$rcore" ] && rcore=3
 
-
-netperf -H $dip2 -t TCP_STREAM -T $core,$rcore -l $TIME -- -m $MSG_SIZE &
+netperf=/tmp/netperf
+netperf=netperf
+sudo $netperf -H $dip2 -t TCP_STREAM -T $core,$rcore -W 16 -l $TIME -- -m $MSG_SIZE -W 16 &
 #let rcore++
 #netperf -H $dip2 -t TCP_STREAM -T $core,$rcore -l $TIME -- -m $MSG_SIZE &
 #let rcore++
