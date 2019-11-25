@@ -1,7 +1,7 @@
 [ -e "./config.sh" ] && source ./config.sh
 `dirname $0`/replace.sh
 PFC='on'
-LRO='on'
+LRO='off'
 GRO='on'
 [ -z "$RING" ] && RING=1024
 [ -z "$TX_RING" ] && TX_RING=1024
@@ -53,7 +53,7 @@ function setup_peers {
 	ssh $loader2 sudo set_irq_affinity.sh $dif3
 }
 
-#setup_peers
+setup_peers
 
 sudo modprobe msr
 sudo sh -c "echo 8 > /proc/sys/vm/percpu_pagelist_fraction"

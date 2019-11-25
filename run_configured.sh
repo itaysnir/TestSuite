@@ -6,6 +6,7 @@ cd `dirname $0`
 [ -z "$DATE" ] && DATE=TMP
 
 source ./Conf/config.sh
+[ ! -z "$MTU" ] && export mtu=$MTU
 ./Conf/setup.sh
 
 NAME="`./Conf/get_name.sh`_${SETUP_NAME}"
@@ -20,7 +21,7 @@ sleep 5
 for Test in $Tests;
 do
 	export OUT_FILE=Results/$DATE/`basename $Test`/$NAME
-	export repeat=25
+	export repeat=5
 	mkdir -p $OUT_FILE
 	echo "running $Test"
 	./run_test.sh $Test

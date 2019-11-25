@@ -30,7 +30,13 @@ for i in `seq 1 $repeat`; do
 	#DataCollector/collect_pcm.sh &>> $OUT_FILE/result_pcm.txt
 	# collection is ±40sec
 	echo "$date waiting for test and collector ($Test)"
-	wait ${!}
+	if [ -e $Test/wait.sh ]; then
+                echo "using $Test/wait.sh"
+                $Test/wait.sh
+        else
+                echo "using sleep $TIME"
+                sleep $TIME
+        fi
 	#echo "$date running post ($Test)"
 	#DataCollector/post_process.sh &>> $OUT_FILE/post.txt
 done
