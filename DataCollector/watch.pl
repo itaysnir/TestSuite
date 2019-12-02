@@ -2,7 +2,7 @@
 
 use strict;
 
-use lib '/homes/markuze/TestSuite/DataCollector/lib/';
+use lib '/home/xlr8vgn/TestSuite/DataCollector/lib/';
 use StatCollect;
 
 my $ifs = get_ifs;

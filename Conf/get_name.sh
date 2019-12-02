@@ -9,4 +9,5 @@ kern=`uname -r`
 [ $prot == "intel_iommu=on" ] && prot='defer'
 
 #%+ magic to remove the suffix +
-echo "${kern%+}-$prot"
+# -$prot"
+echo "${kern%+}"

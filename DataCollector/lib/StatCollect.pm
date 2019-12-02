@@ -102,7 +102,7 @@ sub start_proc_interrupts
 	$proc_start_time{'irq'} = time;
 
 	open(my $fh, '<', "/proc/interrupts");
-	my @out = grep {$_ =~ 'mlx5'} <$fh>;
+	my @out = grep {$_ =~ /mlx5|virtio/} <$fh>;
 	$proc_out{'irq'} = \@out;
 	close $fh;
 }
@@ -114,7 +114,7 @@ sub stop_proc_interrupts
 	$proc_start_time{'irq'} = 0;
 
 	open(my $fh, '<', "/proc/interrupts");
-	my @out = grep {$_ =~ 'mlx5'} <$fh>;
+	my @out = grep {$_ =~ /mlx5|virtio/} <$fh>;
 	close $fh;
 	return (diff_proc_interrupts \@out)/$time;
 }

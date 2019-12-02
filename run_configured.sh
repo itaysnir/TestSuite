@@ -7,7 +7,7 @@ cd `dirname $0`
 
 source ./Conf/config.sh
 [ ! -z "$MTU" ] && export mtu=$MTU
-./Conf/setup.sh
+./Conf/vm_setup.sh
 
 NAME="`./Conf/get_name.sh`_${SETUP_NAME}"
 [ -z "$SETUP_NAME" ] && NAME="`./Conf/get_name.sh`"
@@ -15,7 +15,7 @@ NAME="`./Conf/get_name.sh`_${SETUP_NAME}"
 #Tests=Tests/membwl/*/
 Tests=TestDir/*
 
-sudo sh -c "/sbin/sysctl -w kernel.panic=3"
+#sudo sh -c "/sbin/sysctl -w kernel.panic=3"
 sleep 5
 
 for Test in $Tests;
