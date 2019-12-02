@@ -11,7 +11,7 @@ source $Test/config.sh >> $OUT_FILE/test_raw.txt
 [ -z "$repeat" ] && repeat=1
 [ -z "$DELAY" ] && DELAY=5
 
-export TIME=40
+export TIME=15
 echo "source $Test/config.sh"
 
 rm -rf $OUT_FILE/result.txt
@@ -25,20 +25,18 @@ for i in `seq 1 $repeat`; do
 	testid=$!
 	echo "$date $Test/test.sh & $OUT_FILE"
 	sleep $DELAY
-	sudo OUT_FILE=$OUT_FILE DataCollector/collect_membw.sh &>> $OUT_FILE/result.txt
+	sudo OUT_FILE=$OUT_FILE DataCollector/collect_net_cpu.pl &>> $OUT_FILE/result.txt
 	cp $OUT_FILE/result.txt $OUT_FILE/result_pcm.txt
 	#DataCollector/collect_pcm.sh &>> $OUT_FILE/result_pcm.txt
 	# collection is ±40sec
 	echo "$date waiting for test and collector ($Test)"
 	if [ -e $Test/wait.sh ]; then
                 echo "using $Test/wait.sh"
-                $Test/wait.sh
+                $Test/wait.sh $!
         else
                 echo "using sleep $TIME"
                 sleep $TIME
         fi
-	#echo "$date running post ($Test)"
-	#DataCollector/post_process.sh &>> $OUT_FILE/post.txt
 done
 date=`date +"%H:%M.%s:"`
 echo "$date Done ($Test)"

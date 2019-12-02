@@ -7,7 +7,7 @@ use lib "$FindBin::Bin/lib/";
 use StatCollect;
 
 #TODO: Add auto detect feature
-my @ports = ('enp130s0f0', 'enp130s0f1', 'enp4s0f0', 'enp4s0f1');
+my @ports = (); #'enp130s0f0', 'enp130s0f1', 'enp4s0f0', 'enp4s0f1');
 my @net_stats = ();
 my $cpu_stats = undef;
 
@@ -34,7 +34,7 @@ foreach my $core (@{$cpu_stats}[1 .. $#$cpu_stats]) {
 	printf "cpu_%d: %3.2f\n", $idx++, $core;
 }
 
-foreach my $key (keys($net_stats[0])) {
+foreach my $key (keys(%{$net_stats[0]})) {
 	my $idx = 0;
 	my $total = 0;
 

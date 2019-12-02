@@ -16,12 +16,12 @@ NAME="`./Conf/get_name.sh`_${SETUP_NAME}"
 Tests=TestDir/*
 
 #sudo sh -c "/sbin/sysctl -w kernel.panic=3"
-sleep 5
+#sleep 5
 
 for Test in $Tests;
 do
 	export OUT_FILE=Results/$DATE/`basename $Test`/$NAME
-	export repeat=5
+	export repeat=3
 	mkdir -p $OUT_FILE
 	echo "running $Test"
 	./run_test.sh $Test

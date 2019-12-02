@@ -2,7 +2,7 @@
 
 cnt=`lsmod|grep -c cbn`
 
-[ $cnt -eq "1" ] & exit -2
+[ $cnt -eq "1" ] && exit -2
 
 cd ~/ENV
 ./setup_link.sh
