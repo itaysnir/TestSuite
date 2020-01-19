@@ -12,7 +12,7 @@ require Exporter;
 our @ISA=qw(Exporter);
 our @EXPORT=qw(start_proc_cpu stop_proc_cpu start_ethtool stop_ethtool
 		draw_cpu_util start_proc_interrupts stop_proc_interrupts
-		start_ethtool_full stop_ethtool_full draw_mem get_ifs);
+		start_ethtool_full stop_ethtool_full draw_mem get_ifs start_sys_dev stop_sys_dev);
 
 use constant USER_HZ => 100;
 #################################### GLOBALS ######################################################
@@ -24,6 +24,9 @@ my @proc_cpu_out = ();
 
 my %eth_start_time = ();
 my %eth_out = ();
+
+my @sys_dev_files = qw(tx_bytes rx_bytes tx_packets rx_packets);
+my %sys_dev = ();
 
 #################################### STATICS ######################################################
 sub sum_irq {
@@ -211,6 +214,31 @@ sub stop_ethtool_full
 
 	undef $eth_out{$if};
 	return $num_ref
+}
+
+sub start_sys_dev
+{
+	my $dir = shift;
+	#die "$dir is not a directory\n" unless (-d "$dir");
+	for (@sys_dev_files) {
+		my $tmp = qx(cat $dir/$_);
+		chomp $tmp;
+		$sys_dev{$_} = $tmp;
+	}
+}
+
+sub stop_sys_dev
+{
+	my $dir = shift;
+	#die "$dir is not a directory\n" unless (-d "$dir");
+	my %rc;
+
+	for (@sys_dev_files) {
+		my $tmp = qx(cat $dir/$_);
+		chomp $tmp;
+		$rc{$_} = $tmp - $sys_dev{$_};
+	}
+	return \%rc;
 }
 
 # ASCII Draw cpu utilization based on stop_proc_cpu output

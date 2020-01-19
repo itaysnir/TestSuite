@@ -5,12 +5,14 @@ use strict;
 use lib '/home/xlr8vgn/TestSuite/DataCollector/lib/';
 use StatCollect;
 
+my $sys = '/sys/devices/pci0000\:00/0000\:00\:04.0/virtio1/net/ens4/statistics/';
 my $ifs = get_ifs;
 my %if_stats = ();
 
 foreach (@{$ifs}) {
 	start_ethtool $_;
 }
+start_sys_dev $sys;
 start_proc_cpu;
 start_proc_interrupts;
 sleep 1;
@@ -18,8 +20,13 @@ sleep 1;
 foreach (@{$ifs}) {
 	$if_stats{$_} = stop_ethtool $_;
 }
+my $sys_dev = stop_sys_dev $sys;
 my $cpu = stop_proc_cpu;
 my $irq = stop_proc_interrupts;
+
+foreach (keys %{$sys_dev}) {
+	printf "$_\t: ${$sys_dev}{$_}\n";
+}
 
 my $tx_total = 0;
 printf "TX:\n";
