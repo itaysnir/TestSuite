@@ -2,8 +2,13 @@
 
 use strict;
 
-use lib '/home/xlr8vgn/TestSuite/DataCollector/lib/';
+use FindBin;
+use lib "$FindBin::Bin/lib/";
+
 use StatCollect;
+#use lib '/home/xlr8vgn/TestSuite/DataCollector/lib/';
+#use lib "$FindBin::Bin/lib/";
+#use StatCollect;
 
 my $sys = '/sys/devices/pci0000\:00/0000\:00\:04.0/virtio1/net/ens4/statistics/';
 my $ifs = get_ifs;
