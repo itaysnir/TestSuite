@@ -29,8 +29,10 @@ my $sys_dev = stop_sys_dev $sys;
 my $cpu = stop_proc_cpu;
 my $irq = stop_proc_interrupts;
 
-foreach (keys %{$sys_dev}) {
-	printf "$_\t: ${$sys_dev}{$_}\n";
+foreach (sort keys %{$sys_dev}) {
+	my $num = ${$sys_dev}{$_};
+	$num = ($num >> 27) if (/bytes/);
+	printf "$_\t: $num\n";
 }
 
 my $tx_total = 0;
